@@ -1,0 +1,3385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>المعرب والمبني من الأفعال | الصف الثاني الإعدادي | الأستاذ أحمد الشريف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b0f1f;      
+            --primary-light: #b02a3f; 
+            --secondary: #9b1c31;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7a1e;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        .header-main {
+            background: linear-gradient(135deg, #3d0610, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fbeef0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.2vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #ffe2c2, #f59e42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fff7ed; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(234, 122, 30, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fbeef0, #ffe2c2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #6b0f1f; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.3rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 0.95rem; color: #64748b; font-weight: 600;}
+
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #b02a3f; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+            font-weight: 800;
+            color: #6b0f1f;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #9b1c31;
+            line-height: 1.7;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1rem, 3.2vw, 1.3rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #3d0610, #6b0f1f);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,237,213,0.92));
+            color: #6b0f1f;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.8rem, 1.9vw, 1rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.85rem, 2.7vw, 1.05rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* تحدي العباقرة */
+        .genius-box { border: 3px solid var(--warning) !important; background: linear-gradient(135deg, #fffbeb, #ffffff); }
+        .genius-timer-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 22px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .genius-timer-bar { height: 100%; background: linear-gradient(to right, #10b981, var(--warning), var(--danger)); width: 100%; transition: width 0.1s linear; border-radius: 10px; }
+        .genius-hint { text-align: center; margin-top: 15px; color: var(--warning); font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        .send-result-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px dashed #25d366;
+            border-radius: 15px; padding: 20px;
+        }
+        .send-result-box h3 { color: #128c7e; margin-bottom: 12px; font-size: 1.2rem; }
+        .name-input {
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #cbd5e1;
+            font-size: 1.05rem; font-family: 'Cairo', sans-serif; text-align: center; margin-bottom: 12px;
+        }
+        .name-input:focus { outline: none; border-color: #25d366; }
+        .whatsapp-send-btn {
+            width: 100%; background: linear-gradient(to bottom, #25d366, #128c7e);
+            border-bottom: 3px solid #0d6b5f;
+        }
+        .name-warning { color: var(--danger); font-size: 0.9rem; margin-top: 8px; font-weight: bold; }
+
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+            .round-badge { display:inline-block; margin-top:12px; padding:5px 14px; border-radius:999px; background:#fff7ed; color:#c2410c; border:1px solid #fdba74; font-weight:800; font-size:.9rem; }
+        .bubble span { line-height:1.35; }
+    </style>
+</head>
+<body>
+
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.jpg" alt="الأستاذ أحمد الشريف" style="width: 180px; height: 180px; border-radius: 30px; border: 4px solid #f59e42; box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; object-position: center; flex-shrink: 0;" onerror="this.style.display='none'">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        دَرْسٌ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffe2c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لُعْبَة
+                    </h1>
+                    <h1 class="title-line2">مَعَ الأُسْتَاذِ أَحْمَد الشَّرِيف</h1>
+                    <p class="platform-badge" style="display:inline-block; margin:8px auto 4px; padding:6px 22px; border-radius:999px; background:rgba(255,255,255,0.14); border:2px solid #f59e0b; color:#fde3c4; font-weight:900; font-size:1.3rem; letter-spacing:0.5px;">✒️ المعرب والمبني من الأفعال</p>
+                    <h2>الصَّفُّ الثَّانِي الإِعْدَادِيُّ - الوحدة الأولى</h2>
+                    <p style="margin-top: 10px;">القواعد النحوية • 🎲 كل لعبة 20 سؤالًا تتغير عشوائيًّا من بنك 50 سؤالًا</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | الأستاذ أحمد الشريف</p>
+        <p class="designer">للتواصل: 01554449990</p>
+    </footer>
+
+    <a href="https://wa.me/201554449990" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_FULL_NAME = "المعرب والمبني من الأفعال - الوحدة الأولى - الصف الثاني الإعدادي";
+    const LESSON_KEY = "elsherief-prep2-2";
+    const TEACHER_WHATSAPP = "201554449990";
+    const QUESTIONS_PER_ROUND = 20;
+    const allGamesData = [
+ {
+  "id": "g1_shooting",
+  "title": "التنشين والاصطياد: معرب أم مبني؟",
+  "type": "shooting",
+  "desc": "اصطد حكم الفعل أو علامة بنائه",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "«تخرّج محمد مبروك في كلية الشرطة» حكم (تخرّج):",
+    "options": [
+     "مبني على الضم",
+     "معرب",
+     "مبني على الفتح",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«رجال الشرطة جعلوا أرواحهم دروعًا» حكم (جعلوا):",
+    "options": [
+     "مبني على الضم",
+     "مبني على السكون",
+     "معرب",
+     "مبني على الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«تسابقْنا صفوفًا في هوى بلادنا» حكم (تسابقنا):",
+    "options": [
+     "مبني على السكون",
+     "معرب",
+     "مبني على الفتح",
+     "مبني على الضم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«المصريون يستلهمون من سيرته» حكم (يستلهمون):",
+    "options": [
+     "معرب مرفوع بثبوت النون",
+     "معرب مجزوم",
+     "مبني",
+     "معرب منصوب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لم يرتضِ المصريون إلا النصر» حكم (يرتضِ):",
+    "options": [
+     "مبني",
+     "معرب منصوب",
+     "معرب مجزوم بحذف حرف العلة",
+     "معرب مرفوع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لن يهانوا في وطنهم» حكم (يهانوا):",
+    "options": [
+     "معرب مرفوع",
+     "مبني",
+     "معرب مجزوم",
+     "معرب منصوب بحذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المصريات يحققن المجد» حكم (يحققن):",
+    "options": [
+     "مبني على الفتح",
+     "معرب منصوب",
+     "معرب مرفوع",
+     "مبني على السكون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«والله لأدافعنّ عن تراب بلادي» حكم (أدافعنّ):",
+    "options": [
+     "مبني على السكون",
+     "معرب مرفوع",
+     "مبني على الفتح",
+     "معرب منصوب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«افتخرْ بما قدّمه الأبطال» حكم (افتخر):",
+    "options": [
+     "مبني على حذف النون",
+     "مبني على الفتح",
+     "مبني على السكون",
+     "معرب مجزوم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ارتقِ ببلادك» حكم (ارتقِ):",
+    "options": [
+     "مبني على السكون",
+     "مبني على حذف حرف العلة",
+     "معرب مجزوم",
+     "مبني على حذف النون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اعتزّي يا مصر بأبنائك» حكم (اعتزّي):",
+    "options": [
+     "مبني على السكون",
+     "مبني على حذف حرف العلة",
+     "معرب",
+     "مبني على حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع الفعل (كتبَ):",
+    "options": [
+     "مضارع معرب",
+     "ماضٍ معرب",
+     "أمر مبني",
+     "ماضٍ مبني على الفتح"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع الفعل (كتبوا):",
+    "options": [
+     "ماضٍ مبني على الضم",
+     "أمر",
+     "ماضٍ مبني على الفتح",
+     "مضارع معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع الفعل (كتبْتُ):",
+    "options": [
+     "ماضٍ مبني على السكون",
+     "ماضٍ مبني على الفتح",
+     "مضارع معرب",
+     "أمر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع الفعل (اكتبْ):",
+    "options": [
+     "مضارع مجزوم",
+     "ماضٍ مبني",
+     "أمر مبني على السكون",
+     "أمر مبني على حذف النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع الفعل (اكتبوا):",
+    "options": [
+     "مضارع",
+     "ماضٍ مبني على الضم",
+     "أمر مبني على حذف النون",
+     "أمر مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع الفعل (يكتبُ):",
+    "options": [
+     "أمر",
+     "مضارع معرب مرفوع",
+     "ماضٍ",
+     "مضارع مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع الفعل (يكتبْنَ):",
+    "options": [
+     "ماضٍ",
+     "أمر",
+     "مضارع معرب مرفوع",
+     "مضارع مبني على السكون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع الفعل (يكتبَنّ):",
+    "options": [
+     "مضارع مبني على الفتح",
+     "ماضٍ",
+     "مضارع معرب",
+     "أمر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ادعُ إلى الخير» حكم (ادعُ):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الضم",
+     "معرب",
+     "مبني على حذف حرف العلة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«اسعَ إلى المجد» حكم (اسعَ):",
+    "options": [
+     "مبني على الفتح",
+     "مبني على حذف حرف العلة",
+     "مبني على السكون",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«امشِ بثقة» حكم (امشِ):",
+    "options": [
+     "مبني على السكون",
+     "معرب",
+     "مبني على حذف حرف العلة",
+     "مبني على الكسر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«اجتهدا في دراستكما» حكم (اجتهدا):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الفتح",
+     "معرب",
+     "مبني على حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«لم يتأخرْ الجندي» حكم (يتأخر):",
+    "options": [
+     "معرب مرفوع",
+     "معرب منصوب",
+     "معرب مجزوم بالسكون",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لن يتأخرَ الجندي» حكم (يتأخر):",
+    "options": [
+     "معرب مجزوم",
+     "معرب منصوب بالفتحة",
+     "معرب مرفوع",
+     "مبني على الفتح"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«يتأخرُ القطار» حكم (يتأخر):",
+    "options": [
+     "معرب مرفوع بالضمة",
+     "مبني على الضم",
+     "معرب منصوب",
+     "معرب مجزوم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لم يسعَ الكسول» حكم (يسعَ):",
+    "options": [
+     "معرب مجزوم بحذف حرف العلة",
+     "مبني على الفتح",
+     "معرب منصوب",
+     "معرب مرفوع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لن يسعى الكسول» حكم (يسعى):",
+    "options": [
+     "معرب منصوب بفتحة مقدرة",
+     "معرب مرفوع",
+     "معرب مجزوم",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطلاب لم يحضروا» حكم (يحضروا):",
+    "options": [
+     "مبني على الضم",
+     "معرب منصوب",
+     "معرب مرفوع",
+     "معرب مجزوم بحذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الطلاب يحضرون» حكم (يحضرون):",
+    "options": [
+     "معرب مرفوع بثبوت النون",
+     "مبني",
+     "معرب منصوب",
+     "معرب مجزوم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطالبات حضرْنَ» حكم (حضرن):",
+    "options": [
+     "ماضٍ مبني على السكون",
+     "ماضٍ مبني على الفتح",
+     "أمر",
+     "مضارع معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطالبات يحضرْنَ» حكم (يحضرن):",
+    "options": [
+     "أمر",
+     "مضارع مبني على السكون",
+     "ماضٍ",
+     "مضارع معرب مرفوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الطالبتان حضرتا» حكم (حضرتا):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الضم",
+     "ماضٍ مبني على الفتح",
+     "معرب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«حضرْنا مبكرين» حكم (حضرنا):",
+    "options": [
+     "مبني على الضم",
+     "معرب",
+     "ماضٍ مبني على السكون",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هل تذهبين؟» حكم (تذهبين):",
+    "options": [
+     "مبني",
+     "مجزوم",
+     "منصوب",
+     "مضارع معرب مرفوع بثبوت النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«اذهبي إلى المدرسة» حكم (اذهبي):",
+    "options": [
+     "معرب",
+     "أمر مبني على حذف النون",
+     "مبني على الكسر",
+     "مبني على السكون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ارمِ الكرة» حكم (ارمِ):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الكسر",
+     "معرب",
+     "أمر مبني على حذف حرف العلة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«تعاونوا يا أبناء الوطن» حكم (تعاونوا):",
+    "options": [
+     "مبني على السكون",
+     "معرب",
+     "أمر مبني على حذف النون",
+     "ماضٍ مبني على الضم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«تعاونوا في المشروع» (فعل ماضٍ) حكمه:",
+    "options": [
+     "مبني على الضم",
+     "مبني على الفتح",
+     "مبني على حذف النون",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفعل الماضي:",
+    "options": [
+     "معرب أحيانًا",
+     "معرب دائمًا",
+     "مجزوم",
+     "مبني دائمًا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "فعل الأمر:",
+    "options": [
+     "منصوب",
+     "مبني دائمًا",
+     "مرفوع",
+     "معرب دائمًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل المضارع:",
+    "options": [
+     "معرب إلا مع نوني النسوة والتوكيد",
+     "معرب دائمًا",
+     "مبني على الفتح دائمًا",
+     "مبني دائمًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يُبنى المضارع على السكون إذا اتصلت به:",
+    "options": [
+     "واو الجماعة",
+     "ألف الاثنين",
+     "نون التوكيد",
+     "نون النسوة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "يُبنى المضارع على الفتح إذا اتصلت به:",
+    "options": [
+     "واو الجماعة",
+     "نون النسوة",
+     "ياء المخاطبة",
+     "نون التوكيد المباشرة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "يُبنى الماضي على الضم إذا اتصلت به:",
+    "options": [
+     "واو الجماعة",
+     "تاء الفاعل",
+     "نون النسوة",
+     "نا الفاعلين"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يُبنى الماضي على السكون إذا اتصلت به:",
+    "options": [
+     "واو الجماعة",
+     "ألف الاثنين",
+     "تاء التأنيث",
+     "تاء الفاعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "يُبنى الأمر على حذف النون إذا كان مضارعه:",
+    "options": [
+     "صحيح الآخر",
+     "من الأفعال الخمسة",
+     "مبنيًّا",
+     "معتل الآخر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "يُبنى الأمر على حذف حرف العلة إذا كان:",
+    "options": [
+     "من الأفعال الخمسة",
+     "صحيح الآخر",
+     "مضعفًا",
+     "معتل الآخر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "يُبنى الأمر على السكون إذا كان:",
+    "options": [
+     "من الأفعال الخمسة",
+     "مضارعًا",
+     "معتل الآخر",
+     "صحيح الآخر ولم يتصل به شيء"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الأبطال انتصروا» حكم (انتصروا):",
+    "options": [
+     "مبني على الفتح",
+     "معرب",
+     "مبني على الضم",
+     "مبني على حذف النون"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "g2_true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "اختبر فهمك للمعرب والمبني من الأفعال",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "الفعل الماضي مبني دائمًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "فعل الأمر مبني دائمًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفعل المضارع معرب دائمًا بلا استثناء.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل المضارع معرب إلا إذا اتصلت به نون النسوة أو نون التوكيد المباشرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع المتصل بنون النسوة مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع المتصل بنون التوكيد المباشرة مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الماضي يُبنى على الضم إذا لم يتصل به شيء.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الماضي يُبنى على الضم إذا اتصلت به واو الجماعة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الماضي يُبنى على السكون إذا اتصلت به تاء الفاعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الماضي يُبنى على الفتح إذا اتصلت به تاء التأنيث الساكنة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الماضي يُبنى على الضم إذا اتصلت به ألف الاثنين.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الأمر يُبنى على ما يُجزم به مضارعه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر الصحيح الآخر يُبنى على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الأمر المعتل الآخر يُبنى على حذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر المتصل بواو الجماعة يُبنى على حذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «تخرّج محمد مبروك» الفعل مبني على الضم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «تخرّج محمد مبروك» الفعل مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «رجال الشرطة جعلوا أرواحهم دروعًا» الفعل مبني على الضم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «تسابقنا صفوفًا» الفعل مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «المصريون يستلهمون» الفعل مرفوع بثبوت النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «لم يرتضِ المصريون إلا النصر» الفعل مجزوم بحذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «لن يهانوا» الفعل مجزوم بحذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «المصريات يحققن المجد» الفعل معرب مرفوع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «المصريات يحققن المجد» الفعل مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «لأدافعنّ عن بلادي» الفعل مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «افتخرْ بالأبطال» الفعل مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «ارتقِ ببلادك» الفعل مبني على حذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «اعتزّي يا مصر» الفعل مبني على حذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "حالات إعراب المضارع ثلاث: الرفع والنصب والجزم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع يُجر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامات إعراب المضارع الأصلية: الضمة والفتحة والسكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامات إعراب المضارع الفرعية: ثبوت النون وحذف النون وحذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(لم) تجزم المضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(لن) تجزم المضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(لن) تنصب المضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع المعتل الآخر يُجزم بحذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأفعال الخمسة تُجزم بحذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأفعال الخمسة تُرفع بالضمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اكتبي» أمر مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اكتبي» أمر مبني على حذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ادعُ» أمر مبني على حذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطلابُ كتبوا» الفعل مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الطالبتان كتبتا» الفعل مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كتبْنا الدرس» الفعل مبني على الضم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«البنات يكتبْنَ» الفعل مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لا تهملَنّ واجبك» الفعل مجزوم بالسكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لم تهملْ واجبك» الفعل مجزوم بالسكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«يهملون» من الأفعال الخمسة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أمرُ (يسعى)» هو (اسعَ) مبني على حذف حرف العلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أمرُ (ينامون)» هو (ناموا) مبني على حذف النون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g3_mcq",
+  "title": "اختيار من متعدد: المعرب والمبني من الأفعال",
+  "type": "mcq",
+  "desc": "اختر الإجابة الصحيحة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"></path><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"></path></svg>",
+  "questions": [
+   {
+    "q": "الفعل الماضي:",
+    "options": [
+     "معرب أحيانًا",
+     "مبني دائمًا",
+     "منصوب",
+     "معرب دائمًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "فعل الأمر:",
+    "options": [
+     "مرفوع",
+     "مجزوم",
+     "مبني دائمًا",
+     "معرب دائمًا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفعل المضارع:",
+    "options": [
+     "معرب إلا في حالتين",
+     "مبني إلا في حالتين",
+     "معرب دائمًا",
+     "مبني دائمًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "حالتا بناء المضارع:",
+    "options": [
+     "اتصاله بواو الجماعة أو ألف الاثنين",
+     "اتصاله بتاء الفاعل",
+     "دخول لم أو لن",
+     "اتصاله بنون النسوة أو نون التوكيد المباشرة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "المضارع المتصل بنون النسوة:",
+    "options": [
+     "مبني على السكون",
+     "معرب مرفوع",
+     "مجزوم",
+     "مبني على الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع المتصل بنون التوكيد:",
+    "options": [
+     "مبني على السكون",
+     "معرب منصوب",
+     "مجزوم",
+     "مبني على الفتح"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "حالات بناء الماضي:",
+    "options": [
+     "الضم والكسر",
+     "الفتح والكسر",
+     "السكون فقط",
+     "الفتح والضم والسكون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "حالات بناء الأمر:",
+    "options": [
+     "الفتح والضم",
+     "السكون وحذف النون وحذف حرف العلة",
+     "الفتح فقط",
+     "الكسر والضم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«تخرّج محمد مبروك في كلية الشرطة» نوع الفعل وحكمه:",
+    "options": [
+     "مضارع معرب",
+     "أمر مبني",
+     "ماضٍ مبني على الفتح",
+     "ماضٍ مبني على الضم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«رجال الشرطة جعلوا أرواحهم دروعًا» حكم (جعلوا):",
+    "options": [
+     "معرب",
+     "مبني على الفتح",
+     "ماضٍ مبني على الضم",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«تسابقنا صفوفًا في هوى بلادنا» حكم (تسابقنا):",
+    "options": [
+     "معرب",
+     "مبني على الضم",
+     "ماضٍ مبني على السكون",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«المصريون يستلهمون من سيرة محمد مبروك» حكم الفعل:",
+    "options": [
+     "مبني على الضم",
+     "منصوب",
+     "مضارع مرفوع بثبوت النون",
+     "مجزوم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لم يرتضِ المصريون إلا النصر» حكم الفعل:",
+    "options": [
+     "مبني على الكسر",
+     "مضارع مجزوم بحذف حرف العلة",
+     "مرفوع",
+     "منصوب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لن يهانوا في وطنهم» حكم الفعل:",
+    "options": [
+     "مجزوم",
+     "مبني",
+     "مرفوع",
+     "مضارع منصوب بحذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المصريات يحققن المجد» حكم الفعل:",
+    "options": [
+     "مضارع مبني على السكون لاتصاله بنون النسوة",
+     "مبني على الفتح",
+     "مرفوع بالضمة",
+     "منصوب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«والله لأدافعنّ عن تراب بلادي» حكم الفعل:",
+    "options": [
+     "مجزوم",
+     "مرفوع",
+     "مضارع مبني على الفتح لاتصاله بنون التوكيد",
+     "منصوب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«افتخرْ بما قدّمه الأبطال» حكم الفعل:",
+    "options": [
+     "أمر مبني على السكون",
+     "مضارع مجزوم",
+     "أمر مبني على حذف النون",
+     "ماضٍ مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ارتقِ ببلادك» حكم الفعل:",
+    "options": [
+     "مضارع مجزوم",
+     "أمر مبني على السكون",
+     "أمر مبني على الكسر",
+     "أمر مبني على حذف حرف العلة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«اعتزّي يا مصر بأبنائك» حكم الفعل:",
+    "options": [
+     "أمر مبني على السكون",
+     "ماضٍ",
+     "مضارع مرفوع",
+     "أمر مبني على حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الشباب ........ بهويته العربية» (فعل معرب):",
+    "options": [
+     "اعتزَّ",
+     "ليعتزّنّ",
+     "يعتززْنَ",
+     "يعتزّ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«........ روحي فداء للوطن» (فعل مضارع مبني على الفتح):",
+    "options": [
+     "قدّمْ",
+     "أقدّمُ",
+     "لأقدّمنّ",
+     "قدّمتُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ حدود الوطن» (فعل مبني على حذف النون):",
+    "options": [
+     "حمَوا",
+     "احموا",
+     "احمِ",
+     "يحمون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الشباب ........ في الانتخابات» (فعل مبني على الضم):",
+    "options": [
+     "شارك",
+     "شاركْ",
+     "يشاركون",
+     "شاركوا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المصريون ........ تضحياتهم» (فعل معرب بعلامة فرعية):",
+    "options": [
+     "سجّلْ",
+     "سجّلَ",
+     "يسجّلون",
+     "سجّلوا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ لنا يا أبي كيف خلّد الأبطال أسماءهم» (فعل مبني على حذف حرف العلة):",
+    "options": [
+     "يحكي",
+     "حكى",
+     "احكوا",
+     "احكِ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الأمر من (يسعى):",
+    "options": [
+     "اسعَ",
+     "سعى",
+     "اسعى",
+     "يسعَ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر من (يدعو):",
+    "options": [
+     "يدعُ",
+     "ادعو",
+     "دعا",
+     "ادعُ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الأمر من (يرمي):",
+    "options": [
+     "يرمِ",
+     "ارمِ",
+     "رمى",
+     "ارمي"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الأمر من (يكتبون):",
+    "options": [
+     "كتبوا",
+     "اكتبوا",
+     "اكتبون",
+     "يكتبوا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الأمر من (تكتبين):",
+    "options": [
+     "اكتبين",
+     "تكتبي",
+     "اكتبي",
+     "كتبتِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الأمر من (يكتب):",
+    "options": [
+     "كتبَ",
+     "اكتبُ",
+     "اكتبْ",
+     "يكتبْ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لم ........ الطالب عن موعده» (يتأخر):",
+    "options": [
+     "يتأخرُ",
+     "يتأخرون",
+     "يتأخرْ",
+     "يتأخرَ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لن ........ الطالب عن موعده» (يتأخر):",
+    "options": [
+     "يتأخرْ",
+     "يتأخرين",
+     "يتأخرَ",
+     "يتأخرُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطلاب لم ........» (يتأخرون):",
+    "options": [
+     "يتأخرونَ",
+     "يتأخرون",
+     "يتأخروا",
+     "تأخروا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبات ........ عن الحصة» (فعل مبني على السكون):",
+    "options": [
+     "لم يتأخرا",
+     "لم يتأخرْنَ",
+     "لم يتأخروا",
+     "لم تتأخرْ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الماضي من (يكتبون) مع واو الجماعة وحكمه:",
+    "options": [
+     "اكتبوا - مبني على حذف النون",
+     "كتبْنَ - مبني على السكون",
+     "كتبوا - مبني على الضم",
+     "كتبَ - مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الشباب سافروا» و«سافروا يا شباب» حكم الفعلين:",
+    "options": [
+     "كلاهما ماضٍ",
+     "الأول ماضٍ مبني على الضم والثاني أمر مبني على حذف النون",
+     "الأول أمر والثاني ماضٍ",
+     "كلاهما أمر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة رفع المضارع في «يكتبُ»:",
+    "options": [
+     "الضمة",
+     "الواو",
+     "ثبوت النون",
+     "الفتحة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة رفع المضارع في «يكتبون»:",
+    "options": [
+     "الواو",
+     "الضمة",
+     "حذف النون",
+     "ثبوت النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "علامة جزم المضارع في «لم يكتبوا»:",
+    "options": [
+     "السكون",
+     "حذف النون",
+     "حذف حرف العلة",
+     "ثبوت النون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة جزم المضارع في «لم يدعُ»:",
+    "options": [
+     "حذف حرف العلة",
+     "الضمة",
+     "السكون",
+     "حذف النون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة نصب المضارع في «لن يكتبَ»:",
+    "options": [
+     "حذف النون",
+     "السكون",
+     "الفتحة",
+     "الضمة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة نصب المضارع في «لن يكتبوا»:",
+    "options": [
+     "السكون",
+     "حذف النون",
+     "الفتحة",
+     "ثبوت النون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "عدد الأفعال المبنية في «اجتهدوا فإن المجتهدين نجحوا ويفرحون»:",
+    "options": [
+     "لا يوجد",
+     "ثلاثة",
+     "اثنان (اجتهدوا - نجحوا)",
+     "واحد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفعل المعرب في «اجتهدوا فإن المجتهدين نجحوا ويفرحون»:",
+    "options": [
+     "لا يوجد",
+     "يفرحون",
+     "نجحوا",
+     "اجتهدوا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الجنود حمَوا الحدود» حكم (حمَوا):",
+    "options": [
+     "أمر",
+     "مضارع",
+     "مبني على الفتح",
+     "ماضٍ مبني على الضم المقدر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«احمِ وطنك» حكم (احمِ):",
+    "options": [
+     "أمر مبني على حذف حرف العلة",
+     "مبني على السكون",
+     "مضارع مجزوم",
+     "مبني على الكسر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«يحمي الجندي وطنه» حكم (يحمي):",
+    "options": [
+     "مجزوم",
+     "مضارع مرفوع بضمة مقدرة",
+     "مبني",
+     "منصوب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لم يحمِ الخائن وطنه» حكم (يحمِ):",
+    "options": [
+     "مضارع مجزوم بحذف حرف العلة",
+     "مرفوع",
+     "منصوب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لن يتخلى الجندي عن وطنه» حكم (يتخلى):",
+    "options": [
+     "مضارع منصوب بفتحة مقدرة",
+     "مجزوم",
+     "مرفوع",
+     "مبني"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g4_genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تطبيقات أعمق على المعرب والمبني من الأفعال - سباق مع الوقت!",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+  "questions": [
+   {
+    "q": "«تخرّجَ، جعلوا، تسابقْنا» علامات البناء على الترتيب:",
+    "options": [
+     "الفتح - الضم - السكون",
+     "الفتح - السكون - الضم",
+     "الضم - الفتح - السكون",
+     "السكون - الضم - الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«افتخرْ، ارتقِ، اعتزّي» علامات البناء على الترتيب:",
+    "options": [
+     "الكسر - الكسر - السكون",
+     "حذف النون - السكون - حذف العلة",
+     "السكون - السكون - السكون",
+     "السكون - حذف حرف العلة - حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«يستلهمون، لم يرتضِ، لن يهانوا» علامات الإعراب على الترتيب:",
+    "options": [
+     "مبنية جميعها",
+     "الضمة - السكون - الفتحة",
+     "حذف النون - ثبوت النون - حذف العلة",
+     "ثبوت النون - حذف حرف العلة - حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«يحققْنَ، لأدافعَنّ» حكم الفعلين:",
+    "options": [
+     "معرب - معرب",
+     "مبني على الفتح - مبني على السكون",
+     "مبني على السكون - مبني على الفتح",
+     "معرب - مبني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "ضع الفعل (تعاون) في جملة مبنيًّا على الضم:",
+    "options": [
+     "يتعاون الطلاب",
+     "الطلاب تعاونوا في العمل",
+     "تعاونَ الطلابُ",
+     "تعاونْ مع زملائك"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "ضع الفعل (يعفو) أمرًا مبنيًّا على حذف حرف العلة:",
+    "options": [
+     "اعفُ عمن ظلمك",
+     "اعفوا عمن ظلمكم",
+     "يعفو الكريم",
+     "عفا الكريم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "ضع الفعل (يعفو) مضارعًا مجزومًا:",
+    "options": [
+     "لن يعفوَ",
+     "اعفُ",
+     "لم يعفُ الظالم",
+     "يعفو الكريم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "ضع الفعل (يتقدم) مضارعًا معربًا بعلامة فرعية:",
+    "options": [
+     "تقدمْ",
+     "يتقدمُ المجتهد",
+     "المجتهدات يتقدمْن",
+     "المجتهدون يتقدمون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "ضع الفعل (يتقدم) مضارعًا مبنيًّا على السكون:",
+    "options": [
+     "المجتهدات يتقدمْن",
+     "لم يتقدمْ",
+     "يتقدمُ المجتهد",
+     "تقدمْ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "ضع الفعل (يتقدم) مضارعًا مبنيًّا على الفتح:",
+    "options": [
+     "والله ليتقدمَنّ الوطن",
+     "يتقدمُ الوطن",
+     "تقدّمَ الوطن",
+     "لن يتقدمَ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ينهضُ المخلصون بوطنهم» حكم (ينهض):",
+    "options": [
+     "مبني على الضم",
+     "مبني",
+     "معرب مرفوع بالضمة",
+     "معرب بثبوت النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«غرس ضباط الشرطة في أبنائهم مبادئ عظيمة» اجعل الفعل مضارعًا مبنيًّا:",
+    "options": [
+     "الأمهات يغرسن",
+     "لم يغرسوا",
+     "اغرسوا",
+     "يغرسُ الضباط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الخطأ في «الطالبات يذاكرون»:",
+    "options": [
+     "لا خطأ",
+     "الصواب يذاكرُ",
+     "الصواب يذاكرْنَ مبني على السكون",
+     "الصواب ذاكروا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الخطأ في «اسعى إلى الخير يا محمد»:",
+    "options": [
+     "الصواب اسعوا",
+     "لا خطأ",
+     "الصواب يسعى",
+     "الصواب اسعَ مبني على حذف حرف العلة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الخطأ في «لم يحضرون مبكرًا»:",
+    "options": [
+     "الصواب حضروا",
+     "الصواب يحضرُ",
+     "الصواب يحضروا مجزوم بحذف النون",
+     "لا خطأ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الخطأ في «لن يتأخرْ القطار»:",
+    "options": [
+     "الصواب يتأخرُ",
+     "الصواب تأخرَ",
+     "الصواب يتأخرَ منصوب بالفتحة",
+     "لا خطأ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ليسجلَنّ التاريخُ بطولات الأبطال» حكم الفعل ولماذا:",
+    "options": [
+     "معرب مرفوع",
+     "مبني على الفتح",
+     "مبني على السكون",
+     "معرب منصوب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«النساء يشاركْنَ في التقدم» حكم الفعل ولماذا:",
+    "options": [
+     "منصوب",
+     "مبني على الفتح",
+     "معرب مرفوع",
+     "مبني على السكون لاتصاله بنون النسوة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الفعل الماضي المبني على الفتح المقدّر:",
+    "options": [
+     "كتبوا",
+     "كتبْتُ",
+     "كتبَ",
+     "دعا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الفعل الماضي المبني على الفتح الظاهر:",
+    "options": [
+     "سعى",
+     "دعا",
+     "كتبَ",
+     "رمى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الجنديان دافعا عن الوطن» حكم (دافعا):",
+    "options": [
+     "ماضٍ مبني على الفتح",
+     "مبني على السكون",
+     "أمر",
+     "مبني على الضم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«دافعا عن الوطن يا جنديان» حكم (دافعا):",
+    "options": [
+     "ماضٍ مبني على الفتح",
+     "مبني على السكون",
+     "مضارع",
+     "أمر مبني على حذف النون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الجنديان يدافعان عن الوطن» حكم (يدافعان):",
+    "options": [
+     "منصوب",
+     "مضارع مرفوع بثبوت النون",
+     "مجزوم",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الجنديان لن يتراجعا» حكم (يتراجعا):",
+    "options": [
+     "مضارع منصوب بحذف النون",
+     "مبني",
+     "مجزوم",
+     "مرفوع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الجنديان لم يتراجعا» حكم (يتراجعا):",
+    "options": [
+     "مضارع مجزوم بحذف النون",
+     "منصوب",
+     "مرفوع",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفرق بين (يتراجعا) في «لن يتراجعا» و«لم يتراجعا»:",
+    "options": [
+     "كلاهما مبني",
+     "الأول منصوب والثاني مجزوم وكلاهما بحذف النون",
+     "لا فرق في الحكم",
+     "الأول مجزوم والثاني منصوب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ابنِ مستقبلك بالعلم» حكم (ابنِ):",
+    "options": [
+     "مضارع مجزوم",
+     "ماضٍ",
+     "مبني على الكسر",
+     "أمر مبني على حذف حرف العلة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«بنَى المصريون الأهرام» حكم (بنى):",
+    "options": [
+     "ماضٍ مبني على الفتح المقدر",
+     "مبني على السكون",
+     "مبني على الضم",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«المصريون بنَوا الأهرام» حكم (بنَوا):",
+    "options": [
+     "ماضٍ مبني على الضم المقدر",
+     "مبني على الفتح",
+     "أمر",
+     "مضارع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "عدد الأفعال المعربة في «اعملوا فإن العاملين يرتقون ولن يندموا»:",
+    "options": [
+     "لا يوجد",
+     "واحد",
+     "ثلاثة",
+     "اثنان (يرتقون - يندموا)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«........ يا فتيات على وطنكن» (حافظ) أمرًا:",
+    "options": [
+     "حافظي",
+     "حافظا",
+     "حافظْنَ",
+     "حافظوا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«حافظْنَ يا فتيات» حكم الفعل:",
+    "options": [
+     "أمر مبني على السكون لاتصاله بنون النسوة",
+     "مضارع",
+     "مبني على الفتح",
+     "مبني على حذف النون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الفتيات حافظْنَ على الوطن» حكم الفعل:",
+    "options": [
+     "معرب",
+     "أمر",
+     "مضارع",
+     "ماضٍ مبني على السكون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الفتيات يحافظْنَ على الوطن» حكم الفعل:",
+    "options": [
+     "معرب مرفوع",
+     "أمر",
+     "مضارع مبني على السكون",
+     "ماضٍ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هل تعرفين قيمة وطنك؟» حكم الفعل:",
+    "options": [
+     "مبني على الفتح",
+     "مبني على السكون",
+     "مضارع مرفوع بثبوت النون",
+     "مجزوم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لا تهملي دروسك» حكم الفعل:",
+    "options": [
+     "منصوب",
+     "مضارع مجزوم بحذف النون",
+     "مبني",
+     "مرفوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لا تهملْ دروسك» حكم الفعل:",
+    "options": [
+     "مبني على السكون",
+     "منصوب",
+     "مرفوع",
+     "مضارع مجزوم بالسكون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«لا تهملَنّ دروسك» حكم الفعل:",
+    "options": [
+     "منصوب",
+     "مجزوم",
+     "مضارع مبني على الفتح",
+     "مرفوع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لا تهملْنَ دروسكن» حكم الفعل:",
+    "options": [
+     "مضارع مبني على السكون في محل جزم",
+     "مجزوم بحذف النون",
+     "منصوب",
+     "مرفوع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضارع المبني يكون في محل:",
+    "options": [
+     "لا محل له دائمًا",
+     "رفع أو نصب أو جزم بحسب موقعه",
+     "جر",
+     "رفع دائمًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الوطن يُبنى بسواعد أبنائه» حكم (يُبنى):",
+    "options": [
+     "مبني على الفتح",
+     "مبني على السكون",
+     "مجزوم",
+     "مضارع مرفوع بضمة مقدرة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«انتبهوا إلى الإشارة» و«انتبهوا إلى الإشارة فنجوا» حكم الأول:",
+    "options": [
+     "مبني على السكون",
+     "ماضٍ مبني على الضم",
+     "أمر مبني على حذف النون",
+     "مضارع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفعل الذي لا يكون إلا مبنيًّا:",
+    "options": [
+     "الماضي فقط",
+     "المضارع",
+     "الماضي والأمر",
+     "الأمر فقط"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«يا أبطال، انتصِروا» حكم الفعل:",
+    "options": [
+     "ماضٍ مبني على الضم",
+     "مبني على السكون",
+     "أمر مبني على حذف النون",
+     "مضارع مرفوع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الأبطال انتصَروا» حكم الفعل:",
+    "options": [
+     "مبني على حذف النون",
+     "مضارع",
+     "ماضٍ مبني على الضم",
+     "أمر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ يا شباب الوطن» (يتقدّمون) أمرًا:",
+    "options": [
+     "يتقدّموا",
+     "تقدّمي",
+     "تقدّموا",
+     "تقدّمْ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أنتِ ........ إلى الأمام» (يتقدّم) أمرًا:",
+    "options": [
+     "تقدّمي",
+     "تقدّمْنَ",
+     "تقدّموا",
+     "تقدّما"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الشبابُ يبنون الوطنَ، والفتياتُ يبنينَ معهم» حكم الفعلين:",
+    "options": [
+     "معرب بثبوت النون - مبني على السكون",
+     "كلاهما معرب",
+     "مبني - معرب",
+     "كلاهما مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ابنوا وطنكم يا شباب» حكم (ابنوا):",
+    "options": [
+     "ماضٍ مبني على الضم",
+     "أمر مبني على حذف النون",
+     "مبني على السكون",
+     "مضارع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لا تتركوا الأمل» حكم (تتركوا):",
+    "options": [
+     "مضارع مجزوم بحذف النون",
+     "مرفوع",
+     "منصوب",
+     "مبني على حذف النون"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g5_bubbles",
+  "title": "الفقاعات المتساقطة: حكم الفعل",
+  "type": "bubbles",
+  "desc": "اضغط الفقاعة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "الفعل الماضي:",
+    "options": [
+     "مبني أحيانًا",
+     "معرب",
+     "مبني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "فعل الأمر:",
+    "options": [
+     "معرب أحيانًا",
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل المضارع غالبًا:",
+    "options": [
+     "مبني",
+     "معرب",
+     "لا حكم له"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كتبَ):",
+    "options": [
+     "مبني على الضم",
+     "معرب",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(كتبوا) ماضيًا:",
+    "options": [
+     "مبني على الضم",
+     "معرب",
+     "مبني على الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(كتبْتُ):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الفتح",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(كتبَتْ):",
+    "options": [
+     "معرب",
+     "مبني على السكون",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(كتبا):",
+    "options": [
+     "مبني على الضم",
+     "مبني على الفتح",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كتبْنَ) ماضيًا:",
+    "options": [
+     "معرب",
+     "مبني على الفتح",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(اكتبْ):",
+    "options": [
+     "مبني على الفتح",
+     "معرب مجزوم",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(اكتبوا):",
+    "options": [
+     "مبني على حذف النون",
+     "مبني على الضم",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(اكتبي):",
+    "options": [
+     "مبني على السكون",
+     "معرب",
+     "مبني على حذف النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(ادعُ):",
+    "options": [
+     "معرب",
+     "مبني على حذف العلة",
+     "مبني على الضم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(ارمِ):",
+    "options": [
+     "معرب",
+     "مبني على حذف العلة",
+     "مبني على الكسر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(اسعَ):",
+    "options": [
+     "مبني على الفتح",
+     "معرب",
+     "مبني على حذف العلة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(يكتبُ):",
+    "options": [
+     "معرب مرفوع",
+     "منصوب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(يكتبْنَ):",
+    "options": [
+     "مبني على السكون",
+     "معرب",
+     "مبني على الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(يكتبَنَّ):",
+    "options": [
+     "مبني على الفتح",
+     "معرب",
+     "مبني على السكون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(يكتبون):",
+    "options": [
+     "مجزوم",
+     "معرب بثبوت النون",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(لم يكتبْ):",
+    "options": [
+     "مبني",
+     "منصوب",
+     "مجزوم بالسكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(لن يكتبَ):",
+    "options": [
+     "مجزوم",
+     "مبني",
+     "منصوب بالفتحة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(لم يكتبوا):",
+    "options": [
+     "مجزوم بحذف النون",
+     "منصوب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(لن يكتبوا):",
+    "options": [
+     "مبني",
+     "مجزوم",
+     "منصوب بحذف النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(لم يدعُ):",
+    "options": [
+     "مجزوم بحذف العلة",
+     "منصوب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يبنى الماضي على الضم مع:",
+    "options": [
+     "ألف الاثنين",
+     "تاء الفاعل",
+     "واو الجماعة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "يبنى الماضي على السكون مع:",
+    "options": [
+     "واو الجماعة",
+     "ألف الاثنين",
+     "تاء الفاعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "يبنى المضارع على السكون مع:",
+    "options": [
+     "نون التوكيد",
+     "نون النسوة",
+     "واو الجماعة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "يبنى المضارع على الفتح مع:",
+    "options": [
+     "نون النسوة",
+     "ياء المخاطبة",
+     "نون التوكيد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "يبنى الأمر على حذف النون مع:",
+    "options": [
+     "لا شيء",
+     "واو الجماعة",
+     "نون النسوة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "يبنى الأمر على حذف العلة إذا كان:",
+    "options": [
+     "معتل الآخر",
+     "صحيح الآخر",
+     "مضعفًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر من (يسعى):",
+    "options": [
+     "اسعَ",
+     "اسعى",
+     "سعى"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر من (يدعو):",
+    "options": [
+     "دعا",
+     "ادعُ",
+     "ادعو"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الأمر من (يرمي):",
+    "options": [
+     "رمى",
+     "ارمي",
+     "ارمِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الأمر من (يلعبون):",
+    "options": [
+     "العبوا",
+     "العبون",
+     "لعبوا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر من (تلعبين):",
+    "options": [
+     "العبي",
+     "لعبتِ",
+     "العبين"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأمر من (يلعب):",
+    "options": [
+     "العبْ",
+     "العبُ",
+     "لعبَ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(جعلوا) في «رجال الشرطة جعلوا»:",
+    "options": [
+     "مبني على الضم",
+     "مبني على الفتح",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(تخرّج) في «تخرّج محمد»:",
+    "options": [
+     "معرب",
+     "مبني على الفتح",
+     "مبني على الضم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(تسابقنا):",
+    "options": [
+     "مبني على الفتح",
+     "مبني على السكون",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(يستلهمون):",
+    "options": [
+     "مبني",
+     "معرب",
+     "مبني على الضم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(يحققن):",
+    "options": [
+     "معرب",
+     "مبني على الفتح",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(لأدافعنّ):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الفتح",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(افتخرْ):",
+    "options": [
+     "مبني على الفتح",
+     "معرب",
+     "مبني على السكون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(ارتقِ):",
+    "options": [
+     "مبني على حذف العلة",
+     "مبني على الكسر",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(اعتزّي):",
+    "options": [
+     "مبني على السكون",
+     "مبني على حذف النون",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة جزم (لم يرتضِ):",
+    "options": [
+     "حذف حرف العلة",
+     "السكون",
+     "حذف النون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة نصب (لن يهانوا):",
+    "options": [
+     "الفتحة",
+     "السكون",
+     "حذف النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة رفع (يستلهمون):",
+    "options": [
+     "الواو",
+     "الضمة",
+     "ثبوت النون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(حمَوا):",
+    "options": [
+     "مبني على الفتح",
+     "مبني على الضم",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(احمِ):",
+    "options": [
+     "مبني على حذف العلة",
+     "معرب",
+     "مبني على الكسر"
+    ],
+    "ans": 0
+   }
+  ]
+ }
+];
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.15, 0.15);
+        setTimeout(() => playTone(659.25, 'sine', 0.15, 0.15), 100);
+        setTimeout(() => playTone(783.99, 'sine', 0.25, 0.15), 200);
+        spawnConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(200, 'sawtooth', 0.3, 0.1);
+    }
+
+    function spawnConfetti() {
+        const colors = ['#b02a3f', '#f59e42', '#10b981', '#ef4444', '#9b1c31', '#f59e0b'];
+        for (let i = 0; i < 25; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، أحسنت!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300);
+    }
+
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let wrongAnswers = [];
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="round-badge">🎲 ${Math.min(QUESTIONS_PER_ROUND, game.questions.length)} سؤالًا عشوائيًّا من ${game.questions.length}</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('name-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.focus();
+            nameInput.classList.add('shake');
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const message = "مرحبًا أستاذ أحمد الشريف 🌟\n" +
+            "الطالب/ـة: " + name + "\n" +
+            "الدرس: " + LESSON_FULL_NAME + "\n" +
+            "اللعبة: " + currentGame.title + "\n" +
+            "النتيجة: " + score + " من " + total;
+        const url = "https://wa.me/" + TEACHER_WHATSAPP + "?text=" + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="send-result-box">
+                    <h3>📤 أرسل نتيجتك للأستاذ أحمد الشريف</h3>
+                    <input type="text" id="student-name-input" class="name-input" placeholder="اكتب اسمك هنا ✍️">
+                    <button class="btn whatsapp-send-btn" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                        إرسال النتيجة عبر واتساب
+                    </button>
+                    <p id="name-warning" class="name-warning" style="display:none;">من فضلك اكتب اسمك أولاً ✍️</p>
+                </div>
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    // اختيار 20 سؤالًا عشوائيًّا من بنك الأسئلة، مع تفضيل الأسئلة التي لم تظهر في المرة السابقة
+    function pickRound(gameData) {
+        const all = gameData.questions.map((q, i) => ({ q, i }));
+        const n = Math.min(QUESTIONS_PER_ROUND, all.length);
+        const key = LESSON_KEY + '-' + gameData.id;
+        let last = [];
+        try { last = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { last = []; }
+        const lastSet = new Set(last);
+        const fresh = shuffleArray(all.filter(x => !lastSet.has(x.i)));
+        const used = shuffleArray(all.filter(x => lastSet.has(x.i)));
+        const chosen = shuffleArray(fresh.concat(used).slice(0, n));
+        try { localStorage.setItem(key, JSON.stringify(chosen.map(x => x.i))); } catch (e) {}
+        return chosen.map(x => x.q);
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = pickRound(gameData);
+        qIndex = 0;
+        wrongAnswers = [];
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            /* سرعة سقوط أعلى قليلاً */
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين والاصطياد
+    function renderShooting(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+        const birds = [];
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+            birds.push({ el: bird, pos: pos, speed: speed });
+        });
+
+        animInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(animInterval); return; }
+            const w = area.clientWidth || window.innerWidth;
+            birds.forEach(b => {
+                b.pos += b.speed;
+                if (b.pos > w + 50) b.pos = -250;
+                if (b.pos < -250) b.pos = w + 50;
+                b.el.style.left = b.pos + 'px';
+            });
+        }, 20);
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك!`;
+        container.appendChild(hint);
+    }
+
+    // 5. تحدي العباقرة (سباق مع الوقت)
+    function renderGenius(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box genius-box';
+        qBox.innerHTML = `⚡ ${qData.q}`;
+
+        const timerWrap = document.createElement('div');
+        timerWrap.className = 'genius-timer-wrap';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerWrap.appendChild(timerBar);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+
+        let isAnswered = false;
+        let timeLeft = 12000;
+        const totalTime = timeLeft;
+
+        function finish(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(animInterval);
+            if (isCorrect) {
+                showFeedback(true, () => { qIndex++; renderNextState(); });
+            } else {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت! ⏱️" });
+                showFeedback(false, () => { qIndex++; renderNextState(); });
+            }
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finish(true);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finish(false, opt);
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(timerWrap);
+        container.appendChild(btnContainer);
+
+        let hint = document.createElement('div');
+        hint.className = 'genius-hint';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> سباق مع الوقت! أجب بسرعة قبل نفاد الثواني`;
+        container.appendChild(hint);
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            timeLeft -= 100;
+            let pct = Math.max(0, (timeLeft / totalTime) * 100);
+            timerBar.style.width = pct + '%';
+            if (timeLeft <= 0) {
+                clearInterval(animInterval);
+                finish(false, null);
+            }
+        }, 100);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

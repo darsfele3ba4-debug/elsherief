@@ -1,0 +1,3344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>الضمائر البارزة والمستترة | الصف الثاني الإعدادي | الأستاذ أحمد الشريف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b0f1f;      
+            --primary-light: #b02a3f; 
+            --secondary: #9b1c31;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7a1e;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        .header-main {
+            background: linear-gradient(135deg, #3d0610, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fbeef0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.2vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #ffe2c2, #f59e42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fff7ed; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(234, 122, 30, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fbeef0, #ffe2c2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #6b0f1f; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.3rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 0.95rem; color: #64748b; font-weight: 600;}
+
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #b02a3f; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+            font-weight: 800;
+            color: #6b0f1f;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #9b1c31;
+            line-height: 1.7;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1rem, 3.2vw, 1.3rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #3d0610, #6b0f1f);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,237,213,0.92));
+            color: #6b0f1f;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.8rem, 1.9vw, 1rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.85rem, 2.7vw, 1.05rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* تحدي العباقرة */
+        .genius-box { border: 3px solid var(--warning) !important; background: linear-gradient(135deg, #fffbeb, #ffffff); }
+        .genius-timer-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 22px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .genius-timer-bar { height: 100%; background: linear-gradient(to right, #10b981, var(--warning), var(--danger)); width: 100%; transition: width 0.1s linear; border-radius: 10px; }
+        .genius-hint { text-align: center; margin-top: 15px; color: var(--warning); font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        .send-result-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px dashed #25d366;
+            border-radius: 15px; padding: 20px;
+        }
+        .send-result-box h3 { color: #128c7e; margin-bottom: 12px; font-size: 1.2rem; }
+        .name-input {
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #cbd5e1;
+            font-size: 1.05rem; font-family: 'Cairo', sans-serif; text-align: center; margin-bottom: 12px;
+        }
+        .name-input:focus { outline: none; border-color: #25d366; }
+        .whatsapp-send-btn {
+            width: 100%; background: linear-gradient(to bottom, #25d366, #128c7e);
+            border-bottom: 3px solid #0d6b5f;
+        }
+        .name-warning { color: var(--danger); font-size: 0.9rem; margin-top: 8px; font-weight: bold; }
+
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+            .round-badge { display:inline-block; margin-top:12px; padding:5px 14px; border-radius:999px; background:#fff7ed; color:#c2410c; border:1px solid #fdba74; font-weight:800; font-size:.9rem; }
+        .bubble span { line-height:1.35; }
+    </style>
+</head>
+<body>
+
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.jpg" alt="الأستاذ أحمد الشريف" style="width: 180px; height: 180px; border-radius: 30px; border: 4px solid #f59e42; box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; object-position: center; flex-shrink: 0;" onerror="this.style.display='none'">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        دَرْسٌ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffe2c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لُعْبَة
+                    </h1>
+                    <h1 class="title-line2">مَعَ الأُسْتَاذِ أَحْمَد الشَّرِيف</h1>
+                    <p class="platform-badge" style="display:inline-block; margin:8px auto 4px; padding:6px 22px; border-radius:999px; background:rgba(255,255,255,0.14); border:2px solid #f59e0b; color:#fde3c4; font-weight:900; font-size:1.3rem; letter-spacing:0.5px;">✒️ الضمائر البارزة والمستترة</p>
+                    <h2>الصَّفُّ الثَّانِي الإِعْدَادِيُّ - الوحدة الثانية</h2>
+                    <p style="margin-top: 10px;">القواعد النحوية • 🎲 كل لعبة 20 سؤالًا تتغير عشوائيًّا من بنك 50 سؤالًا</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | الأستاذ أحمد الشريف</p>
+        <p class="designer">للتواصل: 01554449990</p>
+    </footer>
+
+    <a href="https://wa.me/201554449990" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_FULL_NAME = "الضمائر البارزة والمستترة - الوحدة الثانية - الصف الثاني الإعدادي";
+    const LESSON_KEY = "elsherief-prep2-3";
+    const TEACHER_WHATSAPP = "201554449990";
+    const QUESTIONS_PER_ROUND = 20;
+    const allGamesData = [
+ {
+  "id": "g1_shooting",
+  "title": "التنشين والاصطياد: صوّب نوع الضمير",
+  "type": "shooting",
+  "desc": "اصطد نوع الضمير الملون",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "«أنا حريص على نظافة بيئتي» الضمير (أنا):",
+    "options": [
+     "مستتر",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أنتَ تشارك في الحفاظ على البيئة» الضمير (أنتَ):",
+    "options": [
+     "بارز متصل",
+     "بارز منفصل",
+     "مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هو يسعى لتحسين سلوكياته» الضمير (هو):",
+    "options": [
+     "مستتر",
+     "بارز منفصل",
+     "بارز متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«تعلمتُ من مبادرات حماية البيئة» الضمير (التاء):",
+    "options": [
+     "مستتر",
+     "بارز منفصل",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«اجتهادك يدل على سموّ هدفك» الضمير (الكاف):",
+    "options": [
+     "بارز منفصل",
+     "مستتر",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«العاقل لا يهدر موارد بيئته» الضمير (الهاء):",
+    "options": [
+     "مستتر",
+     "بارز منفصل",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أستفيد دائمًا من المشروعات» الفاعل:",
+    "options": [
+     "مستتر تقديره أنا",
+     "بارز منفصل",
+     "بارز متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«احذرْ من المساس بالبيئة» الفاعل:",
+    "options": [
+     "مستتر تقديره أنت",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«المصري يكدّ ليصل إلى المعالي» الفاعل في (يكد):",
+    "options": [
+     "مستتر تقديره هو",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«نحن نحب وطننا» الضمير (نحن):",
+    "options": [
+     "بارز منفصل",
+     "مستتر",
+     "بارز متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كتبْنا الواجب» الضمير (نا):",
+    "options": [
+     "بارز منفصل",
+     "مستتر",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطلاب ذاكروا» الضمير (الواو):",
+    "options": [
+     "مستتر",
+     "بارز منفصل",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبان ذاكرا» الضمير (الألف):",
+    "options": [
+     "بارز منفصل",
+     "مستتر",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبات ذاكرْنَ» الضمير (النون):",
+    "options": [
+     "بارز منفصل",
+     "مستتر",
+     "بارز متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«تذاكرين دروسك» الضمير (الياء):",
+    "options": [
+     "بارز منفصل",
+     "بارز متصل",
+     "مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«نذاكر دروسنا» الفاعل في (نذاكر):",
+    "options": [
+     "مستتر تقديره نحن",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«تذاكرُ يا علي» الفاعل في (تذاكر):",
+    "options": [
+     "بارز منفصل",
+     "مستتر تقديره أنت",
+     "بارز متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«فاطمة تذاكر» الفاعل في (تذاكر):",
+    "options": [
+     "بارز منفصل",
+     "مستتر تقديره هي",
+     "بارز متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ذاكرْ دروسك» الفاعل في (ذاكر):",
+    "options": [
+     "بارز منفصل",
+     "مستتر تقديره أنت",
+     "بارز متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الطالب ذاكرَ» الفاعل في (ذاكر):",
+    "options": [
+     "بارز متصل",
+     "بارز منفصل",
+     "مستتر تقديره هو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هي طبيبة ماهرة» الضمير (هي):",
+    "options": [
+     "مستتر",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هم أبطال» الضمير (هم):",
+    "options": [
+     "بارز متصل",
+     "بارز منفصل",
+     "مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كتابُهم مفيد» الضمير (هم):",
+    "options": [
+     "بارز متصل",
+     "بارز منفصل",
+     "مستتر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أنتنّ مخلصات» الضمير (أنتنّ):",
+    "options": [
+     "مستتر",
+     "بارز متصل",
+     "بارز منفصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«إياك نعبد» الضمير (إيا):",
+    "options": [
+     "بارز متصل",
+     "بارز منفصل",
+     "مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (التاء) في «تعلمْتُ»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (الكاف) في «أكرمَك المعلم»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (الكاف) في «كتابُك جديد»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (الهاء) في «شكرتُه»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (الهاء) في «بيئته»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (نا) في «كتبْنا»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (نا) في «أكرمَنا المعلم»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (نا) في «وطنُنا غالٍ»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (الواو) في «ذاكروا»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (الياء) في «كتابي»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (الياء) في «تذاكرين»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (الياء) في «أكرمني»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (هم) في «أكرمتُهم»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (هم) في «لهم حقوق»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (الألف) في «ذاكرا»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير الضمير المستتر في «أذاكر»:",
+    "options": [
+     "أنت",
+     "نحن",
+     "أنا",
+     "هو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير الضمير المستتر في «نذاكر»:",
+    "options": [
+     "هم",
+     "نحن",
+     "أنا",
+     "أنتم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير الضمير المستتر في «اذهبْ»:",
+    "options": [
+     "هو",
+     "أنا",
+     "أنت",
+     "نحن"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير الضمير المستتر في «تذهبُ» (للمخاطب):",
+    "options": [
+     "هي",
+     "أنا",
+     "هو",
+     "أنت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "تقدير الضمير المستتر في «تذهبُ هند»:",
+    "options": [
+     "هو",
+     "نحن",
+     "هي",
+     "أنت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير الضمير المستتر في «عليٌّ ذهبَ»:",
+    "options": [
+     "هو",
+     "أنا",
+     "هي",
+     "أنت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تقدير الضمير المستتر في «اجتهدْ»:",
+    "options": [
+     "أنت",
+     "نحن",
+     "أنا",
+     "هو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر المنفصلة تكون في محل:",
+    "options": [
+     "رفع فقط",
+     "رفع أو نصب",
+     "جر فقط",
+     "نصب فقط"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمائر المتصلة تكون في محل:",
+    "options": [
+     "رفع أو نصب أو جر",
+     "جر فقط",
+     "رفع فقط",
+     "نصب فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (الكاف) في «لك الشكر»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g2_true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "اختبر فهمك للضمائر البارزة والمستترة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "الضمير اسم معرفة يدل على المتكلم أو المخاطب أو الغائب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير نوعان: بارز ومستتر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير البارز له صورة في اللفظ والكتابة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر ليس له صورة في اللفظ ويُقدّر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير البارز نوعان: متصل ومنفصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المنفصل يستقل بنفسه في النطق.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المتصل لا يستقل بنفسه بل يتصل بغيره.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أنا - أنت - هو) ضمائر منفصلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(التاء - الكاف - الهاء) ضمائر متصلة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أنا) ضمير متصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(الكاف) ضمير منفصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «أستفيد من المشروعات» الفاعل ضمير مستتر تقديره أنا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «احذرْ من المساس بالبيئة» الفاعل ضمير مستتر تقديره أنت.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «المصري يكدّ» الفاعل ضمير مستتر تقديره هو.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «تعلمتُ» التاء ضمير مستتر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «تعلمتُ» التاء ضمير بارز متصل في محل رفع فاعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «اجتهادك» الكاف ضمير متصل في محل جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «أكرمك المعلم» الكاف في محل نصب مفعول به.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «بيئته» الهاء في محل جر مضاف إليه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر المتصلة قد تكون في محل رفع أو نصب أو جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر المنفصلة قد تكون في محل جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "واو الجماعة ضمير متصل دائمًا في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "ألف الاثنين ضمير متصل في محل جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نون النسوة ضمير منفصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "ياء المخاطبة ضمير متصل في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تاء الفاعل ضمير متصل في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(نا) قد تكون في محل رفع أو نصب أو جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الياء) في «كتابي» في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(الياء) في «أكرمني» في محل نصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الياء) في «تذاكرين» في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هم) في «أكرمتهم» ضمير منفصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(هم) في «هم أبطال» ضمير منفصل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(إيّاك) ضمير منفصل في محل نصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر يكون في محل رفع غالبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر في «نذهب» تقديره (أنا).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمير المستتر في «نذهب» تقديره (نحن).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر في «اذهب» تقديره (أنت).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «الطالبة تذاكر» الضمير المستتر تقديره (هي).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «تذاكرُ يا علي» الضمير المستتر تقديره (هو).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «علي ذاكر» الضمير المستتر تقديره (هو).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر أسماء مبنية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر أسماء معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «كتبنا الواجب» (نا) في محل رفع فاعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «علّمنا المعلمُ» (نا) في محل نصب مفعول به.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «وطننا غالٍ» (نا) في محل جر مضاف إليه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هاء الغائب) لا تأتي إلا في محل جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «شكرتُه» الهاء في محل نصب مفعول به.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «له حق» الهاء في محل جر بحرف الجر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هو) و(هي) ضميران متصلان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمير المنفصل (أنت) يأتي في محل رفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g3_mcq",
+  "title": "اختيار من متعدد: الضمائر البارزة والمستترة",
+  "type": "mcq",
+  "desc": "اختر الإجابة الصحيحة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"></path><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"></path></svg>",
+  "questions": [
+   {
+    "q": "الضمير:",
+    "options": [
+     "حرف لا معنى له",
+     "اسم نكرة",
+     "اسم معرفة يدل على متكلم أو مخاطب أو غائب",
+     "فعل يدل على حدث"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوعا الضمير:",
+    "options": [
+     "بارز ومستتر",
+     "مذكر ومؤنث",
+     "مفرد وجمع",
+     "معرب ومبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوعا الضمير البارز:",
+    "options": [
+     "متكلم وغائب",
+     "متصل ومنفصل",
+     "معرب ومبني",
+     "ظاهر ومقدر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمير المستتر:",
+    "options": [
+     "منفصل",
+     "له صورة في الكتابة",
+     "ليس له صورة في اللفظ ويُقدّر بعد الفعل",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الضمير البارز في «أنا حريص على نظافة بيئتي»:",
+    "options": [
+     "أنا (منفصل) والياء (متصل)",
+     "لا يوجد",
+     "أنا فقط",
+     "الياء فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر في «أستفيد دائمًا من المشروعات»:",
+    "options": [
+     "نحن",
+     "أنت",
+     "أنا",
+     "هو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الضمير المستتر في «احذر من المساس بالبيئة»:",
+    "options": [
+     "أنا",
+     "نحن",
+     "هو",
+     "أنت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الضمير المستتر في «المصري يكد ليصل إلى المعالي»:",
+    "options": [
+     "هي",
+     "أنا",
+     "هو",
+     "أنت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الكاف في «اجتهادُك يدل على سمو هدفك»:",
+    "options": [
+     "جر بالإضافة",
+     "رفع",
+     "لا محل له",
+     "نصب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل التاء في «تعلمْتُ من مبادرات حماية البيئة»:",
+    "options": [
+     "رفع فاعل",
+     "رفع مبتدأ",
+     "جر",
+     "نصب مفعول به"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل الهاء في «العاقل لا يهدر موارد بيئته»:",
+    "options": [
+     "لا محل له",
+     "جر بالإضافة",
+     "رفع",
+     "نصب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (هو) في «هو يسعى لتحسين سلوكياته»:",
+    "options": [
+     "نصب مفعول به",
+     "جر",
+     "رفع مبتدأ",
+     "رفع فاعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (نا) في «حافظْنا على البيئة»:",
+    "options": [
+     "رفع فاعل",
+     "جر",
+     "رفع مبتدأ",
+     "نصب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (نا) في «أسعدَنا النجاحُ»:",
+    "options": [
+     "نصب مفعول به",
+     "جر",
+     "رفع فاعل",
+     "لا محل له"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (نا) في «بيئتُنا نظيفة»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر مضاف إليه",
+     "لا محل له"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الياء في «ساعدَني صديقي»:",
+    "options": [
+     "لا محل له",
+     "نصب مفعول به",
+     "جر",
+     "رفع فاعل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الياء في «صديقي وفيّ»:",
+    "options": [
+     "لا محل له",
+     "جر مضاف إليه",
+     "رفع",
+     "نصب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الياء في «أنتِ تحافظين على البيئة»:",
+    "options": [
+     "لا محل له",
+     "نصب",
+     "رفع فاعل",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الواو في «الطلاب شاركوا في المبادرة»:",
+    "options": [
+     "رفع مبتدأ",
+     "رفع فاعل",
+     "نصب",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الألف في «الطالبان شاركا»:",
+    "options": [
+     "نصب",
+     "لا محل له",
+     "رفع فاعل",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل النون في «الطالبات شاركْنَ»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع فاعل",
+     "لا محل له"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل (إياك) في «إياك نعبد»:",
+    "options": [
+     "لا محل له",
+     "نصب مفعول به مقدم",
+     "جر",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير الضمير المستتر في «ذاكرْ دروسك»:",
+    "options": [
+     "هو",
+     "أنا",
+     "أنت",
+     "نحن"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير الضمير المستتر في «نساعد المحتاج»:",
+    "options": [
+     "أنت",
+     "نحن",
+     "هم",
+     "أنا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير الضمير المستتر في «أساعد المحتاج»:",
+    "options": [
+     "هو",
+     "أنا",
+     "نحن",
+     "أنت"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير الضمير المستتر في «الطبيب يعالج المريض»:",
+    "options": [
+     "أنت",
+     "هي",
+     "هو",
+     "أنا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير الضمير المستتر في «الطبيبة تعالج المريض»:",
+    "options": [
+     "هي",
+     "أنا",
+     "أنت",
+     "هو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تقدير الضمير المستتر في «تعالجُ المريضَ يا طبيب»:",
+    "options": [
+     "أنت",
+     "هي",
+     "أنا",
+     "هو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المتصل من بين:",
+    "options": [
+     "الهاء",
+     "هو",
+     "أنا",
+     "نحن"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المنفصل من بين:",
+    "options": [
+     "أنتم",
+     "الكاف",
+     "التاء",
+     "الواو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير الذي يكون في محل رفع فقط من المتصلات:",
+    "options": [
+     "الهاء",
+     "واو الجماعة",
+     "الكاف",
+     "الياء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمير المتصل الذي يكون في محل رفع أو نصب أو جر:",
+    "options": [
+     "نا",
+     "التاء",
+     "الواو",
+     "الألف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المتصل الذي لا يكون إلا في محل نصب أو جر:",
+    "options": [
+     "التاء",
+     "النون",
+     "الواو",
+     "الكاف"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«........ نحب وطننا» أكمل بضمير منفصل:",
+    "options": [
+     "نحن",
+     "هم",
+     "أنا",
+     "هو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«........ تحافظين على البيئة» أكمل بضمير منفصل:",
+    "options": [
+     "أنتم",
+     "هي",
+     "أنتِ",
+     "أنتَ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطلاب ........ » أكمل بفعل فيه ضمير متصل:",
+    "options": [
+     "ينظفُ الفصل",
+     "نظّفَ الفصل",
+     "نظّفوا الفصل",
+     "نظّفي"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "عدد الضمائر في «أنا أحب وطني»:",
+    "options": [
+     "واحد",
+     "لا يوجد",
+     "اثنان",
+     "ثلاثة (أنا - المستتر أنا - الياء)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "عدد الضمائر البارزة في «أنا أحب وطني»:",
+    "options": [
+     "واحد",
+     "ثلاثة",
+     "اثنان",
+     "لا يوجد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الضمير المستتر في «أنا أحب وطني»:",
+    "options": [
+     "الياء",
+     "لا يوجد",
+     "أنا (في أحب)",
+     "وطني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«نحن نتعاون» الضمير البارز والمستتر:",
+    "options": [
+     "نحن بارز - المستتر في نتعاون تقديره نحن",
+     "كلاهما بارز",
+     "لا يوجد مستتر",
+     "نحن مستتر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أكرمَهم المديرُ» الضمير ومحله:",
+    "options": [
+     "هم - نصب مفعول به",
+     "المدير - رفع",
+     "هم - جر",
+     "هم - رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لهم الشكر» الضمير ومحله:",
+    "options": [
+     "هم - جر باللام",
+     "هم - نصب",
+     "هم - رفع",
+     "الشكر - رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هم مخلصون» الضمير ومحله:",
+    "options": [
+     "هم - فاعل",
+     "هم - رفع مبتدأ",
+     "هم - نصب",
+     "هم - جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفرق بين (هم) في «هم مخلصون» و«أكرمتُهم»:",
+    "options": [
+     "الأول منفصل والثاني متصل",
+     "كلاهما منفصل",
+     "كلاهما متصل",
+     "الأول متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر من حيث الإعراب والبناء:",
+    "options": [
+     "بعضها معرب",
+     "معربة بالحروف",
+     "معربة",
+     "مبنية"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«قرأتُ الكتابَ وفهمتُه» عدد الضمائر البارزة:",
+    "options": [
+     "اثنان",
+     "ثلاثة (التاء - التاء - الهاء)",
+     "واحد",
+     "أربعة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اقرأ الكتاب وافهمْه» الضمير المستتر وتقديره:",
+    "options": [
+     "هو",
+     "أنت في الفعلين",
+     "نحن",
+     "أنا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اقرأ الكتاب وافهمْه» الضمير البارز ومحله:",
+    "options": [
+     "الهاء - نصب",
+     "الهاء - رفع",
+     "لا يوجد",
+     "الهاء - جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«حافظي على بيئتك» الضمائر البارزة:",
+    "options": [
+     "ياء المخاطبة والكاف",
+     "لا يوجد",
+     "الياء فقط",
+     "الكاف فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ساعدونا» الضمائر ومحالها:",
+    "options": [
+     "الواو رفع - نا نصب",
+     "كلاهما جر",
+     "كلاهما رفع",
+     "الواو نصب - نا رفع"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g4_genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تطبيقات أعمق على الضمائر - سباق مع الوقت!",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+  "questions": [
+   {
+    "q": "«أنا حريص على نظافة بيئتي، وأنتَ تشارك في الحفاظ عليها» الضمائر المنفصلة:",
+    "options": [
+     "الياء - ها",
+     "أنا - أنتَ",
+     "أنت - ها",
+     "أنا - الياء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«تعلمتُ من مبادرات حماية البيئة، واجتهادك يدل على سمو هدفك» الضمائر المتصلة:",
+    "options": [
+     "التاء - الكاف - الكاف",
+     "لا يوجد",
+     "الكاف فقط",
+     "التاء فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«تعلمتُ» و«اجتهادُك» محل الضميرين على الترتيب:",
+    "options": [
+     "جر - رفع",
+     "رفع - جر",
+     "رفع - نصب",
+     "نصب - جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أستفيد دائمًا، واحذرْ من المساس، والمصري يكدّ» تقدير المستترات على الترتيب:",
+    "options": [
+     "أنت - أنا - هو",
+     "نحن - أنت - هو",
+     "أنا - أنت - هو",
+     "أنا - هو - أنت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اختر الجملة التي فيها ضمير متصل في محل نصب:",
+    "options": [
+     "شجّعني المعلم",
+     "نحن طلاب",
+     "كتابي جديد",
+     "ذهبتُ إلى المدرسة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر الجملة التي فيها ضمير متصل في محل جر:",
+    "options": [
+     "الطلاب ذاكروا",
+     "مدرستي جميلة",
+     "ذاكرنا",
+     "شكرتُه"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اختر الجملة التي فيها ضمير متصل في محل رفع:",
+    "options": [
+     "لهن الشكر",
+     "أكرمَهن المدير",
+     "بيتهن جميل",
+     "الطالبات نجحْنَ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اختر الجملة التي فيها ضمير منفصل في محل نصب:",
+    "options": [
+     "أنت مجتهد",
+     "هو مجتهد",
+     "إيّاك نستعين",
+     "نحن مجتهدون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«علّمَنا معلّمُنا أن نحافظ على بيئتنا» محالّ (نا) على الترتيب:",
+    "options": [
+     "رفع - جر - نصب",
+     "نصب - جر - جر",
+     "نصب - رفع - جر",
+     "جر - نصب - رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«نحن نحافظ على بيئتنا» عدد الضمائر (بارزة ومستترة):",
+    "options": [
+     "ثلاثة",
+     "أربعة",
+     "واحد",
+     "اثنان"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطلابُ يحافظون على مدرستهم» الضمائر ومحالها:",
+    "options": [
+     "الواو جر - هم رفع",
+     "الواو نصب - هم رفع",
+     "الواو رفع - هم جر",
+     "لا يوجد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«حافظوا على نظافة الشوارع» الضمير البارز ومحله:",
+    "options": [
+     "لا يوجد",
+     "واو الجماعة - رفع فاعل",
+     "الشوارع - جر",
+     "الواو - نصب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«حافظْ على نظافة الشوارع» الفاعل:",
+    "options": [
+     "لا يوجد",
+     "الشوارع",
+     "نظافة",
+     "ضمير مستتر تقديره أنت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الخطأ في «الضمير في (كتبتُ) مستتر»:",
+    "options": [
+     "هو اسم ظاهر",
+     "هو بارز متصل",
+     "لا خطأ",
+     "هو منفصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الخطأ في «الضمير (هو) متصل»:",
+    "options": [
+     "لا خطأ",
+     "هو مستتر",
+     "هو حرف",
+     "هو منفصل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الخطأ في «الكاف في (أكرمَك) في محل جر»:",
+    "options": [
+     "لا محل لها",
+     "في محل نصب مفعول به",
+     "في محل رفع",
+     "لا خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الخطأ في «تقدير الضمير المستتر في (نجتهد) أنا»:",
+    "options": [
+     "الصواب هو",
+     "لا خطأ",
+     "الصواب نحن",
+     "الصواب أنت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أنتما تحافظان على البيئة» الضمائر:",
+    "options": [
+     "لا يوجد",
+     "أنتما منفصل - الألف متصل",
+     "أنتما متصل",
+     "الألف منفصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أنتنّ تحافظْنَ على البيئة» الضمائر:",
+    "options": [
+     "أنتنّ منفصل - النون متصل",
+     "لا يوجد",
+     "النون منفصل",
+     "أنتن متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«إنه بطل» الضمير ومحله:",
+    "options": [
+     "الهاء - جر",
+     "لا يوجد",
+     "الهاء - رفع",
+     "الهاء - نصب اسم إن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كان صادقًا» الضمير المستتر ومحله:",
+    "options": [
+     "هو - رفع اسم كان",
+     "هو - نصب خبر",
+     "لا يوجد",
+     "أنت - نصب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كنتُ صادقًا» الضمير ومحله:",
+    "options": [
+     "التاء - نصب",
+     "التاء - جر",
+     "التاء - رفع اسم كان",
+     "لا يوجد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ظننتُه صادقًا» الضمائر ومحالها:",
+    "options": [
+     "كلاهما نصب",
+     "التاء رفع فاعل - الهاء نصب مفعول أول",
+     "التاء نصب - الهاء رفع",
+     "كلاهما رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«المصريون يحبون وطنهم ويعملون من أجله» عدد الضمائر البارزة:",
+    "options": [
+     "اثنان",
+     "ثلاثة",
+     "أربعة (الواو - هم - الواو - الهاء)",
+     "واحد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ساعِدْ أخاك» الفاعل:",
+    "options": [
+     "لا يوجد",
+     "الكاف",
+     "ضمير مستتر تقديره أنت",
+     "أخاك"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ساعَدَ أخاك» (ماضٍ) الفاعل:",
+    "options": [
+     "ضمير مستتر تقديره هو",
+     "الكاف",
+     "أنت",
+     "أخاك"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لا تؤجلْ عمل اليوم إلى الغد» الفاعل:",
+    "options": [
+     "الغد",
+     "اليوم",
+     "عمل",
+     "ضمير مستتر تقديره أنت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«لا تؤجلي عمل اليوم» الفاعل:",
+    "options": [
+     "عمل",
+     "لا يوجد",
+     "ياء المخاطبة (بارز متصل)",
+     "ضمير مستتر أنتِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«تؤجلُ هندٌ عملها» الفاعل:",
+    "options": [
+     "الهاء",
+     "هند (اسم ظاهر)",
+     "عمل",
+     "ضمير مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هندٌ تؤجلُ عملها» الفاعل:",
+    "options": [
+     "الهاء",
+     "ضمير مستتر تقديره هي",
+     "عمل",
+     "هند"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفرق بين الفاعل في «تذهب هند» و«هند تذهب»:",
+    "options": [
+     "الأول مستتر",
+     "كلاهما ظاهر",
+     "كلاهما مستتر",
+     "الأول اسم ظاهر والثاني ضمير مستتر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«........ يحافظ على البيئة» أكمل بضمير منفصل للمفرد الغائب:",
+    "options": [
+     "أنت",
+     "أنا",
+     "هو",
+     "هي"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ مسؤولون عن البيئة» أكمل بضمير منفصل لجمع الغائبين:",
+    "options": [
+     "هم",
+     "أنتم",
+     "هنّ",
+     "نحن"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطالبتان ........ » أكمل بفعل فيه ضمير متصل في محل رفع:",
+    "options": [
+     "تفوّقت",
+     "تفوّقن",
+     "تفوّقتا",
+     "تفوّقوا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبات ........ » أكمل بفعل فيه نون النسوة:",
+    "options": [
+     "تفوّقوا",
+     "تفوّقْنَ",
+     "تفوّقنا",
+     "تفوّقتا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«........ تعاونّا على حماية البيئة» أكمل بضمير منفصل:",
+    "options": [
+     "نحن",
+     "أنتم",
+     "هم",
+     "أنا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«........ اعتنِ بحديقتك» الفاعل في (اعتنِ):",
+    "options": [
+     "حديقتك",
+     "لا يوجد",
+     "الكاف",
+     "ضمير مستتر تقديره أنت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«بيئتُنا أمانةٌ في أعناقنا» الضميران ومحلّهما:",
+    "options": [
+     "نا - رفع، نا - نصب",
+     "نا - نصب، نا - جر",
+     "نا - جر، نا - جر",
+     "لا يوجد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ما أجمل أن نتعاون» الضمير المستتر في (نتعاون):",
+    "options": [
+     "هم",
+     "أنا",
+     "هو",
+     "نحن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«يا شباب، أنتم أمل الوطن» الضمير ومحله:",
+    "options": [
+     "لا يوجد",
+     "أنتم - جر",
+     "أنتم - نصب",
+     "أنتم - رفع مبتدأ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«حفظَكم اللهُ» الضمير ومحله:",
+    "options": [
+     "الله - نصب",
+     "كم - نصب مفعول به",
+     "كم - جر",
+     "كم - رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«عليكم بالعمل» الضمير ومحله:",
+    "options": [
+     "كم - جر بحرف الجر",
+     "كم - رفع",
+     "كم - نصب",
+     "العمل - جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«شاركتم في المبادرة» الضمير ومحله:",
+    "options": [
+     "تم - جر",
+     "تم - رفع فاعل",
+     "تم - نصب",
+     "لا يوجد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هل تحبّ وطنك؟» الضمائر:",
+    "options": [
+     "لا يوجد",
+     "تحب منفصل",
+     "مستتر (أنت) في تحب - الكاف متصل",
+     "الكاف مستتر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«إياكم والإهمالَ» الضمير ونوعه:",
+    "options": [
+     "لا يوجد",
+     "إياكم - منفصل في محل نصب",
+     "إياكم - متصل",
+     "إياكم - رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمائر المتصلة الخاصة بالرفع:",
+    "options": [
+     "هو - هي",
+     "الياء - الكاف",
+     "الكاف - الهاء",
+     "التاء - الألف - الواو - النون - ياء المخاطبة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الضمائر المتصلة المشتركة بين النصب والجر:",
+    "options": [
+     "هو - هي",
+     "الكاف - الهاء - ياء المتكلم",
+     "الألف - النون",
+     "التاء - الواو"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أعطيتُك الكتابَ» الضمائر ومحالها:",
+    "options": [
+     "كلاهما رفع",
+     "التاء رفع - الكاف نصب",
+     "التاء نصب - الكاف رفع",
+     "التاء جر - الكاف رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كتابُكما جديد» الضمير ومحله:",
+    "options": [
+     "لا يوجد",
+     "كما - نصب",
+     "كما - رفع",
+     "كما - جر بالإضافة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«سنحافظ على البيئة» تقدير الضمير المستتر:",
+    "options": [
+     "أنا",
+     "نحن",
+     "أنتم",
+     "هم"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "g5_bubbles",
+  "title": "الفقاعات المتساقطة: نوع الضمير ومحله",
+  "type": "bubbles",
+  "desc": "اضغط الفقاعة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "(أنا):",
+    "options": [
+     "متصل",
+     "منفصل",
+     "مستتر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(نحن):",
+    "options": [
+     "مستتر",
+     "منفصل",
+     "متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أنتَ):",
+    "options": [
+     "منفصل",
+     "متصل",
+     "مستتر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هو):",
+    "options": [
+     "متصل",
+     "مستتر",
+     "منفصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(هم) في «هم أبطال»:",
+    "options": [
+     "مستتر",
+     "منفصل",
+     "متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(التاء) في «كتبتُ»:",
+    "options": [
+     "متصل",
+     "منفصل",
+     "مستتر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الكاف) في «كتابك»:",
+    "options": [
+     "منفصل",
+     "مستتر",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(الهاء) في «شكرتُه»:",
+    "options": [
+     "منفصل",
+     "مستتر",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(الواو) في «كتبوا»:",
+    "options": [
+     "منفصل",
+     "مستتر",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(الألف) في «كتبا»:",
+    "options": [
+     "متصل",
+     "منفصل",
+     "مستتر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(النون) في «كتبْنَ»:",
+    "options": [
+     "مستتر",
+     "متصل",
+     "منفصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(نا) في «كتبنا»:",
+    "options": [
+     "مستتر",
+     "متصل",
+     "منفصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفاعل في «أكتب»:",
+    "options": [
+     "مستتر",
+     "منفصل",
+     "متصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفاعل في «اكتب»:",
+    "options": [
+     "مستتر",
+     "متصل",
+     "منفصل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفاعل في «نكتب»:",
+    "options": [
+     "منفصل",
+     "مستتر",
+     "متصل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفاعل في «كتبتُ»:",
+    "options": [
+     "مستتر",
+     "منفصل",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفاعل في «كتبوا»:",
+    "options": [
+     "منفصل",
+     "مستتر",
+     "متصل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "تقدير المستتر في «أكتب»:",
+    "options": [
+     "أنا",
+     "نحن",
+     "أنت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تقدير المستتر في «نكتب»:",
+    "options": [
+     "نحن",
+     "أنا",
+     "هم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تقدير المستتر في «اكتب»:",
+    "options": [
+     "أنت",
+     "أنا",
+     "هو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تقدير المستتر في «يكتب»:",
+    "options": [
+     "أنت",
+     "هو",
+     "هي"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير المستتر في «هند تكتب»:",
+    "options": [
+     "هو",
+     "هي",
+     "أنت"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تقدير المستتر في «تكتبُ يا علي»:",
+    "options": [
+     "هو",
+     "هي",
+     "أنت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل التاء في «كتبتُ»:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الكاف في «أكرمك»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل الكاف في «كتابك»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الهاء في «شكرته»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الهاء في «بيته»:",
+    "options": [
+     "رفع",
+     "جر",
+     "نصب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الواو في «كتبوا»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الألف في «كتبا»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل نا في «كتبنا»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل نا في «أكرمنا المعلم»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل نا في «بيتنا»:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الياء في «كتابي»:",
+    "options": [
+     "جر",
+     "رفع",
+     "نصب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل الياء في «أكرمني»:",
+    "options": [
+     "رفع",
+     "جر",
+     "نصب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل الياء في «تكتبين»:",
+    "options": [
+     "رفع",
+     "نصب",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل (هو) في «هو مجتهد»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل (إياك) في «إياك نعبد»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر:",
+    "options": [
+     "مبنية",
+     "بعضها معرب",
+     "معربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمير المستتر محله غالبًا:",
+    "options": [
+     "نصب",
+     "جر",
+     "رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الضمير البارز:",
+    "options": [
+     "يُقدّر",
+     "لا صورة له",
+     "له صورة لفظية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الضمير المستتر:",
+    "options": [
+     "منفصل",
+     "يُقدّر",
+     "له صورة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اختر ضميرًا منفصلًا:",
+    "options": [
+     "هي",
+     "التاء",
+     "الهاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر ضميرًا متصلًا:",
+    "options": [
+     "الكاف",
+     "نحن",
+     "أنت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر ضميرًا منفصلًا:",
+    "options": [
+     "أنتم",
+     "تم",
+     "كم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر ضميرًا متصلًا:",
+    "options": [
+     "الواو",
+     "هو",
+     "أنتنّ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "ضمير خاص بالرفع:",
+    "options": [
+     "الهاء",
+     "واو الجماعة",
+     "الكاف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "ضمير يأتي رفعًا ونصبًا وجرًّا:",
+    "options": [
+     "الألف",
+     "الواو",
+     "نا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "ضمير يأتي نصبًا وجرًّا فقط:",
+    "options": [
+     "النون",
+     "الكاف",
+     "التاء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "محل الهاء في «له»:",
+    "options": [
+     "نصب",
+     "رفع",
+     "جر"
+    ],
+    "ans": 2
+   }
+  ]
+ }
+];
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.15, 0.15);
+        setTimeout(() => playTone(659.25, 'sine', 0.15, 0.15), 100);
+        setTimeout(() => playTone(783.99, 'sine', 0.25, 0.15), 200);
+        spawnConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(200, 'sawtooth', 0.3, 0.1);
+    }
+
+    function spawnConfetti() {
+        const colors = ['#b02a3f', '#f59e42', '#10b981', '#ef4444', '#9b1c31', '#f59e0b'];
+        for (let i = 0; i < 25; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، أحسنت!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300);
+    }
+
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let wrongAnswers = [];
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="round-badge">🎲 ${Math.min(QUESTIONS_PER_ROUND, game.questions.length)} سؤالًا عشوائيًّا من ${game.questions.length}</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('name-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.focus();
+            nameInput.classList.add('shake');
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const message = "مرحبًا أستاذ أحمد الشريف 🌟\n" +
+            "الطالب/ـة: " + name + "\n" +
+            "الدرس: " + LESSON_FULL_NAME + "\n" +
+            "اللعبة: " + currentGame.title + "\n" +
+            "النتيجة: " + score + " من " + total;
+        const url = "https://wa.me/" + TEACHER_WHATSAPP + "?text=" + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="send-result-box">
+                    <h3>📤 أرسل نتيجتك للأستاذ أحمد الشريف</h3>
+                    <input type="text" id="student-name-input" class="name-input" placeholder="اكتب اسمك هنا ✍️">
+                    <button class="btn whatsapp-send-btn" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                        إرسال النتيجة عبر واتساب
+                    </button>
+                    <p id="name-warning" class="name-warning" style="display:none;">من فضلك اكتب اسمك أولاً ✍️</p>
+                </div>
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    // اختيار 20 سؤالًا عشوائيًّا من بنك الأسئلة، مع تفضيل الأسئلة التي لم تظهر في المرة السابقة
+    function pickRound(gameData) {
+        const all = gameData.questions.map((q, i) => ({ q, i }));
+        const n = Math.min(QUESTIONS_PER_ROUND, all.length);
+        const key = LESSON_KEY + '-' + gameData.id;
+        let last = [];
+        try { last = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { last = []; }
+        const lastSet = new Set(last);
+        const fresh = shuffleArray(all.filter(x => !lastSet.has(x.i)));
+        const used = shuffleArray(all.filter(x => lastSet.has(x.i)));
+        const chosen = shuffleArray(fresh.concat(used).slice(0, n));
+        try { localStorage.setItem(key, JSON.stringify(chosen.map(x => x.i))); } catch (e) {}
+        return chosen.map(x => x.q);
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = pickRound(gameData);
+        qIndex = 0;
+        wrongAnswers = [];
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            /* سرعة سقوط أعلى قليلاً */
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين والاصطياد
+    function renderShooting(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+        const birds = [];
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+            birds.push({ el: bird, pos: pos, speed: speed });
+        });
+
+        animInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(animInterval); return; }
+            const w = area.clientWidth || window.innerWidth;
+            birds.forEach(b => {
+                b.pos += b.speed;
+                if (b.pos > w + 50) b.pos = -250;
+                if (b.pos < -250) b.pos = w + 50;
+                b.el.style.left = b.pos + 'px';
+            });
+        }, 20);
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك!`;
+        container.appendChild(hint);
+    }
+
+    // 5. تحدي العباقرة (سباق مع الوقت)
+    function renderGenius(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box genius-box';
+        qBox.innerHTML = `⚡ ${qData.q}`;
+
+        const timerWrap = document.createElement('div');
+        timerWrap.className = 'genius-timer-wrap';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerWrap.appendChild(timerBar);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+
+        let isAnswered = false;
+        let timeLeft = 12000;
+        const totalTime = timeLeft;
+
+        function finish(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(animInterval);
+            if (isCorrect) {
+                showFeedback(true, () => { qIndex++; renderNextState(); });
+            } else {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت! ⏱️" });
+                showFeedback(false, () => { qIndex++; renderNextState(); });
+            }
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finish(true);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finish(false, opt);
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(timerWrap);
+        container.appendChild(btnContainer);
+
+        let hint = document.createElement('div');
+        hint.className = 'genius-hint';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> سباق مع الوقت! أجب بسرعة قبل نفاد الثواني`;
+        container.appendChild(hint);
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            timeLeft -= 100;
+            let pct = Math.max(0, (timeLeft / totalTime) * 100);
+            timerBar.style.width = pct + '%';
+            if (timeLeft <= 0) {
+                clearInterval(animInterval);
+                finish(false, null);
+            }
+        }, 100);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

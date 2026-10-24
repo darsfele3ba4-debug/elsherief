@@ -1,0 +1,3351 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>كاد وأخواتها | الصف الأول الثانوي | الأستاذ أحمد الشريف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b0f1f;      
+            --primary-light: #b02a3f; 
+            --secondary: #9b1c31;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7a1e;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        .header-main {
+            background: linear-gradient(135deg, #3d0610, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fbeef0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.2vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #ffe2c2, #f59e42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fff7ed; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(234, 122, 30, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fbeef0, #ffe2c2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #6b0f1f; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.3rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 0.95rem; color: #64748b; font-weight: 600;}
+
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #b02a3f; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+            font-weight: 800;
+            color: #6b0f1f;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #9b1c31;
+            line-height: 1.7;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1rem, 3.2vw, 1.3rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #3d0610, #6b0f1f);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,237,213,0.92));
+            color: #6b0f1f;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.8rem, 1.9vw, 1rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.85rem, 2.7vw, 1.05rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* تحدي العباقرة */
+        .genius-box { border: 3px solid var(--warning) !important; background: linear-gradient(135deg, #fffbeb, #ffffff); }
+        .genius-timer-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 22px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .genius-timer-bar { height: 100%; background: linear-gradient(to right, #10b981, var(--warning), var(--danger)); width: 100%; transition: width 0.1s linear; border-radius: 10px; }
+        .genius-hint { text-align: center; margin-top: 15px; color: var(--warning); font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        .send-result-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px dashed #25d366;
+            border-radius: 15px; padding: 20px;
+        }
+        .send-result-box h3 { color: #128c7e; margin-bottom: 12px; font-size: 1.2rem; }
+        .name-input {
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #cbd5e1;
+            font-size: 1.05rem; font-family: 'Cairo', sans-serif; text-align: center; margin-bottom: 12px;
+        }
+        .name-input:focus { outline: none; border-color: #25d366; }
+        .whatsapp-send-btn {
+            width: 100%; background: linear-gradient(to bottom, #25d366, #128c7e);
+            border-bottom: 3px solid #0d6b5f;
+        }
+        .name-warning { color: var(--danger); font-size: 0.9rem; margin-top: 8px; font-weight: bold; }
+
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+            .round-badge { display:inline-block; margin-top:12px; padding:5px 14px; border-radius:999px; background:#fff7ed; color:#c2410c; border:1px solid #fdba74; font-weight:800; font-size:.9rem; }
+        .bubble span { line-height:1.35; }
+    </style>
+</head>
+<body>
+
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.jpg" alt="الأستاذ أحمد الشريف" style="width: 180px; height: 180px; border-radius: 30px; border: 4px solid #f59e42; box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; object-position: center; flex-shrink: 0;" onerror="this.style.display='none'">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        دَرْسٌ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffe2c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لُعْبَة
+                    </h1>
+                    <h1 class="title-line2">مَعَ الأُسْتَاذِ أَحْمَد الشَّرِيف</h1>
+                    <p class="platform-badge" style="display:inline-block; margin:8px auto 4px; padding:6px 22px; border-radius:999px; background:rgba(255,255,255,0.14); border:2px solid #f59e0b; color:#fde3c4; font-weight:900; font-size:1.3rem; letter-spacing:0.5px;">✒️ كاد وأخواتها</p>
+                    <h2>الصَّفُّ الأَوَّلُ الثَّانَوِيُّ - القواعد النحوية - الدرس الثاني</h2>
+                    <p style="margin-top: 10px;">القواعد النحوية • 🎲 كل لعبة 20 سؤالًا تتغير عشوائيًّا من بنك 50 سؤالًا</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | الأستاذ أحمد الشريف</p>
+        <p class="designer">للتواصل: 01554449990</p>
+    </footer>
+
+    <a href="https://wa.me/201554449990" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_FULL_NAME = "كاد وأخواتها - القواعد النحوية - الدرس الثاني - الصف الأول الثانوي";
+    const LESSON_KEY = "elsherief-sec1-2";
+    const TEACHER_WHATSAPP = "201554449990";
+    const QUESTIONS_PER_ROUND = 20;
+    const allGamesData = [
+ {
+  "id": "g1_shooting",
+  "title": "التنشين والاصطياد: صوّب الناسخ أو نوعه",
+  "type": "shooting",
+  "desc": "اصطد المطلوب في جملة كاد وأخواتها",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "الفعل الناسخ في «كاد الحلمُ يتحقق»:",
+    "options": [
+     "كاد",
+     "يتحقق",
+     "الحلم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم كاد في «كاد الحلمُ يتحقق»:",
+    "options": [
+     "يتحقق",
+     "الحلم",
+     "كاد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر كاد في «كاد الحلمُ يتحقق»:",
+    "options": [
+     "الحلم",
+     "يتحقق",
+     "كاد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم كاد في «الطلاب كادوا يحققون التفوق»:",
+    "options": [
+     "الطلاب",
+     "يحققون",
+     "واو الجماعة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم كرب في «كرب الظلمُ أن يزول»:",
+    "options": [
+     "أن يزول",
+     "الظلم",
+     "كرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر أوشك في «أوشك البناءُ يكتمل»:",
+    "options": [
+     "أوشك",
+     "البناء",
+     "يكتمل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم عسى في «عسى الضيقُ أن ينفرج»:",
+    "options": [
+     "الضيق",
+     "عسى",
+     "أن ينفرج"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر عسى في «عسى الضيقُ أن ينفرج»:",
+    "options": [
+     "عسى",
+     "الضيق",
+     "أن ينفرج"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم حرى في «حرى الجوُّ أن يعتدل»:",
+    "options": [
+     "الجو",
+     "حرى",
+     "أن يعتدل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم اخلولق في «اخلولقت الحمّى أن تفارق المريض»:",
+    "options": [
+     "المريض",
+     "الحمى",
+     "أن تفارق"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل الناسخ في «شرع الطالبُ يذاكر»:",
+    "options": [
+     "شرع",
+     "يذاكر",
+     "الطالب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر شرع في «شرع الطالبُ يذاكر»:",
+    "options": [
+     "يذاكر",
+     "الطالب",
+     "شرع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (كاد):",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (كرب):",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (أوشك):",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع (عسى):",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع (حرى):",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (اخلولق):",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع (شرع):",
+    "options": [
+     "مقاربة",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع (بدأ) في «بدأ العاملُ يبني»:",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (أخذ) في «أخذ الطفلُ يبكي»:",
+    "options": [
+     "مقاربة",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع (طفق) في «طفق الجنديُّ يقاتل»:",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع (جعل) في «جعل التلميذُ يكتب»:",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع (أنشأ) في «أنشأ الشاعرُ يقول»:",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع (هبّ) في «هبّ الشعبُ يدافع»:",
+    "options": [
+     "رجاء",
+     "مقاربة",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "خبر كاد وأخواتها يكون:",
+    "options": [
+     "شبه جملة",
+     "جملة اسمية",
+     "جملة فعلية فعلها مضارع",
+     "مفردًا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "خبر أفعال الشروع:",
+    "options": [
+     "مضارع مقترن بأن وجوبًا",
+     "شبه جملة",
+     "مضارع غير مقترن بأن",
+     "مفرد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "خبر أفعال الرجاء غالبًا:",
+    "options": [
+     "مفرد",
+     "مضارع بلا أن",
+     "شبه جملة",
+     "مضارع مقترن بأن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "خبر (كاد) غالبًا:",
+    "options": [
+     "مضارع غير مقترن بأن",
+     "مقترن بأن وجوبًا",
+     "ظرف",
+     "مفرد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كاد الطالبُ ........» خبر مناسب:",
+    "options": [
+     "ناجحًا",
+     "في الفصل",
+     "ينجحُ",
+     "نجاحُه"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى الفرجُ ........» خبر مناسب:",
+    "options": [
+     "في القرب",
+     "أن يكون قريبًا",
+     "قريبًا",
+     "قريبٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«شرع العمالُ ........» خبر مناسب:",
+    "options": [
+     "يبنون",
+     "في البناء",
+     "أن يبنوا",
+     "بانين"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أوشك ........ أن ينتهي» اسم مناسب:",
+    "options": [
+     "الصيفَ",
+     "الصيفِ",
+     "الصيفُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كرب ........ يغلي» اسم مناسب:",
+    "options": [
+     "الماءَ",
+     "الماءِ",
+     "الماءُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ المريضُ يُشفى» ناسخ مقاربة:",
+    "options": [
+     "شرع",
+     "عسى",
+     "كاد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ المريضُ أن يُشفى» ناسخ رجاء:",
+    "options": [
+     "طفق",
+     "عسى",
+     "شرع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«........ المريضُ يتحرك» ناسخ شروع:",
+    "options": [
+     "حرى",
+     "أخذ",
+     "عسى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الطلاب كادوا يحققون التفوق» خبر كاد:",
+    "options": [
+     "يحققون",
+     "التفوق",
+     "الطلاب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«يكاد الصبيُّ أن يفهم» خبر يكاد:",
+    "options": [
+     "الصبي",
+     "أن يفهم",
+     "يكاد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كربت العلةُ تنقشع» اسم كرب:",
+    "options": [
+     "كربت",
+     "تنقشع",
+     "العلة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«توشك الأرضُ أن تبتلع الظالمين» خبر توشك:",
+    "options": [
+     "الأرض",
+     "الظالمين",
+     "أن تبتلع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفعل الذي يأتي منه المضارع من أفعال المقاربة:",
+    "options": [
+     "حرى",
+     "كاد وأوشك",
+     "عسى",
+     "كرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أفعال الرجاء من حيث التصرف:",
+    "options": [
+     "يأتي منها المضارع",
+     "جامدة لا يأتي منها إلا الماضي",
+     "متصرفة تمامًا",
+     "يأتي منها الأمر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أفعال الشروع من حيث التصرف:",
+    "options": [
+     "يأتي منها الأمر",
+     "يأتي منها المضارع",
+     "جامدة بمعنى (بدأ) في الماضي",
+     "متصرفة تمامًا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "أفعال المقاربة:",
+    "options": [
+     "كان - صار",
+     "عسى - حرى - اخلولق",
+     "شرع - بدأ - أخذ",
+     "كاد - كرب - أوشك"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أفعال الرجاء:",
+    "options": [
+     "كاد - كرب - أوشك",
+     "شرع - أخذ",
+     "عسى - حرى - اخلولق",
+     "كان - ليس"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "أفعال الشروع:",
+    "options": [
+     "كاد - أوشك",
+     "شرع - بدأ - أخذ - جعل - طفق - أنشأ",
+     "عسى - حرى",
+     "كان - صار"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "عمل كاد وأخواتها:",
+    "options": [
+     "تنصب المبتدأ وترفع الخبر",
+     "تنصبهما",
+     "ترفعهما",
+     "ترفع المبتدأ وتنصب الخبر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "محل جملة الخبر في «كاد الحلم يتحقق»:",
+    "options": [
+     "لا محل لها",
+     "رفع خبر",
+     "جر",
+     "نصب خبر كاد"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "محل جملة الخبر في «عسى الضيق أن ينفرج»:",
+    "options": [
+     "لا محل لها",
+     "جر",
+     "نصب خبر عسى",
+     "رفع"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "g2_true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "اختبر فهمك لكاد وأخواتها",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "كاد وأخواتها أفعال ناقصة ناسخة تعمل عمل كان.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كاد وأخواتها ترفع المبتدأ وتنصب الخبر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر كاد وأخواتها يكون جملة فعلية فعلها مضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر كاد وأخواتها يكون مفردًا منصوبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أقسام كاد وأخواتها ثلاثة: مقاربة ورجاء وشروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال المقاربة: كاد وكرب وأوشك.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الرجاء: عسى وحرى واخلولق.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الشروع: شرع وبدأ وأخذ وجعل وطفق وأنشأ وهبّ وقام.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(عسى) من أفعال المقاربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أوشك) من أفعال المقاربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(شرع) من أفعال الرجاء.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أفعال المقاربة تدل على أن الحدث قارب الوقوع لكنه لم يقع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الرجاء تدل على رجاء وقوع الخبر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الشروع تدل على البدء في الحدث.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «كاد الحلم يتحقق» الحلم تحقق فعلًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «كاد الحلم يتحقق» الحلم اقترب من التحقق ولم يتحقق.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «عسى الضيق أن ينفرج» نرجو انفراج الضيق.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الرجاء جامدة تستعمل في الماضي فقط.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(عسى) يأتي منها المضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كاد) يأتي منها المضارع (يكاد).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أوشك) يأتي منها المضارع (يوشك).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أفعال الشروع جامدة بمعنى (بدأ) تستعمل في الماضي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر أفعال الشروع لا يقترن بـ(أن).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر أفعال الشروع يقترن بـ(أن) وجوبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر (عسى) يقترن بـ(أن) غالبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر (كاد) يقترن بـ(أن) غالبًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «كرب الظلم أن يزول» الخبر (أن يزول).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «الطلاب كادوا يحققون التفوق» اسم كاد واو الجماعة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «يكاد الصبي أن يفهم» الفعل الناسخ مضارع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «عسى الضيق أن ينفرج» (أن) حرف مصدري ونصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(اخلولق) من أفعال الرجاء.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(حرى) من أفعال الشروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(طفق) من أفعال الشروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أخذ) في «أخذ الطالبُ يذاكر» فعل شروع ناسخ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أخذ) في «أخذ الطالبُ الكتابَ» فعل شروع ناسخ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أخذ) في «أخذ الطالب الكتاب» فعل تام متعدٍّ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(جعل) في «جعل الطفل يضحك» فعل شروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(جعل) في «جعل المعلم الدرس سهلًا» من أخوات ظن.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أوشك) قد تأتي تامة إذا أسندت إلى (أن والفعل).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «المسافرون أوشك أن يصلوا» (أن يصلوا) في محل رفع فاعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «عسى أن تتفوق» (عسى) تامة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل جملة خبر كاد النصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "محل جملة خبر كاد الرفع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كاد الطالب ناجحًا» صحيحة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كاد الطالب ينجح» صحيحة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«شرع العمال أن يبنوا» هي الأشهر والصحيحة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«شرع العمال يبنون» صحيحة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هبّ) في «هبّ الشعب يدافع» فعل شروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أنشأ) في «أنشأ الشاعر يقول» فعل شروع.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(كرب) بمعنى قارب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g3_mcq",
+  "title": "اختيار من متعدد: كاد وأخواتها",
+  "type": "mcq",
+  "desc": "اختر الإجابة الصحيحة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"></path><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"></path></svg>",
+  "questions": [
+   {
+    "q": "كاد وأخواتها:",
+    "options": [
+     "تنصب مفعولين",
+     "أفعال تامة",
+     "أفعال ناقصة تعمل عمل كان وخبرها جملة فعلية فعلها مضارع",
+     "حروف ناسخة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "أقسام كاد وأخواتها:",
+    "options": [
+     "تمني - ترجي - تشبيه",
+     "توكيد - استدراك",
+     "يقين - رجحان - تحويل",
+     "مقاربة - رجاء - شروع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أفعال المقاربة:",
+    "options": [
+     "عسى - حرى - اخلولق",
+     "كان - صار - أمسى",
+     "شرع - أخذ - طفق",
+     "كاد - كرب - أوشك"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أفعال الرجاء:",
+    "options": [
+     "كاد - كرب",
+     "عسى - حرى - اخلولق",
+     "شرع - بدأ",
+     "أصبح - أضحى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أفعال الشروع:",
+    "options": [
+     "كاد - أوشك",
+     "عسى - حرى",
+     "ظن - حسب",
+     "شرع - بدأ - أخذ - جعل - طفق - أنشأ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أفعال المقاربة تدل على:",
+    "options": [
+     "نفيه",
+     "البدء فيه",
+     "رجاء وقوعه",
+     "قرب وقوع الخبر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أفعال الرجاء تدل على:",
+    "options": [
+     "قربه",
+     "البدء فيه",
+     "رجاء وقوع الخبر",
+     "نفيه"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "أفعال الشروع تدل على:",
+    "options": [
+     "البدء في الخبر",
+     "رجاءه",
+     "نفيه",
+     "قربه"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفعل الناسخ في «كربت العلة تنقشع» ونوعه:",
+    "options": [
+     "كرب - شروع",
+     "العلة - اسم",
+     "كرب - رجاء",
+     "كرب - مقاربة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الفعل الناسخ في «اخلولقت الحمّى أن تفارق المريض» ونوعه:",
+    "options": [
+     "تفارق - شروع",
+     "مقاربة",
+     "اخلولق - رجاء",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفعل الناسخ في «أخذ الطالبُ يكتب» ونوعه:",
+    "options": [
+     "مقاربة",
+     "رجاء",
+     "يقين",
+     "أخذ - شروع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كاد الحلمُ يتحقق» إعراب (الحلم):",
+    "options": [
+     "مفعول به",
+     "فاعل",
+     "خبر كاد",
+     "اسم كاد مرفوع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كاد الحلمُ يتحقق» جملة (يتحقق):",
+    "options": [
+     "في محل رفع",
+     "لا محل لها",
+     "في محل نصب خبر كاد",
+     "في محل جر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى الضيقُ أن ينفرج» المصدر المؤول (أن ينفرج):",
+    "options": [
+     "مفعول به",
+     "حال",
+     "في محل نصب خبر عسى",
+     "في محل رفع فاعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى أن تنجح» المصدر المؤول (أن تنجح):",
+    "options": [
+     "لا محل له",
+     "في محل نصب خبر",
+     "مبتدأ",
+     "في محل رفع فاعل وعسى تامة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "خبر أفعال الشروع:",
+    "options": [
+     "مضارع لا يقترن بأن",
+     "مفرد",
+     "مضارع يقترن بأن وجوبًا",
+     "ظرف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر (عسى):",
+    "options": [
+     "شبه جملة",
+     "يقترن بأن غالبًا",
+     "مفرد",
+     "لا يقترن بأن أبدًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر (كاد) و(كرب):",
+    "options": [
+     "مفرد",
+     "ظرف",
+     "يجب اقترانه بأن",
+     "الأكثر عدم اقترانه بأن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "خبر (أوشك):",
+    "options": [
+     "الأكثر اقترانه بأن",
+     "لا يقترن أبدًا",
+     "شبه جملة",
+     "مفرد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«........ الشمسُ تغيب» أنسب فعل مقاربة:",
+    "options": [
+     "كادت",
+     "أخذت",
+     "شرعت",
+     "عست"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«........ الطالبُ أن يتفوق» أنسب فعل رجاء:",
+    "options": [
+     "شرع",
+     "كاد",
+     "طفق",
+     "عسى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«........ العمالُ يبنون المدرسة» أنسب فعل شروع:",
+    "options": [
+     "عسى",
+     "كرب",
+     "شرع",
+     "حرى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كاد الطلابُ ........» أنسب خبر:",
+    "options": [
+     "في النجاح",
+     "ناجحين",
+     "ينجحون",
+     "ناجحون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«بدأ المهندسُ ........» أنسب خبر:",
+    "options": [
+     "في التصميم",
+     "أن يصمم",
+     "مصممًا",
+     "يصمم المشروع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«حرى الجوُّ ........» أنسب خبر:",
+    "options": [
+     "معتدلًا",
+     "يعتدلًا",
+     "معتدل",
+     "أن يعتدل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الخطأ في «كاد المطرُ غزيرًا»:",
+    "options": [
+     "الخبر يجب أن يكون جملة فعلية مضارعة: يغزر",
+     "الاسم",
+     "الفعل",
+     "لا خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الخطأ في «شرع الطلاب أن يذاكروا»:",
+    "options": [
+     "لا خطأ",
+     "خبر أفعال الشروع لا يقترن بأن: يذاكرون",
+     "الاسم",
+     "الفعل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل المتصرف من كاد وأخواتها:",
+    "options": [
+     "كاد وأوشك",
+     "طفق",
+     "حرى",
+     "عسى"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مضارع (كاد):",
+    "options": [
+     "كائد",
+     "يكاد",
+     "يكود",
+     "يكيد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "مضارع (أوشك):",
+    "options": [
+     "يشك",
+     "يوشك",
+     "أوشك",
+     "موشك"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«يوشك الصبحُ أن يطلع» نوع (يوشك) وزمنه:",
+    "options": [
+     "مقاربة - مضارع",
+     "رجاء - ماضٍ",
+     "مقاربة - ماضٍ",
+     "شروع - مضارع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أخذ الطالبُ الكتابَ» نوع (أخذ):",
+    "options": [
+     "فعل مقاربة",
+     "فعل شروع ناسخ",
+     "فعل تام متعدٍّ",
+     "فعل رجاء"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«جعل الطفلُ يلعب» نوع (جعل):",
+    "options": [
+     "تحويل ينصب مفعولين",
+     "تام",
+     "رجاء",
+     "شروع ناسخ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«جعل المهندسُ الصحراءَ جنةً» نوع (جعل):",
+    "options": [
+     "تحويل ينصب مفعولين",
+     "شروع",
+     "رجاء",
+     "مقاربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«قام الخطيبُ يتكلم» نوع (قام):",
+    "options": [
+     "شروع ناسخ",
+     "تام",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«قام الطالبُ للصلاة» نوع (قام):",
+    "options": [
+     "رجاء",
+     "تام",
+     "شروع ناسخ",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«المسافرون أوشكوا أن يصلوا» اسم أوشك:",
+    "options": [
+     "واو الجماعة",
+     "المسافرون",
+     "أن يصلوا",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطالبتان كادتا تنجحان» اسم كاد:",
+    "options": [
+     "تنجحان",
+     "الطالبتان",
+     "التاء",
+     "ألف الاثنين"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«عسى ربكم أن يرحمكم» اسم عسى وخبرها:",
+    "options": [
+     "عسى - ربكم",
+     "أن يرحمكم - ربكم",
+     "ربكم - أن يرحمكم",
+     "ربكم - يرحم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى الرخاء يدوم» خبر عسى (غير مقترن بأن):",
+    "options": [
+     "الرخاء",
+     "يدوم",
+     "أن يدوم",
+     "عسى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "عدد أفعال المقاربة:",
+    "options": [
+     "ثلاثة",
+     "اثنان",
+     "أربعة",
+     "خمسة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "عدد أفعال الرجاء:",
+    "options": [
+     "خمسة",
+     "أربعة",
+     "اثنان",
+     "ثلاثة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أنشأ الشاعرُ يُلقي قصيدته» نوع الفعل الناسخ:",
+    "options": [
+     "رجاء",
+     "يقين",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«طفق المتسابقون يجرون» خبر طفق ونوعه:",
+    "options": [
+     "المتسابقون - مفرد",
+     "طفق - فعل",
+     "يجرون - مفرد",
+     "يجرون - جملة فعلية"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كاد المريضُ يموت» ماذا نفهم؟",
+    "options": [
+     "أنه مات",
+     "أنه سيموت حتمًا",
+     "أنه بدأ يموت",
+     "أنه قارب الموت ولم يمت"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«شرع المريضُ يتعافى» ماذا نفهم؟",
+    "options": [
+     "أنه بدأ يتعافى فعلًا",
+     "أنه قارب ولم يتعافَ",
+     "أنه لم يتعاف",
+     "أنه نرجو تعافيه"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«عسى المريضُ أن يتعافى» ماذا نفهم؟",
+    "options": [
+     "نرجو تعافيه",
+     "بدأ يتعافى",
+     "تعافى فعلًا",
+     "قارب التعافي"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفرق بين (كاد) و(كان):",
+    "options": [
+     "كان للمقاربة",
+     "كاد خبرها جملة فعلية مضارعة غالبًا، وكان خبرها متنوع",
+     "لا فرق",
+     "كاد حرف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«جعل المطرُ يتساقط» خبر جعل:",
+    "options": [
+     "المطر",
+     "يتساقط",
+     "جعل",
+     "أن يتساقط"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كادت الأمطار تُغرق الشوارع» اسم كاد وخبرها:",
+    "options": [
+     "كادت - الأمطار",
+     "الأمطار - تغرق",
+     "تغرق - الأمطار",
+     "الشوارع - تغرق"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "g4_genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تطبيقات أعمق على كاد وأخواتها - سباق مع الوقت!",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+  "questions": [
+   {
+    "q": "«كاد الحلم يتحقق، وعسى الضيق أن ينفرج، وشرع الطالب يذاكر» أنواع الأفعال الناسخة:",
+    "options": [
+     "شروع - رجاء - مقاربة",
+     "رجاء - مقاربة - شروع",
+     "كلها مقاربة",
+     "مقاربة - رجاء - شروع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أدخل (كاد) على «النهارُ ينتهي»:",
+    "options": [
+     "كاد النهارُ ينتهي",
+     "كاد النهارُ منتهيًا",
+     "كاد النهارَ منتهيًا",
+     "كاد النهارَ ينتهي"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أدخل (عسى) على «الفرجُ قريبٌ» مع خبر فعلي:",
+    "options": [
+     "عسى الفرجَ قريبٌ",
+     "عسى الفرجُ قريبًا",
+     "عسى الفرجَ أن يقترب",
+     "عسى الفرجُ أن يقترب"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أدخل (شرع) على «الطلابُ يذاكرون»:",
+    "options": [
+     "شرع الطلابُ مذاكرين",
+     "شرع الطلابُ أن يذاكروا",
+     "شرع الطلابُ يذاكرون",
+     "شرع الطلابَ يذاكرون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الخطأ في «عسى المجتهدُ ناجحًا»:",
+    "options": [
+     "الفعل",
+     "خبر عسى يجب أن يكون جملة فعلية: أن ينجح",
+     "الاسم",
+     "لا خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الطلاب كادوا يحققون التفوق» محل جملة (يحققون):",
+    "options": [
+     "جر",
+     "رفع خبر المبتدأ",
+     "نصب خبر كاد",
+     "لا محل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطلاب كادوا يحققون التفوق» محل جملة (كادوا يحققون):",
+    "options": [
+     "جر",
+     "لا محل",
+     "نصب خبر كاد",
+     "رفع خبر المبتدأ (الطلاب)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«يكاد زيتها يضيء» الفعل الناسخ ونوعه وزمنه:",
+    "options": [
+     "يكاد - مقاربة - مضارع",
+     "يضيء - شروع",
+     "يكاد - رجاء",
+     "زيت - اسم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«فطفقا يخصفان عليهما من ورق الجنة» اسم طفق وخبرها:",
+    "options": [
+     "عليهما - يخصفان",
+     "ألف الاثنين - يخصفان",
+     "طفق - الألف",
+     "ورق - الجنة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«فذبحوها وما كادوا يفعلون» اسم كاد:",
+    "options": [
+     "ذبحوها",
+     "واو الجماعة",
+     "يفعلون",
+     "ما"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«عسى ربكم أن يرحمكم» محل المصدر المؤول (أن يرحمكم):",
+    "options": [
+     "جر",
+     "مفعول به",
+     "رفع فاعل",
+     "نصب خبر عسى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«عسى أن يكون قريبًا» (عسى) هنا:",
+    "options": [
+     "حرف",
+     "اسم",
+     "ناقصة",
+     "تامة والمصدر المؤول فاعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أوشك أن ينتهي العام» (أوشك) هنا:",
+    "options": [
+     "اسم",
+     "تامة والمصدر المؤول فاعل",
+     "ناقصة اسمها العام",
+     "حرف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«العامُ أوشك أن ينتهي» اسم أوشك:",
+    "options": [
+     "أن ينتهي",
+     "ضمير مستتر تقديره هو",
+     "لا يوجد",
+     "العام"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أخذتِ الأمطارُ تتساقط» نوع الفعل وخبره:",
+    "options": [
+     "رجاء - أن تتساقط",
+     "شروع - تتساقط",
+     "مقاربة - تتساقط",
+     "تام - لا خبر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أخذتِ الأمُّ الطفلَ إلى الطبيب» نوع (أخذ):",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة",
+     "فعل تام"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هبّ المصريون يدافعون عن وطنهم» اسم هبّ وخبرها:",
+    "options": [
+     "هبّ - المصريون",
+     "المصريون - وطنهم",
+     "وطن - يدافعون",
+     "المصريون - يدافعون"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هبّت الرياحُ» نوع (هبّ):",
+    "options": [
+     "شروع",
+     "رجاء",
+     "فعل تام",
+     "مقاربة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفرق بين (عسى) و(لعل):",
+    "options": [
+     "كلاهما حرف",
+     "عسى فعل ناسخ، ولعل حرف ناسخ وكلاهما للترجي",
+     "كلاهما فعل",
+     "لا فرق"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لعلّ الضيقَ ينفرج» و«عسى الضيقُ أن ينفرج»: ضبط (الضيق):",
+    "options": [
+     "مجرور فيهما",
+     "مرفوع فيهما",
+     "منصوب فيهما",
+     "منصوب مع لعل ومرفوع مع عسى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كرب القلبُ من الجوى يذوب» خبر كرب:",
+    "options": [
+     "من الجوى",
+     "القلب",
+     "يذوب",
+     "الجوى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«حرى الطالبُ أن يجتهد» نوع (حرى):",
+    "options": [
+     "يقين",
+     "مقاربة",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«بدأ العامُ الدراسيُّ» نوع (بدأ):",
+    "options": [
+     "رجاء",
+     "شروع ناسخ",
+     "مقاربة",
+     "فعل تام"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«بدأ الطلاب يدرسون» نوع (بدأ):",
+    "options": [
+     "فعل تام",
+     "مقاربة",
+     "شروع ناسخ",
+     "رجاء"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كادتِ الشمسُ تغرب» علامة رفع اسم كاد:",
+    "options": [
+     "الضمة",
+     "الفتحة",
+     "الألف",
+     "الواو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كاد الجنديان ينتصران» علامة رفع اسم كاد:",
+    "options": [
+     "الألف",
+     "الياء",
+     "الضمة",
+     "الواو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كاد المصريون ينتصرون» علامة رفع اسم كاد:",
+    "options": [
+     "الضمة",
+     "الياء",
+     "الواو",
+     "الألف"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كاد أبوك يصل» علامة رفع اسم كاد:",
+    "options": [
+     "الواو",
+     "الياء",
+     "الألف",
+     "الضمة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«........ اللهُ أن يأتي بالفتح» أنسب فعل رجاء:",
+    "options": [
+     "شرع",
+     "أخذ",
+     "عسى",
+     "كاد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ الطالبُ يحفظ القصيدة» أنسب فعل شروع:",
+    "options": [
+     "حرى",
+     "اخلولق",
+     "طفق",
+     "عسى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«........ السيلُ يجرف القرية» أنسب فعل مقاربة:",
+    "options": [
+     "كاد",
+     "شرع",
+     "عسى",
+     "جعل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«عسى الكربُ الذي أمسيتَ فيه يكونُ وراءه فرجٌ قريب» خبر عسى:",
+    "options": [
+     "أمسيت",
+     "الكرب",
+     "الذي",
+     "جملة (يكون وراءه فرج) غير مقترنة بأن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أفعال الشروع» لماذا لا يقترن خبرها بأن؟",
+    "options": [
+     "لأن (أن) تدل على الاستقبال والشروع يدل على الحال",
+     "لأنها مضارعة",
+     "لا سبب",
+     "لأنها حروف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أفعال الرجاء» لماذا يقترن خبرها بأن غالبًا؟",
+    "options": [
+     "لأنها ماضية",
+     "لا سبب",
+     "لأنها حروف",
+     "لأن الرجاء متعلق بالمستقبل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«كاد» و«يكاد» و«كائد» أيها اسم فاعل؟",
+    "options": [
+     "لا يوجد",
+     "كاد",
+     "كائد",
+     "يكاد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أوشك» و«يوشك» و«موشك» أيها اسم فاعل؟",
+    "options": [
+     "موشك",
+     "يوشك",
+     "لا يوجد",
+     "أوشك"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ما كاد الطالب ينجح» معناها:",
+    "options": [
+     "نجح بصعوبة بعد بطء",
+     "نجح بسهولة",
+     "لم ينجح",
+     "سينجح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كادت الصلاة تفوتنا» اسم كاد وخبرها:",
+    "options": [
+     "كادت - الصلاة",
+     "تفوتنا - الصلاة",
+     "نا - الصلاة",
+     "الصلاة - تفوتنا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«شرعتُ أكتب المقال» اسم شرع:",
+    "options": [
+     "المقال",
+     "أكتب",
+     "التاء",
+     "شرع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسيتُ أن أنجح» اسم عسى:",
+    "options": [
+     "التاء",
+     "عسى",
+     "أن أنجح",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«اخلولقت السماء أن تمطر» خبر اخلولق:",
+    "options": [
+     "السماء",
+     "أن تمطر",
+     "اخلولقت",
+     "تمطر فقط"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أنشأ المحاضرُ يشرح» محل (يشرح):",
+    "options": [
+     "نصب خبر أنشأ",
+     "جر",
+     "لا محل",
+     "رفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«يوشك» إذا جاء بعدها (أن يفعل) مباشرة دون اسم:",
+    "options": [
+     "لا تعمل",
+     "حرف",
+     "ناقصة",
+     "تكون تامة والمصدر فاعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«عسى» من حيث التصرف:",
+    "options": [
+     "يأتي منه الأمر",
+     "جامد",
+     "متصرف تمامًا",
+     "ناقص التصرف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«يكاد البرقُ يخطف أبصارهم» اسم يكاد وخبرها:",
+    "options": [
+     "يكاد - البرق",
+     "البرق - يخطف",
+     "يخطف - البرق",
+     "أبصارهم - يخطف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«شرع المصريون يبنون العاصمة الجديدة» علامة رفع اسم شرع:",
+    "options": [
+     "الياء",
+     "الواو",
+     "الضمة",
+     "الألف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كرب الليلُ ينجلي» نوع الناسخ ومعناه:",
+    "options": [
+     "تام",
+     "شروع - بدأ",
+     "رجاء - نرجو",
+     "مقاربة - قارب الانجلاء"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«حرى الطقسُ أن يعتدل» حوّلها إلى الشروع:",
+    "options": [
+     "أخذ الطقس معتدلًا",
+     "أخذ الطقسَ يعتدل",
+     "أخذ الطقسُ أن يعتدل",
+     "أخذ الطقسُ يعتدل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«شرع الطقسُ يعتدل» حوّلها إلى الرجاء:",
+    "options": [
+     "عسى الطقسَ يعتدل",
+     "عسى الطقس يعتدلُ معتدلًا",
+     "عسى الطقسُ أن يعتدل",
+     "عسى الطقسُ معتدلًا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى الطقسُ أن يعتدل» حوّلها إلى المقاربة:",
+    "options": [
+     "كاد الطقسُ أن معتدل",
+     "كاد الطقسُ معتدلًا",
+     "كاد الطقسَ يعتدل",
+     "كاد الطقسُ يعتدل"
+    ],
+    "ans": 3
+   }
+  ]
+ },
+ {
+  "id": "g5_bubbles",
+  "title": "الفقاعات المتساقطة: كاد وأخواتها",
+  "type": "bubbles",
+  "desc": "اضغط الفقاعة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "(كاد):",
+    "options": [
+     "رجاء",
+     "مقاربة",
+     "شروع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كرب):",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أوشك):",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(عسى):",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(حرى):",
+    "options": [
+     "مقاربة",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(اخلولق):",
+    "options": [
+     "مقاربة",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(شرع):",
+    "options": [
+     "شروع",
+     "رجاء",
+     "مقاربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(بدأ) الناسخة:",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أخذ) الناسخة:",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(طفق):",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(جعل) الناسخة:",
+    "options": [
+     "رجاء",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أنشأ) الناسخة:",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هبّ) الناسخة:",
+    "options": [
+     "شروع",
+     "مقاربة",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المقاربة تعني:",
+    "options": [
+     "قرب الوقوع",
+     "بدء الوقوع",
+     "رجاء الوقوع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الرجاء يعني:",
+    "options": [
+     "قرب الوقوع",
+     "رجاء الوقوع",
+     "بدء الوقوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الشروع يعني:",
+    "options": [
+     "رجاء الوقوع",
+     "بدء الوقوع",
+     "قرب الوقوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبرها:",
+    "options": [
+     "جملة فعلية مضارعة",
+     "شبه جملة",
+     "مفرد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "حكم اسمها:",
+    "options": [
+     "منصوب",
+     "مجرور",
+     "مرفوع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "محل خبرها:",
+    "options": [
+     "جر",
+     "نصب",
+     "رفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر الشروع:",
+    "options": [
+     "مفرد",
+     "بلا أن",
+     "بأن"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "خبر عسى غالبًا:",
+    "options": [
+     "بأن",
+     "مفرد",
+     "بلا أن"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خبر كاد غالبًا:",
+    "options": [
+     "بأن",
+     "بلا أن",
+     "مفرد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كاد الحلمُ ........»:",
+    "options": [
+     "تحقق",
+     "يتحقق",
+     "متحققًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«عسى الضيقُ ........»:",
+    "options": [
+     "انفرج",
+     "منفرجًا",
+     "أن ينفرج"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«شرع الطالبُ ........»:",
+    "options": [
+     "أن يذاكر",
+     "يذاكر",
+     "مذاكرًا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أوشك ........ أن يكتمل»:",
+    "options": [
+     "البناءَ",
+     "البناءِ",
+     "البناءُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كرب ........ يزول»:",
+    "options": [
+     "الظلمَ",
+     "الظلمُ",
+     "الظلمِ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أخذ ........ يبكي»:",
+    "options": [
+     "الطفلِ",
+     "الطفلَ",
+     "الطفلُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«طفق المتسابقون ........»:",
+    "options": [
+     "يجرون",
+     "أن يجروا",
+     "جارين"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مضارع كاد:",
+    "options": [
+     "يكاد",
+     "يكيد",
+     "كائد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مضارع أوشك:",
+    "options": [
+     "يشيك",
+     "موشك",
+     "يوشك"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "جامد:",
+    "options": [
+     "كاد",
+     "عسى",
+     "أوشك"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "جامد:",
+    "options": [
+     "أوشك",
+     "كاد",
+     "حرى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "متصرف:",
+    "options": [
+     "حرى",
+     "كاد",
+     "عسى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "متصرف:",
+    "options": [
+     "عسى",
+     "أوشك",
+     "اخلولق"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "عمل كاد:",
+    "options": [
+     "تنصب وترفع",
+     "ترفع وتنصب",
+     "ترفعهما"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أخذ الكتاب):",
+    "options": [
+     "مقاربة",
+     "شروع",
+     "تام"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(أخذ يكتب):",
+    "options": [
+     "تام",
+     "شروع",
+     "مقاربة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(قام للصلاة):",
+    "options": [
+     "رجاء",
+     "تام",
+     "شروع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(قام يخطب):",
+    "options": [
+     "شروع",
+     "تام",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(بدأ العام):",
+    "options": [
+     "مقاربة",
+     "تام",
+     "شروع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(بدأ يذاكر):",
+    "options": [
+     "شروع",
+     "تام",
+     "مقاربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هبّت الريح):",
+    "options": [
+     "تام",
+     "شروع",
+     "رجاء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هبّ يدافع):",
+    "options": [
+     "تام",
+     "رجاء",
+     "شروع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم كاد في «الطلاب كادوا ينجحون»:",
+    "options": [
+     "ينجحون",
+     "الطلاب",
+     "الواو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم عسى في «عسيتم أن تنجحوا»:",
+    "options": [
+     "أن تنجحوا",
+     "عسى",
+     "تم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "عدد أفعال المقاربة:",
+    "options": [
+     "ثلاثة",
+     "اثنان",
+     "خمسة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "عدد أفعال الرجاء:",
+    "options": [
+     "خمسة",
+     "اثنان",
+     "ثلاثة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«عسى أن تنجح» عسى:",
+    "options": [
+     "حرف",
+     "تامة",
+     "ناقصة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كادت الشمسُ ........»:",
+    "options": [
+     "تغيب",
+     "غائبةً",
+     "غابت"
+    ],
+    "ans": 0
+   }
+  ]
+ }
+];
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.15, 0.15);
+        setTimeout(() => playTone(659.25, 'sine', 0.15, 0.15), 100);
+        setTimeout(() => playTone(783.99, 'sine', 0.25, 0.15), 200);
+        spawnConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(200, 'sawtooth', 0.3, 0.1);
+    }
+
+    function spawnConfetti() {
+        const colors = ['#b02a3f', '#f59e42', '#10b981', '#ef4444', '#9b1c31', '#f59e0b'];
+        for (let i = 0; i < 25; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، أحسنت!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300);
+    }
+
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let wrongAnswers = [];
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="round-badge">🎲 ${Math.min(QUESTIONS_PER_ROUND, game.questions.length)} سؤالًا عشوائيًّا من ${game.questions.length}</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('name-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.focus();
+            nameInput.classList.add('shake');
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const message = "مرحبًا أستاذ أحمد الشريف 🌟\n" +
+            "الطالب/ـة: " + name + "\n" +
+            "الدرس: " + LESSON_FULL_NAME + "\n" +
+            "اللعبة: " + currentGame.title + "\n" +
+            "النتيجة: " + score + " من " + total;
+        const url = "https://wa.me/" + TEACHER_WHATSAPP + "?text=" + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="send-result-box">
+                    <h3>📤 أرسل نتيجتك للأستاذ أحمد الشريف</h3>
+                    <input type="text" id="student-name-input" class="name-input" placeholder="اكتب اسمك هنا ✍️">
+                    <button class="btn whatsapp-send-btn" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                        إرسال النتيجة عبر واتساب
+                    </button>
+                    <p id="name-warning" class="name-warning" style="display:none;">من فضلك اكتب اسمك أولاً ✍️</p>
+                </div>
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    // اختيار 20 سؤالًا عشوائيًّا من بنك الأسئلة، مع تفضيل الأسئلة التي لم تظهر في المرة السابقة
+    function pickRound(gameData) {
+        const all = gameData.questions.map((q, i) => ({ q, i }));
+        const n = Math.min(QUESTIONS_PER_ROUND, all.length);
+        const key = LESSON_KEY + '-' + gameData.id;
+        let last = [];
+        try { last = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { last = []; }
+        const lastSet = new Set(last);
+        const fresh = shuffleArray(all.filter(x => !lastSet.has(x.i)));
+        const used = shuffleArray(all.filter(x => lastSet.has(x.i)));
+        const chosen = shuffleArray(fresh.concat(used).slice(0, n));
+        try { localStorage.setItem(key, JSON.stringify(chosen.map(x => x.i))); } catch (e) {}
+        return chosen.map(x => x.q);
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = pickRound(gameData);
+        qIndex = 0;
+        wrongAnswers = [];
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            /* سرعة سقوط أعلى قليلاً */
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين والاصطياد
+    function renderShooting(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+        const birds = [];
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+            birds.push({ el: bird, pos: pos, speed: speed });
+        });
+
+        animInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(animInterval); return; }
+            const w = area.clientWidth || window.innerWidth;
+            birds.forEach(b => {
+                b.pos += b.speed;
+                if (b.pos > w + 50) b.pos = -250;
+                if (b.pos < -250) b.pos = w + 50;
+                b.el.style.left = b.pos + 'px';
+            });
+        }, 20);
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك!`;
+        container.appendChild(hint);
+    }
+
+    // 5. تحدي العباقرة (سباق مع الوقت)
+    function renderGenius(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box genius-box';
+        qBox.innerHTML = `⚡ ${qData.q}`;
+
+        const timerWrap = document.createElement('div');
+        timerWrap.className = 'genius-timer-wrap';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerWrap.appendChild(timerBar);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+
+        let isAnswered = false;
+        let timeLeft = 12000;
+        const totalTime = timeLeft;
+
+        function finish(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(animInterval);
+            if (isCorrect) {
+                showFeedback(true, () => { qIndex++; renderNextState(); });
+            } else {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت! ⏱️" });
+                showFeedback(false, () => { qIndex++; renderNextState(); });
+            }
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finish(true);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finish(false, opt);
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(timerWrap);
+        container.appendChild(btnContainer);
+
+        let hint = document.createElement('div');
+        hint.className = 'genius-hint';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> سباق مع الوقت! أجب بسرعة قبل نفاد الثواني`;
+        container.appendChild(hint);
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            timeLeft -= 100;
+            let pct = Math.max(0, (timeLeft / totalTime) * 100);
+            timerBar.style.width = pct + '%';
+            if (timeLeft <= 0) {
+                clearInterval(animInterval);
+                finish(false, null);
+            }
+        }, 100);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

@@ -1,0 +1,3279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>المعرب والمبني من الأسماء والحروف | الصف الثاني الإعدادي | الأستاذ أحمد الشريف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b0f1f;      
+            --primary-light: #b02a3f; 
+            --secondary: #9b1c31;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7a1e;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        .header-main {
+            background: linear-gradient(135deg, #3d0610, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fbeef0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.2vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #ffe2c2, #f59e42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fff7ed; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(234, 122, 30, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fbeef0, #ffe2c2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #6b0f1f; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.3rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 0.95rem; color: #64748b; font-weight: 600;}
+
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #b02a3f; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+            font-weight: 800;
+            color: #6b0f1f;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #9b1c31;
+            line-height: 1.7;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1rem, 3.2vw, 1.3rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #3d0610, #6b0f1f);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,237,213,0.92));
+            color: #6b0f1f;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.8rem, 1.9vw, 1rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.85rem, 2.7vw, 1.05rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* تحدي العباقرة */
+        .genius-box { border: 3px solid var(--warning) !important; background: linear-gradient(135deg, #fffbeb, #ffffff); }
+        .genius-timer-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 22px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .genius-timer-bar { height: 100%; background: linear-gradient(to right, #10b981, var(--warning), var(--danger)); width: 100%; transition: width 0.1s linear; border-radius: 10px; }
+        .genius-hint { text-align: center; margin-top: 15px; color: var(--warning); font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        .send-result-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px dashed #25d366;
+            border-radius: 15px; padding: 20px;
+        }
+        .send-result-box h3 { color: #128c7e; margin-bottom: 12px; font-size: 1.2rem; }
+        .name-input {
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #cbd5e1;
+            font-size: 1.05rem; font-family: 'Cairo', sans-serif; text-align: center; margin-bottom: 12px;
+        }
+        .name-input:focus { outline: none; border-color: #25d366; }
+        .whatsapp-send-btn {
+            width: 100%; background: linear-gradient(to bottom, #25d366, #128c7e);
+            border-bottom: 3px solid #0d6b5f;
+        }
+        .name-warning { color: var(--danger); font-size: 0.9rem; margin-top: 8px; font-weight: bold; }
+
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+            .round-badge { display:inline-block; margin-top:12px; padding:5px 14px; border-radius:999px; background:#fff7ed; color:#c2410c; border:1px solid #fdba74; font-weight:800; font-size:.9rem; }
+        .bubble span { line-height:1.35; }
+    </style>
+</head>
+<body>
+
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.jpg" alt="الأستاذ أحمد الشريف" style="width: 180px; height: 180px; border-radius: 30px; border: 4px solid #f59e42; box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; object-position: center; flex-shrink: 0;" onerror="this.style.display='none'">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        دَرْسٌ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffe2c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لُعْبَة
+                    </h1>
+                    <h1 class="title-line2">مَعَ الأُسْتَاذِ أَحْمَد الشَّرِيف</h1>
+                    <p class="platform-badge" style="display:inline-block; margin:8px auto 4px; padding:6px 22px; border-radius:999px; background:rgba(255,255,255,0.14); border:2px solid #f59e0b; color:#fde3c4; font-weight:900; font-size:1.3rem; letter-spacing:0.5px;">✒️ المعرب والمبني من الأسماء والحروف</p>
+                    <h2>الصَّفُّ الثَّانِي الإِعْدَادِيُّ - الوحدة الأولى</h2>
+                    <p style="margin-top: 10px;">القواعد النحوية • 🎲 كل لعبة 20 سؤالًا تتغير عشوائيًّا من بنك 50 سؤالًا</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | الأستاذ أحمد الشريف</p>
+        <p class="designer">للتواصل: 01554449990</p>
+    </footer>
+
+    <a href="https://wa.me/201554449990" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_FULL_NAME = "المعرب والمبني من الأسماء والحروف - الوحدة الأولى - الصف الثاني الإعدادي";
+    const LESSON_KEY = "elsherief-prep2-1";
+    const TEACHER_WHATSAPP = "201554449990";
+    const QUESTIONS_PER_ROUND = 20;
+    const allGamesData = [
+ {
+  "id": "g1_shooting",
+  "title": "التنشين والاصطياد: معرب أم مبني؟",
+  "type": "shooting",
+  "desc": "اصطد حكم الكلمة من حيث الإعراب والبناء",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "«ظلّ الوطنُ أغلى ما ندافع عنه» كلمة (الوطن):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ظلّ هؤلاء الجنودُ يدافعون» كلمة (هؤلاء):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«نحن نفخر بتاريخنا» كلمة (نحن):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الذي يحب وطنه يعمل بجد» كلمة (الذي):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«مَن يحب وطنه يعمل بجد» كلمة (مَن):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كيف نرقى بوطننا؟» كلمة (كيف):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الفتيات كان لهن دور» كلمة (الفتيات):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أقدّر تضحيات هؤلاء الجنود» كلمة (تضحيات):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«حيثما يكن العدو يقذفه الجندي» كلمة (حيثما):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ألقى الجنديان قذيفتين» كلمة (الجنديان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«قاتل المصريون المعتدين» كلمة (المصريون):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«إن الفدائيات المصريات كثيرات» كلمة (الفدائيات):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«إن أخاك ذو مروءة» كلمة (أخاك):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هذا الجندي معروف بشجاعته» كلمة (هذا):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هذان الجنديان قائدان» كلمة (هذان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«اللذان فازا متفوقان» كلمة (اللذان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هاتان الطالبتان متفوقتان» كلمة (هاتان):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«اللتان فازتا مجتهدتان» كلمة (اللتان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أيُّ طالب نجح؟» كلمة (أيّ):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«زرتُك أمسِ» كلمة (أمس):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«سأزورك الآن» كلمة (الآن):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«لم أره منذ عامين» كلمة (منذ):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ذهبت إلى المدرسة» كلمة (إلى):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«المؤمن لن يتأخر» كلمة (لن):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أنتَ صديقي» كلمة (أنتَ):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هم أبطال» كلمة (هم):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ما أجمل الوطن!» كلمة (الوطن):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«متى تسافر؟» كلمة (متى):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أين تسكن؟» كلمة (أين):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«مهما تفعل تُجزَ به» كلمة (مهما):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«إنّ العلم نور» كلمة (إنّ):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الطالبتان ناجحتان» كلمة (الطالبتان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الذين جاهدوا أبطال» كلمة (الذين):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«تلك المدرسة كبيرة» كلمة (تلك):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«المدرسةُ كبيرة» كلمة (المدرسة):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع علامة الإعراب في «الجنديان»:",
+    "options": [
+     "فرعية (الألف)",
+     "لا علامة",
+     "أصلية",
+     "مقدرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع علامة الإعراب في «المصريون»:",
+    "options": [
+     "لا علامة",
+     "فرعية (الواو)",
+     "أصلية",
+     "مقدرة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "نوع علامة الإعراب في «الفدائيات» المنصوبة:",
+    "options": [
+     "مقدرة",
+     "أصلية",
+     "لا علامة",
+     "فرعية (الكسرة)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع علامة الإعراب في «الوطنُ»:",
+    "options": [
+     "أصلية (الضمة)",
+     "لا علامة",
+     "فرعية",
+     "مقدرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع علامة الإعراب في «أخاك»:",
+    "options": [
+     "لا علامة",
+     "مقدرة",
+     "أصلية",
+     "فرعية (الألف)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الحروف:",
+    "options": [
+     "كلها مبنية",
+     "بعضها معرب",
+     "كلها معربة",
+     "معربة إذا كانت جارة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم الإشارة المعرب:",
+    "options": [
+     "هذان - هاتان",
+     "هذا - هذه",
+     "تلك - هنا",
+     "هؤلاء - ذلك"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الاسم الموصول المعرب:",
+    "options": [
+     "اللذان - اللتان",
+     "الذي - التي",
+     "الذين - اللاتي",
+     "مَن - ما"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم الاستفهام المعرب:",
+    "options": [
+     "أيّ",
+     "أين",
+     "متى",
+     "كيف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم الشرط المعرب:",
+    "options": [
+     "مَن",
+     "مهما",
+     "أيّ",
+     "حيثما"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الإعراب هو:",
+    "options": [
+     "لزوم آخر الكلمة حالة واحدة",
+     "زيادة حرف",
+     "حذف آخر الكلمة",
+     "تغيّر ضبط آخر الكلمة بتغيّر موقعها"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "من الظروف المبنية:",
+    "options": [
+     "أمامَ - خلفَ",
+     "يومًا - ليلةً",
+     "صباحًا - مساءً",
+     "حيثُ - منذُ - أمسِ - الآنَ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«ما أجملَ النصرَ!» كلمة (ما):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الجنودُ في الميدان» كلمة (الجنود):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«مررتُ بالذين جاهدوا» كلمة (الذين):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "g2_true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "اختبر فهمك للمعرب والمبني",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "الإعراب تغيّر ضبط آخر الكلمة بتغيّر موقعها الإعرابي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "البناء لزوم آخر الكلمة ضبطًا واحدًا مهما تغيّر موقعها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جميع الأسماء معربة ما عدا بعضها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الضمائر أسماء معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الضمائر أسماء مبنية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أسماء الإشارة كلها مبنية بلا استثناء.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(هذان) و(هاتان) يعربان إعراب المثنى.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأسماء الموصولة مبنية ما عدا (اللذان) و(اللتان).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أسماء الاستفهام مبنية ما عدا (أيّ).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أسماء الشرط مبنية ما عدا (أيّ).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "بعض الظروف مبنية مثل (حيث - منذ - أمس - الآن).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جميع الحروف مبنية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "بعض الحروف معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "كلمة (هؤلاء) مبنية على الكسر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (الوطن) في «ظلّ الوطنُ أغلى» معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (نحن) معربة لأنها تقع مبتدأ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "كلمة (الذي) مبنية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (مَن) اسم شرط مبني.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (كيف) اسم استفهام مبني.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (أيّ) اسم استفهام مبني.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامات الإعراب نوعان: أصلية وفرعية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "العلامات الأصلية: الضمة والفتحة والكسرة والسكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "العلامات الفرعية تكون في المثنى وجمع المذكر وجمع المؤنث والأسماء الخمسة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة رفع المثنى (الألف) علامة أصلية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة رفع المثنى (الألف) علامة فرعية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «قاتل المصريون المعتدين» علامة رفع الفاعل فرعية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «إن أخاك ذو مروءة» (أخاك) منصوب بعلامة فرعية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «الفتيات كان لهن دور» (الفتيات) مرفوعة بعلامة أصلية.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (هؤلاء) يتغير آخرها حسب موقعها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "كلمة (الطالب) يتغير آخرها حسب موقعها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(إلى) حرف مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(لن) حرف معرب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أمس) ظرف مبني على الكسر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الآن) ظرف مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(منذ) مبنية على الضم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(حيث) مبنية على الضم.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (هذا) معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "كلمة (هذان) في «هذان قائدان» مرفوعة بالألف.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (اللذان) مرفوعة بالألف.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (الذين) مبنية على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمة (التي) معربة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(متى) اسم استفهام مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(مهما) اسم شرط مبني على السكون.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أين) اسم استفهام مبني على الفتح.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الاسم المبني يكون في محل رفع أو نصب أو جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الاسم المعرب لا يتغير آخره.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «رأيت هؤلاء الجنود» (هؤلاء) في محل نصب.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «مررت بهؤلاء الجنود» (هؤلاء) في محل جر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «هؤلاء أبطال» (هؤلاء) مرفوعة بالضمة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «هؤلاء أبطال» (هؤلاء) في محل رفع مبتدأ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g3_mcq",
+  "title": "اختيار من متعدد: المعرب والمبني",
+  "type": "mcq",
+  "desc": "اختر الإجابة الصحيحة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"></path><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"></path></svg>",
+  "questions": [
+   {
+    "q": "الإعراب:",
+    "options": [
+     "حذف حرف من الكلمة",
+     "تغيّر ضبط آخر الكلمة بتغيّر موقعها الإعرابي",
+     "لزوم آخر الكلمة ضبطًا واحدًا",
+     "تغيير أول الكلمة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "البناء:",
+    "options": [
+     "لزوم آخر الكلمة ضبطًا واحدًا مهما تغيّر موقعها",
+     "تغيّر ضبط آخر الكلمة",
+     "تغيير وسط الكلمة",
+     "إضافة حرف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأسماء المبنية:",
+    "options": [
+     "الضمائر وأسماء الإشارة والموصولة والاستفهام والشرط وبعض الظروف",
+     "أسماء الأعلام",
+     "المعرف بأل",
+     "كل الأسماء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الحروف من حيث الإعراب والبناء:",
+    "options": [
+     "كلها مبنية",
+     "بعضها معرب",
+     "كلها معربة",
+     "حروف الجر معربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المعرب من أسماء الإشارة:",
+    "options": [
+     "هذا - هؤلاء",
+     "تلك - ذلك",
+     "هذان - هاتان",
+     "هذه - هنا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "المعرب من الأسماء الموصولة:",
+    "options": [
+     "مَن - ما",
+     "الذين - اللاتي",
+     "الذي - التي",
+     "اللذان - اللتان"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "المعرب من أسماء الاستفهام والشرط:",
+    "options": [
+     "متى",
+     "مَن",
+     "أيّ",
+     "كيف"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "حكم كلمة (الوطن) في «حرّرنا الوطنَ»:",
+    "options": [
+     "مبني على الضم",
+     "معرب مرفوع",
+     "معرب منصوب",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "حكم كلمة (هؤلاء) في «كرّمنا هؤلاء الجنود»:",
+    "options": [
+     "معرب منصوب",
+     "مبني على الكسر في محل نصب",
+     "معرب مجرور",
+     "مبني على الفتح"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "حكم كلمة (نحن) في «نحن نفخر»:",
+    "options": [
+     "مبني على الفتح",
+     "معرب مرفوع",
+     "معرب منصوب",
+     "مبني على الضم في محل رفع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "حكم كلمة (الذي) في «الذي يحب وطنه يعمل»:",
+    "options": [
+     "مبني على السكون في محل رفع",
+     "مبني على الكسر",
+     "معرب مرفوع",
+     "معرب منصوب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "حكم كلمة (كيف) في «كيف نرقى بوطننا؟»:",
+    "options": [
+     "معرب مرفوع",
+     "مبني على الضم",
+     "مبني على الفتح",
+     "معرب منصوب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "حكم كلمة (أيّ) في «أيُّ طالبٍ فاز؟»:",
+    "options": [
+     "معرب منصوب",
+     "معرب مرفوع",
+     "مبني على الضم",
+     "مبني على الفتح"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "حكم كلمة (هذان) في «هذان قائدان»:",
+    "options": [
+     "معرب مرفوع بالألف",
+     "معرب منصوب",
+     "مبني على الكسر",
+     "مبني على السكون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "حكم كلمة (أمس) في «زرتك أمسِ»:",
+    "options": [
+     "معرب منصوب",
+     "معرب مجرور",
+     "مبني على الكسر",
+     "مبني على الفتح"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة المعربة من بين:",
+    "options": [
+     "أنتم",
+     "الكتاب",
+     "الذي",
+     "هذا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الكلمة المبنية من بين:",
+    "options": [
+     "الجنود",
+     "المصريون",
+     "الوطن",
+     "هؤلاء"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الكلمة المبنية من بين:",
+    "options": [
+     "اللتان",
+     "هذان",
+     "أيّ",
+     "متى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "العلامات الأصلية للإعراب:",
+    "options": [
+     "ثبوت النون وحذفها",
+     "الضمة والفتحة والكسرة والسكون",
+     "الواو والألف والياء",
+     "الكسرة نيابة عن الفتحة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "من العلامات الفرعية:",
+    "options": [
+     "الضمة في المفرد",
+     "الكسرة في المفرد",
+     "الواو في جمع المذكر السالم",
+     "الفتحة في جمع التكسير"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع علامة الإعراب في «ألقى الجنديان قذيفتين» على (الجنديان):",
+    "options": [
+     "لا يوجد",
+     "مقدرة",
+     "فرعية (الألف)",
+     "أصلية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "نوع علامة الإعراب في «قاتل المصريون المعتدين» على (المعتدين):",
+    "options": [
+     "فرعية (الياء)",
+     "مقدرة",
+     "لا يوجد",
+     "أصلية (الفتحة)"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "نوع علامة الإعراب في «حقق الأبطال النصر» على (الأبطال):",
+    "options": [
+     "مقدرة",
+     "فرعية",
+     "لا يوجد",
+     "أصلية (الضمة)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع علامة الإعراب في «إنّ الفدائيات كثيرات» على (الفدائيات):",
+    "options": [
+     "لا يوجد",
+     "مقدرة",
+     "أصلية",
+     "فرعية (الكسرة نيابة عن الفتحة)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "نوع علامة الإعراب في «إنّ أخاك ذو مروءة» على (ذو):",
+    "options": [
+     "فرعية (الواو)",
+     "أصلية",
+     "لا يوجد",
+     "مقدرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أقدّر تضحيات هؤلاء الجنود» الكلمة المبنية:",
+    "options": [
+     "الجنود",
+     "تضحيات",
+     "هؤلاء",
+     "أقدّر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«حيثما يكن العدو يقذفه الجندي المصري» الكلمة المبنية من الأسماء:",
+    "options": [
+     "حيثما",
+     "العدو",
+     "المصري",
+     "الجندي"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«مَن يستطيع أن يعيش كريمًا؟» نوع (مَن) وحكمها:",
+    "options": [
+     "اسم شرط معرب",
+     "اسم استفهام مبني",
+     "حرف",
+     "اسم موصول معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أنتم يا أبناء الوطن إخوة» الكلمة المبنية:",
+    "options": [
+     "إخوة",
+     "الوطن",
+     "أبناء",
+     "أنتم"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هذا الجندي المصري معروف» الكلمة المبنية:",
+    "options": [
+     "المصري",
+     "الجندي",
+     "هذا",
+     "معروف"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«مَن يجتهدْ ينجحْ» (مَن) هنا:",
+    "options": [
+     "حرف",
+     "اسم استفهام مبني",
+     "اسم موصول معرب",
+     "اسم شرط مبني"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«التقيتُ الذي فاز» (الذي) هنا:",
+    "options": [
+     "معرب منصوب",
+     "معرب مجرور",
+     "اسم موصول مبني في محل نصب",
+     "مبني في محل رفع"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«قابلتُ اللذين فازا» حكم (اللذين):",
+    "options": [
+     "مبني على الفتح",
+     "معرب منصوب بالياء",
+     "معرب مجرور",
+     "مبني على الكسر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«رأيتُ هذين الجنديين» حكم (هذين):",
+    "options": [
+     "معرب منصوب بالياء",
+     "معرب مرفوع",
+     "مبني على الكسر",
+     "مبني على الفتح"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الحرف المبني على الفتح:",
+    "options": [
+     "إلى",
+     "لم",
+     "في",
+     "إنّ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الحرف المبني على السكون:",
+    "options": [
+     "سوف",
+     "إنّ",
+     "ثمّ",
+     "لن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الحرف المبني على الكسر:",
+    "options": [
+     "ثمّ",
+     "الباء (بِ)",
+     "إنّ",
+     "لن"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ما زال الوطن غاليًا» (ما):",
+    "options": [
+     "اسم مبني",
+     "فعل",
+     "حرف مبني",
+     "اسم معرب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة المختلفة: (هؤلاء - الذين - نحن - الجنود):",
+    "options": [
+     "هؤلاء",
+     "الذين",
+     "الجنود",
+     "نحن"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة المختلفة: (هذا - هذه - هذان - هؤلاء) من حيث الحكم:",
+    "options": [
+     "هذان",
+     "هؤلاء",
+     "هذا",
+     "هذه"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الكلمة المختلفة: (الذي - التي - اللذان - الذين) من حيث الحكم:",
+    "options": [
+     "الذين",
+     "الذي",
+     "اللذان",
+     "التي"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة المختلفة: (متى - أين - كيف - أيّ) من حيث الحكم:",
+    "options": [
+     "أين",
+     "أيّ",
+     "متى",
+     "كيف"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "المعرب يكون آخره:",
+    "options": [
+     "متغيرًا بحسب الموقع",
+     "ثابتًا دائمًا",
+     "ساكنًا دائمًا",
+     "مفتوحًا دائمًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الآن نحتفل بالنصر» حكم (الآن):",
+    "options": [
+     "ظرف مبني على الفتح",
+     "معرب مرفوع",
+     "معرب منصوب",
+     "مبني على الضم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«منذُ الصباحِ وأنا أنتظرك» حكم (منذ):",
+    "options": [
+     "مبني على الضم",
+     "معرب مرفوع",
+     "مبني على السكون",
+     "معرب مجرور"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الأسماء المبنية:",
+    "options": [
+     "الضمائر وأسماء الإشارة والموصولة والاستفهام والشرط",
+     "المعرف بأل",
+     "الأعلام فقط",
+     "جميع الأسماء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "البناء هو:",
+    "options": [
+     "حذف آخرها",
+     "زيادة حرف",
+     "لزوم آخر الكلمة ضبطًا واحدًا مهما تغيّر موقعها",
+     "تغيّر ضبط آخرها"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أيُّهم يحب الوطن أكثر؟» حكم (أيّ):",
+    "options": [
+     "فعل",
+     "حرف",
+     "مبني",
+     "معرب"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هي أمّ الشهيد» حكم (هي):",
+    "options": [
+     "مبني على الضم",
+     "مبني على الفتح",
+     "معرب منصوب",
+     "معرب مرفوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«إنّ هاتين الشجرتين مثمرتان» حكم (هاتين):",
+    "options": [
+     "مجرور",
+     "مبني",
+     "معرب منصوب بالياء",
+     "معرب مرفوع"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "g4_genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تطبيقات أعمق على المعرب والمبني - سباق مع الوقت!",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+  "questions": [
+   {
+    "q": "«ظلّ الوطنُ غاليًا، وكرّمنا هؤلاء الجنودَ، وأثنينا على الوطنِ» ما الذي تغيّر ضبطه؟",
+    "options": [
+     "هؤلاء (مبني)",
+     "ظلّ",
+     "الوطن (معرب)",
+     "كرّمنا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ظلّ هؤلاء الجنودُ يدافعون، وكرّمنا هؤلاء، ومررنا بهؤلاء» حكم (هؤلاء):",
+    "options": [
+     "مبني على الفتح",
+     "معرب يتغير آخره",
+     "مبني على الضم",
+     "مبني على الكسر في المواضع كلها"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هذان قائدان، ورأيتُ هذين القائدين» لماذا تغيّر (هذان) إلى (هذين)؟",
+    "options": [
+     "لأنه مبني",
+     "لأنه فعل",
+     "لأنه معرب إعراب المثنى",
+     "خطأ في الكتابة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«اللذان فازا متفوقان، وكافأتُ اللذين فازا» لماذا تغيّر (اللذان)؟",
+    "options": [
+     "لأنه معرب إعراب المثنى",
+     "لأنه مبني",
+     "لا يتغير",
+     "لأنه حرف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أيُّ كتابٍ قرأت؟» إعراب (أيّ):",
+    "options": [
+     "مفعول به مقدم منصوب",
+     "اسم مبني",
+     "مبتدأ مرفوع",
+     "فاعل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أيُّ طالبٍ نجح؟» إعراب (أيّ):",
+    "options": [
+     "مبتدأ مرفوع بالضمة",
+     "اسم مبني",
+     "مفعول به منصوب",
+     "خبر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«بأيِّ قلمٍ كتبت؟» إعراب (أيّ):",
+    "options": [
+     "اسم مجرور بالكسرة",
+     "مبني",
+     "مفعول به",
+     "فاعل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر الجملة التي فيها اسم إشارة معرب:",
+    "options": [
+     "هذه الشجرة مثمرة",
+     "هؤلاء الفلاحون نشيطون",
+     "هاتان الشجرتان مثمرتان",
+     "تلك الشجرة مثمرة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اختر الجملة التي فيها اسم موصول معرب:",
+    "options": [
+     "اللاتي نجحن مجتهدات",
+     "اللتان نجحتا مجتهدتان",
+     "الذي نجح مجتهد",
+     "التي نجحت مجتهدة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اختر الجملة التي فيها اسم استفهام معرب:",
+    "options": [
+     "كيف حالك؟",
+     "أين تسكن؟",
+     "متى تسافر؟",
+     "أيَّ طريقٍ تسلك؟"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اختر الجملة التي فيها ظرف مبني:",
+    "options": [
+     "انتظرتك حيثُ اتفقنا",
+     "انتظرتك صباحًا",
+     "انتظرتك أمامَ البيت",
+     "انتظرتك يومًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«نحن المصريين لا نقبل الهزيمة» الكلمة المبنية والمعربة:",
+    "options": [
+     "كلاهما مبني",
+     "كلاهما معرب",
+     "نحن مبني - المصريين معرب",
+     "نحن معرب - المصريين مبني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هم الذين صنعوا النصر» عدد الأسماء المبنية:",
+    "options": [
+     "ثلاثة",
+     "اثنان (هم - الذين)",
+     "واحد",
+     "لا يوجد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ذلك الجندي البطل» حكم (ذلك) و(الجندي):",
+    "options": [
+     "معرب - مبني",
+     "كلاهما مبني",
+     "مبني - معرب",
+     "كلاهما معرب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هذه أرضنا، وهذان علمانا» حكم (هذه) و(هذان):",
+    "options": [
+     "كلاهما معرب",
+     "معرب - مبني",
+     "كلاهما مبني",
+     "مبني - معرب"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«إنّ هذين البطلين شجاعان» إعراب (هذين):",
+    "options": [
+     "اسم إن منصوب بالياء",
+     "مبتدأ",
+     "مبني في محل نصب",
+     "خبر إن"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«إنّ هؤلاء الأبطال شجعان» إعراب (هؤلاء):",
+    "options": [
+     "مبني على الكسر في محل نصب اسم إن",
+     "مرفوع",
+     "منصوب بالياء",
+     "خبر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«حيث يكون العدل يكون الأمان» حكم (حيث):",
+    "options": [
+     "معرب مرفوع",
+     "مبني على الفتح",
+     "مبني على الضم",
+     "معرب منصوب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة المعربة بعلامة أصلية:",
+    "options": [
+     "الوطنُ",
+     "الجنديان",
+     "المصريون",
+     "الفدائياتِ (منصوبة)"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الكلمة المعربة بعلامة فرعية:",
+    "options": [
+     "الوطنُ",
+     "الجنودُ",
+     "الأرضَ",
+     "أبوك"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الخطأ في «هؤلاءُ أبطالٌ» (بضم الهمزة):",
+    "options": [
+     "هؤلاء مبنية على الكسر لا تتغير",
+     "الخبر خطأ",
+     "لا خطأ",
+     "هؤلاء معربة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الخطأ في «مررتُ بهذان الجنديين»:",
+    "options": [
+     "لا خطأ",
+     "الصواب بهؤلاء",
+     "الصواب بهذين لأنه مجرور بالياء",
+     "الصواب بهذا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الخطأ في «كافأتُ اللذان فازا»:",
+    "options": [
+     "الصواب اللذين لأنه منصوب بالياء",
+     "الصواب الذين",
+     "الصواب الذي",
+     "لا خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«متى يحلّ السلام؟» (متى):",
+    "options": [
+     "اسم استفهام مبني على السكون في محل نصب ظرف",
+     "معرب منصوب",
+     "حرف",
+     "فعل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«كيف حالُ الوطن؟» (كيف):",
+    "options": [
+     "حرف",
+     "معرب",
+     "فعل",
+     "اسم استفهام مبني على الفتح في محل رفع خبر مقدم"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الحروف كلها مبنية» فأيّ مما يلي مبني:",
+    "options": [
+     "الوطن - الجنود",
+     "هذان - اللتان",
+     "ثمّ - لكنّ - إلى",
+     "أخاك - ذو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«سوف ينتصر الحق» (سوف):",
+    "options": [
+     "اسم معرب",
+     "فعل",
+     "حرف مبني على الفتح",
+     "حرف معرب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«لم يتأخر الجيش» (لم):",
+    "options": [
+     "فعل",
+     "حرف مبني على السكون",
+     "اسم مبني",
+     "حرف معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«في الاتحاد قوة» (في):",
+    "options": [
+     "حرف معرب",
+     "حرف مبني على السكون",
+     "فعل",
+     "اسم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هل أنت مستعد؟» (هل) و(أنت):",
+    "options": [
+     "حرف مبني - ضمير مبني",
+     "حرف معرب - ضمير معرب",
+     "كلاهما معرب",
+     "هل اسم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اختر المجموعة المبنية كلها:",
+    "options": [
+     "اللذان - التي - هي",
+     "هو - الكتاب - الذي - أيّ",
+     "هذان - هم - الذي",
+     "هو - هذا - الذي - كيف"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اختر المجموعة المعربة كلها:",
+    "options": [
+     "الجنود - هذان - اللتان - أيّ",
+     "هم - هذا - متى",
+     "الجنود - هؤلاء - الذي",
+     "نحن - التي - كيف"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«مَن شارك في الحرب؟» إعراب (مَن):",
+    "options": [
+     "اسم استفهام مبني على السكون في محل رفع مبتدأ",
+     "حرف",
+     "معرب مرفوع",
+     "فاعل منصوب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الذين شاركوا في الحرب أبطال» إعراب (الذين):",
+    "options": [
+     "اسم موصول مبني على الفتح في محل رفع مبتدأ",
+     "خبر",
+     "حرف",
+     "معرب مرفوع بالواو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هؤلاء شاركوا في الحرب» إعراب (هؤلاء):",
+    "options": [
+     "معرب مرفوع",
+     "حرف",
+     "فاعل",
+     "اسم إشارة مبني على الكسر في محل رفع مبتدأ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أنتم أبناء الوطن» إعراب (أنتم):",
+    "options": [
+     "معرب مرفوع",
+     "فاعل",
+     "ضمير مبني على السكون في محل رفع مبتدأ",
+     "مفعول"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«يحمي الجنودُ الوطنَ» عدد الكلمات المعربة من الأسماء:",
+    "options": [
+     "واحدة",
+     "اثنتان",
+     "لا يوجد",
+     "ثلاث"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«يحمي هؤلاء الوطنَ» عدد الأسماء المبنية:",
+    "options": [
+     "ثلاثة",
+     "لا يوجد",
+     "اثنان",
+     "واحد (هؤلاء)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الفرق بين (هذا) و(هذان) من حيث الإعراب والبناء:",
+    "options": [
+     "كلاهما معرب",
+     "هذا معرب",
+     "هذا مبني وهذان معرب",
+     "كلاهما مبني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفرق بين (الذي) و(اللذان):",
+    "options": [
+     "كلاهما معرب",
+     "الذي مبني واللذان معرب",
+     "كلاهما مبني",
+     "الذي معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "لماذا نقول عن المبني «في محل رفع» لا «مرفوع»؟",
+    "options": [
+     "لأنه معرب",
+     "لأن آخره لا يتغير فالحركة ليست علامة إعراب",
+     "لأنه منصوب",
+     "لأنه مرفوع بالضمة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«كم شهيدًا قدّمت مصر؟» (كم):",
+    "options": [
+     "حرف",
+     "اسم استفهام مبني",
+     "فعل",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الأبطالُ كتبوا تاريخًا» علامة إعراب (الأبطال) نوعها:",
+    "options": [
+     "أصلية",
+     "مقدرة",
+     "فرعية",
+     "لا يوجد"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الأبطالَ نحترم» علامة إعراب (الأبطال) هنا:",
+    "options": [
+     "الياء الفرعية",
+     "الكسرة",
+     "الفتحة الأصلية",
+     "مبني"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«المصريات كتبن تاريخًا» علامة رفع (المصريات) نوعها:",
+    "options": [
+     "مقدرة",
+     "فرعية",
+     "مبني",
+     "أصلية (الضمة)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«احترمتُ المصرياتِ» علامة نصب (المصريات) نوعها:",
+    "options": [
+     "فرعية (الكسرة)",
+     "مقدرة",
+     "مبني",
+     "أصلية"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«إنّ ذا العلمِ محترمٌ» علامة نصب (ذا) نوعها:",
+    "options": [
+     "أصلية",
+     "مبني",
+     "مقدرة",
+     "فرعية (الألف)"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الأسماء المبنية على الكسر:",
+    "options": [
+     "هؤلاء - أمسِ",
+     "هذا - الذي",
+     "نحن - حيث",
+     "الآن - أين"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«حضر هذان، ورأيت هذين، ومررت بهذين» حكم (هذان):",
+    "options": [
+     "مبني على السكون",
+     "مبني على الكسر",
+     "معرب بالحركات",
+     "معرب يتغير آخره بالألف والياء"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«حضر هؤلاء، ورأيت هؤلاء، ومررت بهؤلاء» حكم (هؤلاء):",
+    "options": [
+     "معرب بالحروف",
+     "مبني لا يتغير آخره",
+     "معرب بالحركات",
+     "حرف"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "g5_bubbles",
+  "title": "الفقاعات المتساقطة: معرب أم مبني؟",
+  "type": "bubbles",
+  "desc": "اضغط الفقاعة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "(الوطن):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(هؤلاء):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(نحن):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(الذي):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الجنود):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(هذان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هذا):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(اللذان):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(التي):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أيّ):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كيف):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(متى):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الكتاب):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هو):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(هاتان):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(تلك):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(اللتان):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(الذين):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(مَن):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أين):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أمس):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(حيث):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(إلى):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(إنّ):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أبوك):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(المصريون):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أنتم):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(مهما):",
+    "options": [
+     "مبني",
+     "معرب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(الآن):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(منذ):",
+    "options": [
+     "معرب",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة أصلية:",
+    "options": [
+     "الضمة",
+     "الألف",
+     "الواو"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة أصلية:",
+    "options": [
+     "الألف",
+     "الياء",
+     "الفتحة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة أصلية:",
+    "options": [
+     "الواو",
+     "الياء",
+     "الكسرة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة فرعية:",
+    "options": [
+     "الضمة",
+     "الفتحة",
+     "الواو"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة فرعية:",
+    "options": [
+     "الكسرة",
+     "الألف",
+     "الضمة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة فرعية:",
+    "options": [
+     "السكون",
+     "الياء",
+     "الفتحة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة (الجنديان):",
+    "options": [
+     "مبني",
+     "أصلية",
+     "فرعية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "علامة (الوطنُ):",
+    "options": [
+     "فرعية",
+     "أصلية",
+     "مبني"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة (المصريون):",
+    "options": [
+     "مبني",
+     "فرعية",
+     "أصلية"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "علامة (أخاك):",
+    "options": [
+     "فرعية",
+     "مبني",
+     "أصلية"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "علامة (الأبطالُ):",
+    "options": [
+     "فرعية",
+     "مبني",
+     "أصلية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(هؤلاء) مبنية على:",
+    "options": [
+     "الضم",
+     "الكسر",
+     "الفتح"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(نحن) مبنية على:",
+    "options": [
+     "الفتح",
+     "الكسر",
+     "الضم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(الذي) مبني على:",
+    "options": [
+     "الضم",
+     "السكون",
+     "الكسر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أين) مبنية على:",
+    "options": [
+     "الفتح",
+     "الضم",
+     "الكسر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أمس) مبنية على:",
+    "options": [
+     "الضم",
+     "الفتح",
+     "الكسر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "(حيث) مبنية على:",
+    "options": [
+     "الكسر",
+     "الضم",
+     "الفتح"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(الآن) مبنية على:",
+    "options": [
+     "الضم",
+     "الفتح",
+     "الكسر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(كيف) مبنية على:",
+    "options": [
+     "الفتح",
+     "الضم",
+     "السكون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(متى) مبنية على:",
+    "options": [
+     "الضم",
+     "الفتح",
+     "السكون"
+    ],
+    "ans": 2
+   }
+  ]
+ }
+];
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.15, 0.15);
+        setTimeout(() => playTone(659.25, 'sine', 0.15, 0.15), 100);
+        setTimeout(() => playTone(783.99, 'sine', 0.25, 0.15), 200);
+        spawnConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(200, 'sawtooth', 0.3, 0.1);
+    }
+
+    function spawnConfetti() {
+        const colors = ['#b02a3f', '#f59e42', '#10b981', '#ef4444', '#9b1c31', '#f59e0b'];
+        for (let i = 0; i < 25; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، أحسنت!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300);
+    }
+
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let wrongAnswers = [];
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="round-badge">🎲 ${Math.min(QUESTIONS_PER_ROUND, game.questions.length)} سؤالًا عشوائيًّا من ${game.questions.length}</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('name-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.focus();
+            nameInput.classList.add('shake');
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const message = "مرحبًا أستاذ أحمد الشريف 🌟\n" +
+            "الطالب/ـة: " + name + "\n" +
+            "الدرس: " + LESSON_FULL_NAME + "\n" +
+            "اللعبة: " + currentGame.title + "\n" +
+            "النتيجة: " + score + " من " + total;
+        const url = "https://wa.me/" + TEACHER_WHATSAPP + "?text=" + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="send-result-box">
+                    <h3>📤 أرسل نتيجتك للأستاذ أحمد الشريف</h3>
+                    <input type="text" id="student-name-input" class="name-input" placeholder="اكتب اسمك هنا ✍️">
+                    <button class="btn whatsapp-send-btn" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                        إرسال النتيجة عبر واتساب
+                    </button>
+                    <p id="name-warning" class="name-warning" style="display:none;">من فضلك اكتب اسمك أولاً ✍️</p>
+                </div>
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    // اختيار 20 سؤالًا عشوائيًّا من بنك الأسئلة، مع تفضيل الأسئلة التي لم تظهر في المرة السابقة
+    function pickRound(gameData) {
+        const all = gameData.questions.map((q, i) => ({ q, i }));
+        const n = Math.min(QUESTIONS_PER_ROUND, all.length);
+        const key = LESSON_KEY + '-' + gameData.id;
+        let last = [];
+        try { last = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { last = []; }
+        const lastSet = new Set(last);
+        const fresh = shuffleArray(all.filter(x => !lastSet.has(x.i)));
+        const used = shuffleArray(all.filter(x => lastSet.has(x.i)));
+        const chosen = shuffleArray(fresh.concat(used).slice(0, n));
+        try { localStorage.setItem(key, JSON.stringify(chosen.map(x => x.i))); } catch (e) {}
+        return chosen.map(x => x.q);
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = pickRound(gameData);
+        qIndex = 0;
+        wrongAnswers = [];
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            /* سرعة سقوط أعلى قليلاً */
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين والاصطياد
+    function renderShooting(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+        const birds = [];
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+            birds.push({ el: bird, pos: pos, speed: speed });
+        });
+
+        animInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(animInterval); return; }
+            const w = area.clientWidth || window.innerWidth;
+            birds.forEach(b => {
+                b.pos += b.speed;
+                if (b.pos > w + 50) b.pos = -250;
+                if (b.pos < -250) b.pos = w + 50;
+                b.el.style.left = b.pos + 'px';
+            });
+        }, 20);
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك!`;
+        container.appendChild(hint);
+    }
+
+    // 5. تحدي العباقرة (سباق مع الوقت)
+    function renderGenius(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box genius-box';
+        qBox.innerHTML = `⚡ ${qData.q}`;
+
+        const timerWrap = document.createElement('div');
+        timerWrap.className = 'genius-timer-wrap';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerWrap.appendChild(timerBar);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+
+        let isAnswered = false;
+        let timeLeft = 12000;
+        const totalTime = timeLeft;
+
+        function finish(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(animInterval);
+            if (isCorrect) {
+                showFeedback(true, () => { qIndex++; renderNextState(); });
+            } else {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت! ⏱️" });
+                showFeedback(false, () => { qIndex++; renderNextState(); });
+            }
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finish(true);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finish(false, opt);
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(timerWrap);
+        container.appendChild(btnContainer);
+
+        let hint = document.createElement('div');
+        hint.className = 'genius-hint';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> سباق مع الوقت! أجب بسرعة قبل نفاد الثواني`;
+        container.appendChild(hint);
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            timeLeft -= 100;
+            let pct = Math.max(0, (timeLeft / totalTime) * 100);
+            timerBar.style.width = pct + '%';
+            if (timeLeft <= 0) {
+                clearInterval(animInterval);
+                finish(false, null);
+            }
+        }, 100);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
