@@ -1,0 +1,3435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>اسم التفضيل | الصف الثالث الثانوي | الأستاذ أحمد الشريف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b0f1f;      
+            --primary-light: #b02a3f; 
+            --secondary: #9b1c31;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7a1e;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        .header-main {
+            background: linear-gradient(135deg, #3d0610, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fbeef0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 5.2vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #ffe2c2, #f59e42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fff7ed; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(234, 122, 30, 0.25); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fbeef0, #ffe2c2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #6b0f1f; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.3rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 0.95rem; color: #64748b; font-weight: 600;}
+
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #b02a3f; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+            font-weight: 800;
+            color: #6b0f1f;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #9b1c31;
+            line-height: 1.7;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1rem, 3.2vw, 1.3rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #3d0610, #6b0f1f);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,237,213,0.92));
+            color: #6b0f1f;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.8rem, 1.9vw, 1rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #b02a3f; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.85rem, 2.7vw, 1.05rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* تحدي العباقرة */
+        .genius-box { border: 3px solid var(--warning) !important; background: linear-gradient(135deg, #fffbeb, #ffffff); }
+        .genius-timer-wrap { width: 100%; height: 16px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 22px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+        .genius-timer-bar { height: 100%; background: linear-gradient(to right, #10b981, var(--warning), var(--danger)); width: 100%; transition: width 0.1s linear; border-radius: 10px; }
+        .genius-hint { text-align: center; margin-top: 15px; color: var(--warning); font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        .send-result-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px dashed #25d366;
+            border-radius: 15px; padding: 20px;
+        }
+        .send-result-box h3 { color: #128c7e; margin-bottom: 12px; font-size: 1.2rem; }
+        .name-input {
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #cbd5e1;
+            font-size: 1.05rem; font-family: 'Cairo', sans-serif; text-align: center; margin-bottom: 12px;
+        }
+        .name-input:focus { outline: none; border-color: #25d366; }
+        .whatsapp-send-btn {
+            width: 100%; background: linear-gradient(to bottom, #25d366, #128c7e);
+            border-bottom: 3px solid #0d6b5f;
+        }
+        .name-warning { color: var(--danger); font-size: 0.9rem; margin-top: 8px; font-weight: bold; }
+
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+            .round-badge { display:inline-block; margin-top:12px; padding:5px 14px; border-radius:999px; background:#fff7ed; color:#c2410c; border:1px solid #fdba74; font-weight:800; font-size:.9rem; }
+        .bubble span { line-height:1.35; }
+    </style>
+</head>
+<body>
+
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <img src="logo.jpg" alt="الأستاذ أحمد الشريف" style="width: 360px; max-width: 80vw; height: auto; aspect-ratio: 1 / 1; border-radius: 30px; border: 4px solid #f59e42; box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; object-position: center; flex-shrink: 0;" onerror="this.style.display='none'">
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        دَرْسٌ
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffe2c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لُعْبَة
+                    </h1>
+                    <h1 class="title-line2">مَعَ الأُسْتَاذِ أَحْمَد الشَّرِيف</h1>
+                    <p class="platform-badge" style="display:inline-block; margin:8px auto 4px; padding:6px 22px; border-radius:999px; background:rgba(255,255,255,0.14); border:2px solid #f59e0b; color:#fde3c4; font-weight:900; font-size:1.3rem; letter-spacing:0.5px;">✒️ اسم التفضيل</p>
+                    <h2>الصَّفُّ الثَّالِثُ الثَّانَوِيُّ - النحو - الوحدة الثانية (الأبنية)</h2>
+                    <p style="margin-top: 10px;">القواعد النحوية • 🎲 كل لعبة 20 سؤالًا تتغير عشوائيًّا من بنك 50 سؤالًا</p>
+                </div>
+            </div>
+        </div>
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid"></div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 20</span>
+        </div>
+        <div class="game-container" id="game-container"></div>
+    </div>
+
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | الأستاذ أحمد الشريف</p>
+        <p class="designer">للتواصل: 01554449990</p>
+    </footer>
+
+    <a href="https://wa.me/201554449990" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_FULL_NAME = "اسم التفضيل - النحو - الوحدة الثانية (الأبنية) - الصف الثالث الثانوي";
+    const LESSON_KEY = "elsherief-sec3-3";
+    const TEACHER_WHATSAPP = "201554449990";
+    const QUESTIONS_PER_ROUND = 20;
+    const allGamesData = [
+ {
+  "id": "g1_shooting",
+  "title": "التنشين والاصطياد: صوّب اسم التفضيل وحالاته",
+  "type": "shooting",
+  "desc": "اصطد الإجابة الصحيحة قبل أن تهرب",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "اسم التفضيل يصاغ على وزن:",
+    "options": [
+     "فعيل",
+     "مفعال",
+     "فاعل",
+     "أفعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل يدل على:",
+    "options": [
+     "اشتراك شيئين في صفة وزيادة أحدهما",
+     "مكان الفعل",
+     "كثرة الفعل",
+     "وقوع الفعل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المفضّل عليه يأتي غالبًا بعد حرف الجر:",
+    "options": [
+     "في",
+     "عن",
+     "على",
+     "من"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل من (كرم):",
+    "options": [
+     "كارم",
+     "أكرم",
+     "مكرم",
+     "كريم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل من (عظم):",
+    "options": [
+     "عظمة",
+     "أعظم",
+     "عظيم",
+     "معظم"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل من (خير) و(شر) حذفت همزتهما فصارا:",
+    "options": [
+     "خير وشر",
+     "خيار وشرار",
+     "أخير وأشر",
+     "أخيار وأشرار"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (انتصر) يصاغ:",
+    "options": [
+     "أنصر",
+     "أنتصر",
+     "أكثر انتصارًا",
+     "منتصر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل من (احمرّ) يصاغ:",
+    "options": [
+     "أحمر من",
+     "محمرّ",
+     "أحمر",
+     "أشد احمرارًا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "لا يصاغ اسم التفضيل مباشرة من فعل:",
+    "options": [
+     "ثلاثي مثبت",
+     "ثلاثي تام",
+     "ثلاثي متصرف",
+     "غير ثلاثي"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "لا يصاغ اسم التفضيل من الفعل الجامد مثل:",
+    "options": [
+     "كتب وفهم",
+     "علم وحلم",
+     "نعم وبئس وعسى",
+     "صبر وشكر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "لا يصاغ اسم التفضيل من الفعل الناقص مثل:",
+    "options": [
+     "نجح",
+     "كان وأخواتها",
+     "كتب",
+     "قرأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الفعل الذي لا يقبل التفاوت مثل:",
+    "options": [
+     "مات وفني",
+     "فهم وحفظ",
+     "صبر وكرم",
+     "علم وعقل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفعل الذي الوصف منه على (أفعل - فعلاء) مثل:",
+    "options": [
+     "فهم وعلم",
+     "كرم وعظم",
+     "حسن وجمل",
+     "حمر وعور"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الفعل المبني للمجهول يصاغ منه التفضيل بـ:",
+    "options": [
+     "مصدر مؤول بعد أكثر ونحوها",
+     "أشد فقط",
+     "لا يصاغ",
+     "أفعل مباشرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«محمد أكرمُ من علي» حالة اسم التفضيل:",
+    "options": [
+     "مضاف لمعرفة",
+     "مضاف لنكرة",
+     "محلى بأل",
+     "مجرد من أل والإضافة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل المجرد من أل والإضافة يكون:",
+    "options": [
+     "مؤنثًا",
+     "جمعًا",
+     "مطابقًا",
+     "مفردًا مذكرًا دائمًا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«فاطمة ... من أختها» الصواب:",
+    "options": [
+     "ذكياء",
+     "ذكرى",
+     "أذكى",
+     "الذكرى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبات ... من غيرهن» الصواب:",
+    "options": [
+     "نشيطات",
+     "أنشط",
+     "نُشطيات",
+     "النشطى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل المحلى بأل:",
+    "options": [
+     "يطابق ما قبله ولا تأتي بعده من",
+     "لا يطابق",
+     "تأتي بعده من",
+     "يلزم الإفراد والتذكير"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«فاطمة هي ... » الصواب:",
+    "options": [
+     "الفضلى",
+     "فضلى",
+     "أفضل",
+     "الأفضل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«المهندسون هم ... » الصواب:",
+    "options": [
+     "الأفضلون",
+     "فضليات",
+     "أفضل",
+     "الأفضل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل المضاف إلى نكرة:",
+    "options": [
+     "يؤنث",
+     "يجمع",
+     "مفرد مذكر دائمًا",
+     "يطابق"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«هاتان ... طالبتين» الصواب:",
+    "options": [
+     "أفضلا",
+     "الفضليان",
+     "فضليان",
+     "أفضل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل المضاف إلى معرفة:",
+    "options": [
+     "يجب المطابقة",
+     "يجب الإفراد",
+     "يجوز فيه المطابقة وعدمها",
+     "يجب التأنيث"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«فاطمة ... الطالبات» يجوز:",
+    "options": [
+     "الفضلى فقط",
+     "أفضل أو فُضلى",
+     "أفضل فقط",
+     "فضلى فقط"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "مؤنث (أفضل):",
+    "options": [
+     "أفضلة",
+     "فاضلة",
+     "فُضلى",
+     "فضلاء"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "مؤنث (أكبر):",
+    "options": [
+     "كبيرة",
+     "كُبرى",
+     "كبراء",
+     "أكبرة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "مؤنث (أعلى):",
+    "options": [
+     "علياء",
+     "عالية",
+     "عُليا",
+     "أعلاة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "مثنى (الفضلى):",
+    "options": [
+     "الفضليان",
+     "الفضلتان",
+     "الفضيلتان",
+     "الفضلاوان"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جمع (الأفضل) جمع مذكر:",
+    "options": [
+     "الأفاضل فقط",
+     "الفضلاء",
+     "الأفضلون",
+     "الفضليات"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل ممنوع من الصرف للوصفية و:",
+    "options": [
+     "الزيادة",
+     "وزن أفعل",
+     "العلمية",
+     "العدل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«العلم أنفع من المال» المفضل:",
+    "options": [
+     "المال",
+     "من",
+     "أنفع",
+     "العلم"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«العلم أنفع من المال» المفضل عليه:",
+    "options": [
+     "العلم",
+     "المال",
+     "لا يوجد",
+     "أنفع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«العلم أنفع من المال» وجه التفضيل:",
+    "options": [
+     "المال",
+     "الزيادة",
+     "العلم",
+     "النفع"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الله أكبر» المفضل عليه:",
+    "options": [
+     "الله",
+     "أكبر",
+     "محذوف",
+     "لا يوجد"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«محمد أشد ذكاءً من علي» (ذكاءً):",
+    "options": [
+     "مفعول مطلق",
+     "حال",
+     "تمييز منصوب",
+     "مفعول به"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الشمس أكثر إضاءةً من القمر» (إضاءة):",
+    "options": [
+     "حال",
+     "تمييز منصوب",
+     "مفعول به",
+     "مضاف إليه"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الأحمر أشدّ حمرةً من الوردي» (أشد) صيغ بها لأن الفعل:",
+    "options": [
+     "الوصف منه على أفعل فعلاء",
+     "تام",
+     "متصرف",
+     "ثلاثي"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (حبّ):",
+    "options": [
+     "حبّ",
+     "أحبب",
+     "أحبّ",
+     "حبيب"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أنا أحب إليك من غيري» (أحب):",
+    "options": [
+     "خبر مرفوع وهو اسم تفضيل",
+     "مبتدأ",
+     "حال",
+     "فعل مضارع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أحبّ الأعمال إلى الله أدومها» حالة (أحب):",
+    "options": [
+     "مضاف لنكرة",
+     "مضاف لمعرفة",
+     "مجرد",
+     "محلى بأل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«خير الناس أنفعهم للناس» (خير):",
+    "options": [
+     "فاعل",
+     "خبر",
+     "مبتدأ وهو اسم تفضيل",
+     "نعت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«المؤمن القوي خير من المؤمن الضعيف» (خير):",
+    "options": [
+     "صفة مشبهة",
+     "مبتدأ",
+     "خبر وهو اسم تفضيل",
+     "مصدر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«من خير ما فعلت» (خير) هنا:",
+    "options": [
+     "اسم غير تفضيل",
+     "اسم تفضيل مضاف",
+     "حرف",
+     "فعل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هذا شرّ من ذاك» (شرّ):",
+    "options": [
+     "مبتدأ",
+     "اسم تفضيل خبر",
+     "صفة مشبهة",
+     "مصدر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هو أعلمُ الناس» حالة اسم التفضيل:",
+    "options": [
+     "مضاف لمعرفة",
+     "محلى بأل",
+     "مجرد",
+     "مضاف لنكرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هو أعلمُ رجلٍ» حالة اسم التفضيل:",
+    "options": [
+     "مجرد",
+     "مضاف لمعرفة",
+     "مضاف لنكرة",
+     "محلى بأل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«محمد أفضل من علي» عند جعل اسم التفضيل محلى بأل:",
+    "options": [
+     "محمد الأفضل من علي",
+     "محمد الفضلى",
+     "محمد أفضل الأفضل",
+     "محمد الأفضل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل من (صغر):",
+    "options": [
+     "أصغر",
+     "مصغر",
+     "صغير",
+     "صاغر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الصدق أفضل من الكذب» حالة اسم التفضيل:",
+    "options": [
+     "مضاف لنكرة",
+     "مضاف لمعرفة",
+     "مجرد من أل والإضافة",
+     "محلى بأل"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "g2_true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "اختبر فهمك لاسم التفضيل",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "اسم التفضيل اسم مشتق على وزن أفعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل يدل على أن شيئين اشتركا في صفة وزاد أحدهما على الآخر فيها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل يصاغ مباشرة من الفعل الرباعي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "يصاغ اسم التفضيل بطريق غير مباشر من الفعل الذي لم يستوف الشروط.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(خير) و(شر) اسما تفضيل حذفت همزتهما لكثرة الاستعمال.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "لا يصاغ اسم التفضيل من الفعل الجامد.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يصاغ اسم التفضيل مباشرة من الفعل الناقص (كان).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "لا يصاغ اسم التفضيل من الفعل الذي لا يقبل التفاوت مثل (مات).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الفعل الذي الوصف منه على (أفعل فعلاء) يصاغ منه التفضيل بطريق غير مباشر.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل المجرد من أل والإضافة يلزم الإفراد والتذكير.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل المجرد تأتي بعده (من) جارة للمفضل عليه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل المحلى بأل يطابق ما قبله.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل المحلى بأل تأتي بعده (من).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل المضاف إلى نكرة يطابق ما قبله.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل المضاف إلى معرفة يجوز فيه المطابقة وعدمها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: «فاطمة أفضل من أختها».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: «فاطمة فضلى من أختها».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الصواب: «فاطمة الفضلى».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: «هاتان أفضل طالبتين».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: «هاتان فضليا طالبتين».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الصواب: «فاطمة أفضل الطالبات» و«فاطمة فضلى الطالبات».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مؤنث (أكبر) هو (كبرى).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مؤنث (أعلى) هو (عالية).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل ممنوع من الصرف للوصفية ووزن أفعل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «العلم أنفع من المال» المفضل عليه هو (المال).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «الله أكبر» حذف المفضل عليه.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الاسم المنصوب بعد (أشد) و(أكثر) في التفضيل غير المباشر يعرب تمييزًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «محمد أشد ذكاءً من علي» (ذكاءً) مفعول به.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أحمر) في «قلم أحمر» اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أحمر) في «قلم أحمر» صفة مشبهة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أفضل) في «أفضل الناس» اسم تفضيل مضاف إلى معرفة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "في «هو أعلم رجل» اسم التفضيل مضاف إلى نكرة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (انتصر) هو (أنصر).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل من (انتصر) يصاغ بـ (أكثر انتصارًا).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يصاغ التفضيل من الفعل المنفي بطريق غير مباشر بالمصدر المؤول المنفي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل يصاغ من الفعل المبني للمعلوم مباشرة إذا استوفى الشروط.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أحب) في «أحب الأعمال إلى الله» اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(خير) في «خير الناس أنفعهم» ليست اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل لا يكون إلا خبرًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في «محمد الأفضل» يجوز ذكر (من علي) بعده.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "جمع (الأفضل) جمع تكسير (الأفاضل).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مثنى (الكبرى) هو (الكبريان).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (عور) يصاغ (أعور منه).",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "(أعور) صفة مشبهة لا اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الحق أحق أن يتبع» (أحق) اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ذلكم أقسط عند الله» (أقسط) اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الفتنة أشد من القتل» (أشد) اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«والآخرة خير وأبقى» (أبقى) ليست اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل يعرب حسب موقعه في الجملة.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "(أول) في «أول الطلاب» اسم تفضيل.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g3_mcq",
+  "title": "اختيار من متعدد: اسم التفضيل",
+  "type": "mcq",
+  "desc": "اختر الإجابة الصحيحة",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"></path><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"></path></svg>",
+  "questions": [
+   {
+    "q": "«المهندسة ... كفاءة من زميلها» الصواب:",
+    "options": [
+     "كثيرة",
+     "أكثر",
+     "كثرى",
+     "الكثرى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«المهندسات هن ... كفاءة» الصواب:",
+    "options": [
+     "كثيرات",
+     "الكثريات",
+     "أكثر",
+     "الأكثر"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الطالبتان هما ... » من (فضل) محلى بأل:",
+    "options": [
+     "الأفضلان",
+     "أفضل",
+     "الفضليان",
+     "فضليان"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الأبطال هم ... » من (عظم) محلى بأل:",
+    "options": [
+     "الأعظمون",
+     "العظمى",
+     "أعظم",
+     "عظماء"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هؤلاء ... رجال» من (أكرم) مضاف لنكرة:",
+    "options": [
+     "كرماء",
+     "أكرمو",
+     "أكرم",
+     "الأكرمون"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«فاطمة ... الطالبات» من (أفضل) مضافًا لمعرفة يجوز:",
+    "options": [
+     "الفضلى",
+     "أفضل أو فضلى",
+     "أفضلات",
+     "فضلى فقط"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«محمد أعلم الطلاب» عند التأنيث:",
+    "options": [
+     "فاطمة العلمى الطالبات",
+     "فاطمة أعلم الطالبات",
+     "فاطمة عالمة الطالبات",
+     "فاطمة علمى من الطالبات"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل من (اخضرّ) في «الحقل ... من غيره»:",
+    "options": [
+     "أكثر خضرًا",
+     "اخضرّ",
+     "أشد اخضرارًا",
+     "أخضر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل من (استخدم) في «الحاسوب ... من غيره»:",
+    "options": [
+     "أستخدم",
+     "مستخدم",
+     "أكثر استخدامًا",
+     "أخدم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل من (فُهم) المبني للمجهول:",
+    "options": [
+     "أكثر ما يُفهم",
+     "مفهوم",
+     "أفهم",
+     "فاهم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (لا يكذب) المنفي:",
+    "options": [
+     "أجدر ألا يكذب",
+     "غير كاذب",
+     "أقل كذبًا",
+     "أكذب"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (عسى):",
+    "options": [
+     "معسى",
+     "أكثر عسى",
+     "لا يصاغ لأنه جامد",
+     "أعسى"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل من (مات):",
+    "options": [
+     "أكثر موتًا",
+     "مائت",
+     "لا يصاغ لأنه لا يقبل التفاوت",
+     "أموت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اسم التفضيل من (كان) الناقص في «محمد ... في مكانه»:",
+    "options": [
+     "أكون",
+     "أكثر كونًا",
+     "كائن",
+     "كيّن"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«النيل أطول الأنهار» (أطول):",
+    "options": [
+     "فاعل",
+     "خبر مرفوع وهو اسم تفضيل مضاف لمعرفة",
+     "مبتدأ",
+     "نعت"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«النيل نهرٌ أطول من غيره» (أطول):",
+    "options": [
+     "حال",
+     "بدل",
+     "نعت مرفوع",
+     "خبر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«مررت بطالب أفضلَ من غيره» (أفضل):",
+    "options": [
+     "نعت مجرور بالكسرة",
+     "نعت مجرور بالفتحة",
+     "مضاف إليه",
+     "حال"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«مررت بأفضلِ الطلاب» (أفضل):",
+    "options": [
+     "اسم مجرور بالكسرة لإضافته",
+     "حال",
+     "مجرور بالفتحة",
+     "نعت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«محمد أكثر علمًا من أخيه» (علمًا):",
+    "options": [
+     "تمييز",
+     "مفعول به",
+     "حال",
+     "مفعول مطلق"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هذا خيرٌ من ذاك» إعراب (خير):",
+    "options": [
+     "خبر مرفوع وهو اسم تفضيل",
+     "بدل",
+     "نعت",
+     "مبتدأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الكتاب خير صديق» (خير):",
+    "options": [
+     "بدل",
+     "خبر مرفوع وهو اسم تفضيل مضاف لنكرة",
+     "نعت",
+     "مبتدأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الجملة التي فيها اسم تفضيل مجرد:",
+    "options": [
+     "الصدق أفضل خلق",
+     "الصدق أفضل الأخلاق",
+     "الصدق الأفضل",
+     "الصدق أفضل من الكذب"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الجملة التي فيها اسم تفضيل مضاف إلى نكرة:",
+    "options": [
+     "الأم أعظم امرأة",
+     "الأم أعظم النساء",
+     "الأم أعظم من غيرها",
+     "الأم العظمى"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الجملة التي فيها اسم تفضيل مضاف إلى معرفة:",
+    "options": [
+     "مصر الأقدم",
+     "مصر أقدم من غيرها",
+     "مصر أقدم الدول",
+     "مصر أقدم دولة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الجملة التي فيها اسم تفضيل محلى بأل:",
+    "options": [
+     "المسجد أفضل البقاع",
+     "المسجد أفضل مكان",
+     "المسجد أفضل من غيره",
+     "المسجد الأقصى أولى القبلتين"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المسجد الأقصى» (الأقصى):",
+    "options": [
+     "علم",
+     "صفة مشبهة",
+     "اسم تفضيل محلى بأل نعت",
+     "مصدر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة التي ليست اسم تفضيل:",
+    "options": [
+     "أحمر",
+     "أصغر",
+     "أكبر",
+     "أكثر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الكلمة التي ليست اسم تفضيل:",
+    "options": [
+     "أطول",
+     "أسرع",
+     "أعرج",
+     "أقصر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الكلمة التي ليست اسم تفضيل:",
+    "options": [
+     "أجمل",
+     "أفضل",
+     "أنفع",
+     "أبيض"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أكرم من لا يسيء» (أكرم) هنا:",
+    "options": [
+     "فعل ماض",
+     "فعل أمر",
+     "اسم تفضيل",
+     "مصدر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ما أكرمَ محمدًا!» (أكرم):",
+    "options": [
+     "فعل تعجب",
+     "اسم فاعل",
+     "فعل أمر",
+     "اسم تفضيل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«محمدٌ أكرمُ من علي» (أكرم):",
+    "options": [
+     "فعل ماض",
+     "اسم تفضيل",
+     "فعل تعجب",
+     "فعل أمر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«إن أكرمكم عند الله أتقاكم» (أكرم):",
+    "options": [
+     "مبتدأ",
+     "فعل ماض",
+     "اسم إن منصوب وهو اسم تفضيل",
+     "خبر إن"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«إن أكرمكم عند الله أتقاكم» (أتقاكم):",
+    "options": [
+     "خبر إن مرفوع بضمة مقدرة",
+     "نعت",
+     "اسم إن",
+     "مبتدأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ولَلآخرة خير لك من الأولى» (الأولى):",
+    "options": [
+     "مصدر",
+     "اسم مجرور وهو اسم تفضيل مؤنث",
+     "علم",
+     "صفة مشبهة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«لقد خلقنا الإنسان في أحسن تقويم» (أحسن):",
+    "options": [
+     "نعت",
+     "حال",
+     "اسم مجرور بالكسرة لإضافته",
+     "مجرور بالفتحة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«قل هل ننبئكم بالأخسرين أعمالًا» (الأخسرين):",
+    "options": [
+     "اسم فاعل",
+     "اسم تفضيل محلى بأل مطابق",
+     "مصدر",
+     "صفة مشبهة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«قل هل ننبئكم بالأخسرين أعمالًا» (أعمالًا):",
+    "options": [
+     "تمييز منصوب",
+     "مفعول مطلق",
+     "حال",
+     "مفعول به"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«قالوا لن نؤثرك على ما جاءنا» ليس فيها:",
+    "options": [
+     "فعل",
+     "اسم تفضيل",
+     "جار ومجرور",
+     "حرف نفي"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الحق أبلج والباطل لجلج» (أبلج):",
+    "options": [
+     "مصدر",
+     "فعل",
+     "صفة مشبهة",
+     "اسم تفضيل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الكُبرى» في «الآية الكبرى» إعرابها:",
+    "options": [
+     "فاعل",
+     "بدل",
+     "نعت مرفوع بضمة مقدرة",
+     "خبر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«العليا» في «كلمة الله هي العليا»:",
+    "options": [
+     "نعت",
+     "مبتدأ",
+     "خبر مرفوع بضمة مقدرة وهو اسم تفضيل",
+     "فاعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالب المجتهد أحق بالجائزة» (أحق):",
+    "options": [
+     "خبر وهو اسم تفضيل مجرد",
+     "مبتدأ",
+     "نعت",
+     "بدل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أحق» اسم تفضيل من الفعل:",
+    "options": [
+     "استحقّ",
+     "أحقّ",
+     "حقّق",
+     "حقّ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل من (حلم) و(علم) على الترتيب:",
+    "options": [
+     "أحلم - أعلم",
+     "حالم - عالم",
+     "أحلام - أعلام",
+     "حليم - عليم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«القاهرة أكبر مدينة عربية» عند جعل اسم التفضيل مضافًا لمعرفة:",
+    "options": [
+     "القاهرة الكبرى مدينة",
+     "القاهرة الأكبر مدينة",
+     "القاهرة أكبر المدن العربية",
+     "القاهرة أكبر من مدينة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«القاهرة أكبر المدن» يجوز فيها:",
+    "options": [
+     "الكبرى فقط",
+     "أكبر أو كبرى",
+     "أكبر فقط",
+     "أكبرة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الأم أحنّ قلب» (قلب):",
+    "options": [
+     "نعت",
+     "تمييز",
+     "بدل",
+     "مضاف إليه مجرور"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أنتم الأعلون» (الأعلون):",
+    "options": [
+     "خبر مرفوع بالواو وهو اسم تفضيل",
+     "مبتدأ",
+     "فاعل",
+     "نعت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ولا تهنوا ولا تحزنوا وأنتم الأعلون» حالة اسم التفضيل:",
+    "options": [
+     "مجرد",
+     "مضاف لنكرة",
+     "محلى بأل مطابق",
+     "مضاف لمعرفة"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "g4_genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تطبيقات أعمق على اسم التفضيل - سباق مع الوقت!",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon></svg>",
+  "questions": [
+   {
+    "q": "«العلم أنفع من المال» عند جعل اسم التفضيل مضافًا:",
+    "options": [
+     "العلم أنفعُ من المال",
+     "العلم الأنفع من المال",
+     "العلم أنفع الأشياء",
+     "العلم نافع المال"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«العلم أنفع من المال» عند جعل اسم التفضيل محلى بأل:",
+    "options": [
+     "العلم الأنفع",
+     "العلم النافع من المال",
+     "العلم أنفع الأنفع",
+     "العلم الأنفع من المال"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ليوسف وأخوه أحب إلى أبينا منا» (أحب) لم يطابق المثنى لأنه:",
+    "options": [
+     "محلى بأل",
+     "مجرد من أل والإضافة",
+     "مضاف",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«ولتجدنهم أحرص الناس على حياة» (أحرص):",
+    "options": [
+     "تمييز",
+     "حال",
+     "نعت",
+     "مفعول به ثان وهو مضاف لمعرفة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«ولتجدنهم أحرص الناس» لو قيل (أحرصي الناس) لكان:",
+    "options": [
+     "خطأ",
+     "لازمًا",
+     "جائزًا بالمطابقة لأنه مضاف لمعرفة",
+     "واجبًا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«وكان الإنسان أكثر شيء جدلًا» (أكثر) مضاف لنكرة لذا:",
+    "options": [
+     "أنث",
+     "طابق",
+     "جمع",
+     "لزم الإفراد والتذكير"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«وكان الإنسان أكثر شيء جدلًا» (جدلًا):",
+    "options": [
+     "خبر",
+     "حال",
+     "تمييز منصوب",
+     "مفعول به"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الأكابر» جمع:",
+    "options": [
+     "الكبير",
+     "الأكبر",
+     "الكبر",
+     "الكبرى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«يوم يقوم الأشهاد» ليس فيها:",
+    "options": [
+     "فعل",
+     "مضاف إليه",
+     "اسم تفضيل",
+     "فاعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«ولا أصغر من ذلك ولا أكبر» (أكبر) ممنوع من الصرف لـ:",
+    "options": [
+     "العلمية",
+     "منتهى الجموع",
+     "العدل",
+     "الوصفية ووزن أفعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«سبح اسم ربك الأعلى» (الأعلى):",
+    "options": [
+     "مضاف إليه",
+     "بدل",
+     "خبر",
+     "نعت مجرور بكسرة مقدرة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«وهو أهون عليه» (أهون):",
+    "options": [
+     "فعل",
+     "مبتدأ",
+     "خبر وهو اسم تفضيل",
+     "صفة مشبهة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الناقص والأشج أعدلا بني مروان» (أعدلا) جاز فيه:",
+    "options": [
+     "الإفراد فقط",
+     "الجمع فقط",
+     "لا يجوز",
+     "المطابقة لأنه مضاف لمعرفة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هو أفضل من أن يُذَمّ» (أن يذم):",
+    "options": [
+     "تمييز",
+     "مفعول به",
+     "فاعل",
+     "مصدر مؤول مجرور بمن"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اسم التفضيل من (عُرف) المبني للمجهول في «هذا ... من غيره»:",
+    "options": [
+     "أكثر ما يُعرف",
+     "أعرف",
+     "معروف أكثر",
+     "أعرف بالحق"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم التفضيل من (لم يتأخر) المنفي:",
+    "options": [
+     "أتأخر",
+     "أولى ألا يتأخر",
+     "أقل تأخرًا",
+     "غير متأخر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الطريقة غير المباشرة لصياغة التفضيل تكون بـ:",
+    "options": [
+     "أشد أو أكثر ونحوهما + مصدر الفعل",
+     "حذف الهمزة",
+     "مفعول + فعل",
+     "فاعل + مصدر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المصدر بعد (أشد) و(أكثر) يعرب:",
+    "options": [
+     "حالًا",
+     "مضافًا إليه",
+     "مفعولًا به",
+     "تمييزًا منصوبًا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المؤمن أشد حبًّا لله» عند جعل اسم التفضيل مباشرًا:",
+    "options": [
+     "المؤمن أحبب لله",
+     "المؤمن محب لله",
+     "المؤمن حبيب لله",
+     "المؤمن أحب لله"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الطالبة أكثر نشاطًا من زميلتها» عند جعل اسم التفضيل مباشرًا:",
+    "options": [
+     "الطالبة أنشط من زميلتها",
+     "الطالبة النشطى من زميلتها",
+     "الطالبة نشطى من زميلتها",
+     "الطالبة نشيطة من زميلتها"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الشجرة أشد اخضرارًا» لماذا لم نقل (أخضر)؟",
+    "options": [
+     "لأنه جامد",
+     "لأنه ناقص",
+     "لأنه منفي",
+     "لأن الفعل غير ثلاثي"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«السماء أشد زرقة» لماذا استخدمنا (أشد)؟",
+    "options": [
+     "الفعل رباعي",
+     "الفعل جامد",
+     "الوصف من زرق على أفعل فعلاء",
+     "الفعل منفي"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«كلمة الله هي العليا» عند جعل اسم التفضيل مضافًا لمعرفة:",
+    "options": [
+     "كلمة الله العليا الكلمات",
+     "كلمة الله عالية",
+     "كلمة الله أعلى الكلمات أو عليا الكلمات",
+     "كلمة الله أعلى كلمة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«مصر أم الدنيا وأقدم الحضارات» (أقدم):",
+    "options": [
+     "بدل",
+     "خبر ثان",
+     "نعت",
+     "معطوف مرفوع وهو اسم تفضيل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«خيرُكم من تعلم القرآن وعلمه» (خير):",
+    "options": [
+     "نعت",
+     "خبر",
+     "فاعل",
+     "مبتدأ مرفوع وهو اسم تفضيل مضاف"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«الدنيا متاع وخير متاعها المرأة الصالحة» (خير):",
+    "options": [
+     "معطوف",
+     "نعت",
+     "مبتدأ",
+     "خبر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«شر الناس ذو الوجهين» (شر):",
+    "options": [
+     "صفة مشبهة",
+     "خبر",
+     "مصدر",
+     "مبتدأ وهو اسم تفضيل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«إن شر الدواب عند الله الصم البكم» (شر):",
+    "options": [
+     "مبتدأ",
+     "اسم إن منصوب",
+     "نعت",
+     "خبر إن"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«هذا رجل خيّر» (خيّر):",
+    "options": [
+     "مصدر",
+     "اسم فاعل",
+     "اسم تفضيل",
+     "صفة مشبهة وليست اسم تفضيل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«النهار أطول من الليل صيفًا» (صيفًا):",
+    "options": [
+     "تمييز",
+     "حال",
+     "مفعول به",
+     "ظرف زمان منصوب"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الصواب عند تثنية «الطالب الأفضل»:",
+    "options": [
+     "الطالبان الأفضلان",
+     "الطالبان الفضليان",
+     "الطالبان الأفضل",
+     "الطالبان أفضلان"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب عند تأنيث «الطالبان الأفضلان»:",
+    "options": [
+     "الطالبتان الأفضلان",
+     "الطالبتان الفضلتان",
+     "الطالبتان الفضليان",
+     "الطالبتان أفضلتان"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الصواب عند جمع «الطالبة الفضلى»:",
+    "options": [
+     "الطالبات الفضليات",
+     "الطالبات الفضلى",
+     "الطالبات الأفضلات",
+     "الطالبات أفضل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الدنيا» مؤنث اسم التفضيل:",
+    "options": [
+     "أدنى",
+     "دانٍ",
+     "دنيء",
+     "دني"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«القُصوى» مؤنث اسم التفضيل:",
+    "options": [
+     "قصيّة",
+     "قاصٍ",
+     "قصيّ",
+     "أقصى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«ثم الأمثل فالأمثل» (الأمثل):",
+    "options": [
+     "صفة مشبهة",
+     "اسم تفضيل محلى بأل",
+     "اسم فاعل",
+     "مصدر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الأوّل» مؤنثه:",
+    "options": [
+     "الأوائل",
+     "الأولاء",
+     "الأولى",
+     "الأوّلة"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«محمد أول الفائزين» (أول) ممنوع من الصرف لـ:",
+    "options": [
+     "الزيادة",
+     "العدل",
+     "الوصفية ووزن أفعل",
+     "العلمية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الأولى بالمعروف أهلك» (الأولى):",
+    "options": [
+     "نعت",
+     "خبر",
+     "فاعل",
+     "مبتدأ وهو اسم تفضيل محلى بأل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«إنما يخشى الله من عباده العلماء» ليس فيها:",
+    "options": [
+     "مفعول به",
+     "فاعل",
+     "اسم تفضيل",
+     "جار ومجرور"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أفضل الجهاد كلمة حق عند سلطان جائر» (أفضل):",
+    "options": [
+     "نعت",
+     "خبر",
+     "فاعل",
+     "مبتدأ وهو اسم تفضيل مضاف لمعرفة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أفضل الجهاد كلمة حق» (كلمة):",
+    "options": [
+     "خبر مرفوع",
+     "فاعل",
+     "بدل",
+     "مبتدأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«هذه المدينة أجمل ما رأيت» (ما):",
+    "options": [
+     "تعجبية",
+     "نافية",
+     "اسم موصول مضاف إليه",
+     "مصدرية"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الطالبتان أفضل من غيرهما» عند جعل اسم التفضيل محلى بأل:",
+    "options": [
+     "الطالبتان الأفضلان",
+     "الطالبتان الأفضل",
+     "الطالبتان الفضلى",
+     "الطالبتان الفضليان"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«المعلمون أعلم بطلابهم» عند جعل اسم التفضيل مضافًا لمعرفة مطابقًا:",
+    "options": [
+     "المعلمون أعلمُ الناس فقط",
+     "المعلمون علماء الناس",
+     "المعلمون أعلمو الناس بطلابهم",
+     "المعلمون الأعلمون الناس"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«المعلمون أعلمو الناس» حذفت النون من (أعلمو) لـ:",
+    "options": [
+     "الإضافة",
+     "النصب",
+     "البناء",
+     "الجزم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ربكم أعلم بكم» (أعلم):",
+    "options": [
+     "فعل",
+     "خبر مرفوع وهو اسم تفضيل مجرد",
+     "مبتدأ",
+     "نعت"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«نحن أعلم بما يقولون» المفضل عليه:",
+    "options": [
+     "ما",
+     "محذوف",
+     "نحن",
+     "يقولون"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«فأي الفريقين أحق بالأمن» (أحق):",
+    "options": [
+     "خبر مرفوع",
+     "فعل",
+     "مبتدأ",
+     "نعت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الجنة أقرب إلى أحدكم من شراك نعله» (من شراك):",
+    "options": [
+     "جار ومجرور متعلق باسم التفضيل",
+     "خبر",
+     "حال",
+     "نعت"
+    ],
+    "ans": 0
+   }
+  ]
+ },
+ {
+  "id": "g5_bubbles",
+  "title": "الفقاعات المتساقطة: اسم التفضيل",
+  "type": "bubbles",
+  "desc": "اضغط الفقاعة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "وزن اسم التفضيل",
+    "options": [
+     "فاعل",
+     "أفعل",
+     "مفعول",
+     "فعيل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "حرف الجر بعد المجرد",
+    "options": [
+     "من",
+     "إلى",
+     "في",
+     "على"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اسم تفضيل حذفت همزته",
+    "options": [
+     "خير",
+     "أكرم",
+     "أعظم",
+     "أفضل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مؤنث (أفضل)",
+    "options": [
+     "أفضلة",
+     "فضلاء",
+     "فاضلة",
+     "فُضلى"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "مؤنث (أكبر)",
+    "options": [
+     "كُبرى",
+     "أكبرة",
+     "كبراء",
+     "كبيرة"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "مؤنث (أعلى)",
+    "options": [
+     "عالية",
+     "علياء",
+     "أعلاة",
+     "عُليا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "مؤنث (أدنى)",
+    "options": [
+     "دانية",
+     "دُنيا",
+     "دنياء",
+     "أدناة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "مؤنث (أقصى)",
+    "options": [
+     "قاصية",
+     "قُصوى",
+     "أقصاة",
+     "قصياء"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "مؤنث (الأول)",
+    "options": [
+     "الأولاء",
+     "الأولى",
+     "الأوّلة",
+     "الأوائل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "المجرد من أل والإضافة",
+    "options": [
+     "مفرد مذكر",
+     "يطابق",
+     "جمع",
+     "مؤنث"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المحلى بأل",
+    "options": [
+     "يطابق",
+     "بعده من",
+     "مفرد مذكر",
+     "لا يطابق"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "المضاف لنكرة",
+    "options": [
+     "مؤنث",
+     "جمع",
+     "مفرد مذكر",
+     "يطابق"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "المضاف لمعرفة",
+    "options": [
+     "يجوز الوجهان",
+     "يؤنث فقط",
+     "يفرد فقط",
+     "يطابق فقط"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: فاطمة ... من أختها",
+    "options": [
+     "ذكية",
+     "أذكى",
+     "ذكرى",
+     "الذكرى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الصواب: فاطمة هي ...",
+    "options": [
+     "الفضلى",
+     "فضلى",
+     "أفضل",
+     "الأفضل"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الصواب: هاتان ... طالبتين",
+    "options": [
+     "فضليا",
+     "أفضل",
+     "الفضليان",
+     "أفضلا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الصواب: هم ...",
+    "options": [
+     "فضلى",
+     "الأفضلون",
+     "أفضل",
+     "الأفضل"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "التفضيل من (انتصر)",
+    "options": [
+     "أنصر",
+     "أكثر انتصارًا",
+     "منتصر",
+     "أنتصر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "التفضيل من (احمرّ)",
+    "options": [
+     "حمراء",
+     "أشد احمرارًا",
+     "أحمر",
+     "محمرّ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "التفضيل من (عسى)",
+    "options": [
+     "معسى",
+     "أعسى",
+     "أكثر عسى",
+     "لا يصاغ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "التفضيل من (مات)",
+    "options": [
+     "لا يصاغ",
+     "مائت",
+     "أكثر موتًا",
+     "أموت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "التفضيل من (كان)",
+    "options": [
+     "أكثر كونًا",
+     "أكون",
+     "كائن",
+     "كون"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "التفضيل من (فُهم)",
+    "options": [
+     "مفهوم",
+     "أفهم",
+     "أكثر ما يُفهم",
+     "فاهم"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "التفضيل من (حلم)",
+    "options": [
+     "أحلم",
+     "حالم",
+     "حلام",
+     "حليم"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أشد ذكاءً» (ذكاءً)",
+    "options": [
+     "تمييز",
+     "حال",
+     "مصدر",
+     "مفعول به"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أكثر إضاءة» (إضاءة)",
+    "options": [
+     "نعت",
+     "حال",
+     "مفعول",
+     "تمييز"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أكثر شيء جدلًا» (جدلًا)",
+    "options": [
+     "تمييز",
+     "نعت",
+     "حال",
+     "مفعول"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الله أكبر» المفضل عليه",
+    "options": [
+     "أكبر",
+     "لا يوجد",
+     "الله",
+     "محذوف"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«العلم أنفع من المال» المفضل",
+    "options": [
+     "العلم",
+     "من",
+     "المال",
+     "أنفع"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«العلم أنفع من المال» عليه",
+    "options": [
+     "العلم",
+     "أنفع",
+     "المال",
+     "من"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«قلم أحمر» (أحمر)",
+    "options": [
+     "صفة مشبهة",
+     "اسم فاعل",
+     "اسم تفضيل",
+     "مصدر"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أعرج»",
+    "options": [
+     "مصدر",
+     "فعل",
+     "اسم تفضيل",
+     "صفة مشبهة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«ما أكرم محمدًا» (أكرم)",
+    "options": [
+     "اسم تفضيل",
+     "فعل تعجب",
+     "اسم فاعل",
+     "فعل أمر"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«أكرم ضيفك» (أكرم)",
+    "options": [
+     "فعل تعجب",
+     "فعل أمر",
+     "اسم تفضيل",
+     "فعل ماض"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«محمد أكرم من علي» (أكرم)",
+    "options": [
+     "فعل ماض",
+     "فعل أمر",
+     "فعل تعجب",
+     "اسم تفضيل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هو أعلم الناس»",
+    "options": [
+     "مجرد",
+     "مضاف لنكرة",
+     "محلى بأل",
+     "مضاف لمعرفة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«هو أعلم رجل»",
+    "options": [
+     "مجرد",
+     "مضاف لمعرفة",
+     "مضاف لنكرة",
+     "محلى بأل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«المسجد الأقصى»",
+    "options": [
+     "مجرد",
+     "مقرون بمن",
+     "مضاف",
+     "محلى بأل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«بطالب أفضلَ منه» (أفضل)",
+    "options": [
+     "منصوب",
+     "مجرور بالفتحة",
+     "مرفوع",
+     "مجرور بالكسرة"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«بأفضلِ الطلاب» (أفضل)",
+    "options": [
+     "مجرور بالفتحة",
+     "مجرور بالكسرة",
+     "منصوب",
+     "مرفوع"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اسم التفضيل ممنوع للوصفية و",
+    "options": [
+     "الزيادة",
+     "العدل",
+     "العلمية",
+     "وزن أفعل"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "(خير) في «خير الناس»",
+    "options": [
+     "صفة مشبهة",
+     "مصدر",
+     "اسم تفضيل",
+     "فعل"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«رجل خيّر» (خيّر)",
+    "options": [
+     "فعل",
+     "مصدر",
+     "اسم تفضيل",
+     "صفة مشبهة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أحق» من الفعل",
+    "options": [
+     "استحقّ",
+     "حقّق",
+     "أحقّ",
+     "حقّ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«أبقى» في «خير وأبقى»",
+    "options": [
+     "اسم تفضيل",
+     "صفة",
+     "مصدر",
+     "فعل ماض"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«أحسن تقويم» (أحسن)",
+    "options": [
+     "محلى بأل",
+     "مضاف لنكرة",
+     "مضاف لمعرفة",
+     "مجرد"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "«الأخسرين أعمالًا» (أعمالًا)",
+    "options": [
+     "مفعول",
+     "نعت",
+     "تمييز",
+     "حال"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أتقاكم» في «إن أكرمكم أتقاكم»",
+    "options": [
+     "اسم إن",
+     "نعت",
+     "خبر إن",
+     "مبتدأ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«الكبرى» جمعها",
+    "options": [
+     "الكبار",
+     "الكبراء",
+     "الكبريات",
+     "الأكابر"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«أنتم الأعلون» (الأعلون)",
+    "options": [
+     "مبتدأ",
+     "نعت",
+     "خبر بالواو",
+     "فاعل"
+    ],
+    "ans": 2
+   }
+  ]
+ }
+];
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.15, 0.15);
+        setTimeout(() => playTone(659.25, 'sine', 0.15, 0.15), 100);
+        setTimeout(() => playTone(783.99, 'sine', 0.25, 0.15), 200);
+        spawnConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(200, 'sawtooth', 0.3, 0.1);
+    }
+
+    function spawnConfetti() {
+        const colors = ['#b02a3f', '#f59e42', '#10b981', '#ef4444', '#9b1c31', '#f59e0b'];
+        for (let i = 0; i < 25; i++) {
+            const conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، أحسنت!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300);
+    }
+
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let wrongAnswers = [];
+
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+                <span class="round-badge">🎲 ${Math.min(QUESTIONS_PER_ROUND, game.questions.length)} سؤالًا عشوائيًّا من ${game.questions.length}</span>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('name-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.focus();
+            nameInput.classList.add('shake');
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const message = "مرحبًا أستاذ أحمد الشريف 🌟\n" +
+            "الطالب/ـة: " + name + "\n" +
+            "الدرس: " + LESSON_FULL_NAME + "\n" +
+            "اللعبة: " + currentGame.title + "\n" +
+            "النتيجة: " + score + " من " + total;
+        const url = "https://wa.me/" + TEACHER_WHATSAPP + "?text=" + encodeURIComponent(message);
+        window.open(url, '_blank');
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="send-result-box">
+                    <h3>📤 أرسل نتيجتك للأستاذ أحمد الشريف</h3>
+                    <input type="text" id="student-name-input" class="name-input" placeholder="اكتب اسمك هنا ✍️">
+                    <button class="btn whatsapp-send-btn" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                        إرسال النتيجة عبر واتساب
+                    </button>
+                    <p id="name-warning" class="name-warning" style="display:none;">من فضلك اكتب اسمك أولاً ✍️</p>
+                </div>
+                <button class="btn" style="font-size:1.2rem; padding:15px 30px; margin-top: 20px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    // اختيار 20 سؤالًا عشوائيًّا من بنك الأسئلة، مع تفضيل الأسئلة التي لم تظهر في المرة السابقة
+    function pickRound(gameData) {
+        const all = gameData.questions.map((q, i) => ({ q, i }));
+        const n = Math.min(QUESTIONS_PER_ROUND, all.length);
+        const key = LESSON_KEY + '-' + gameData.id;
+        let last = [];
+        try { last = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { last = []; }
+        const lastSet = new Set(last);
+        const fresh = shuffleArray(all.filter(x => !lastSet.has(x.i)));
+        const used = shuffleArray(all.filter(x => lastSet.has(x.i)));
+        const chosen = shuffleArray(fresh.concat(used).slice(0, n));
+        try { localStorage.setItem(key, JSON.stringify(chosen.map(x => x.i))); } catch (e) {}
+        return chosen.map(x => x.q);
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = pickRound(gameData);
+        qIndex = 0;
+        wrongAnswers = [];
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            /* سرعة سقوط أعلى قليلاً */
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين والاصطياد
+    function renderShooting(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+        const birds = [];
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+            birds.push({ el: bird, pos: pos, speed: speed });
+        });
+
+        animInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(animInterval); return; }
+            const w = area.clientWidth || window.innerWidth;
+            birds.forEach(b => {
+                b.pos += b.speed;
+                if (b.pos > w + 50) b.pos = -250;
+                if (b.pos < -250) b.pos = w + 50;
+                b.el.style.left = b.pos + 'px';
+            });
+        }, 20);
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك!`;
+        container.appendChild(hint);
+    }
+
+    // 5. تحدي العباقرة (سباق مع الوقت)
+    function renderGenius(container) {
+        clearInterval(animInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box genius-box';
+        qBox.innerHTML = `⚡ ${qData.q}`;
+
+        const timerWrap = document.createElement('div');
+        timerWrap.className = 'genius-timer-wrap';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerWrap.appendChild(timerBar);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+
+        let isAnswered = false;
+        let timeLeft = 12000;
+        const totalTime = timeLeft;
+
+        function finish(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(animInterval);
+            if (isCorrect) {
+                showFeedback(true, () => { qIndex++; renderNextState(); });
+            } else {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت! ⏱️" });
+                showFeedback(false, () => { qIndex++; renderNextState(); });
+            }
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finish(true);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finish(false, opt);
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(timerWrap);
+        container.appendChild(btnContainer);
+
+        let hint = document.createElement('div');
+        hint.className = 'genius-hint';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> سباق مع الوقت! أجب بسرعة قبل نفاد الثواني`;
+        container.appendChild(hint);
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            timeLeft -= 100;
+            let pct = Math.max(0, (timeLeft / totalTime) * 100);
+            timerBar.style.width = pct + '%';
+            if (timeLeft <= 0) {
+                clearInterval(animInterval);
+                finish(false, null);
+            }
+        }, 100);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
